@@ -1,0 +1,34 @@
+.row {
+	display: flex;
+	width: 70%;
+	flex-direction: row wrap;
+}
+
+.row-center {
+	justify-content: center;
+}
+
+.grid-center {
+	display: flex;
+	justify-content: center;
+}
+
+.col {
+	margin: 0 5px;
+}
+
+.col-1 {
+	flex-basis: 8.33333333%;
+  	max-width: 8.33333333%;
+
+}
+
+.col-4 {
+	flex-basis: 33.3333333%;
+	max-width: 33.3333333%;
+}
+
+.col-6 {
+	flex-basis: 75%;
+	max-width: 75%;
+}

@@ -1,0 +1,14 @@
+.md-button {
+	border: none;
+	text-decoration: none;
+	display: flex;
+	align-content: middle;
+	background: #4CAF50;
+	padding: 20px 30px;
+	color: #fff;
+	text-transform: uppercase;
+
+	&:hover {
+		cursor: pointer;
+	}
+}
