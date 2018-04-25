@@ -10,11 +10,13 @@ body {
 	background: #eee;
 }
 
+a {
+	text-decoration: none;
+}
+
 .container {
-	padding-top: 85px;
-	display: flex;
-	justify-content: center;
-	width: 100%;
+	padding-top: 100px;
+	width: 80%;
 }
 
 .indent {
@@ -29,7 +31,23 @@ body {
 	color: #111;
 }
 
+.text-center {
+	text-align: center;
+}
+
+.padding-bottom-10 {
+	padding-bottom: 10px;
+}
+
+.capitalize {
+	text-transform: capitalize;
+}
+
 @import 'lib/material';
 @import 'grid';
 @import 'nav';
 @import 'card';
+@import 'forms';
+@import 'tables';
+@import 'tabs';
+@import 'quick-nav';

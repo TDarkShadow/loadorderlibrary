@@ -1,0 +1,23 @@
+table {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #aaa;
+	margin: 0;
+	padding: 0;
+	
+	tr {
+		&:hover {
+			background: #ccc;
+		}
+	}
+
+	tr:nth-of-type(odd) {
+		background: #eee;
+	}
+
+	td {
+		padding: 5px;
+		margin: 0;
+		border: none;
+	}
+}

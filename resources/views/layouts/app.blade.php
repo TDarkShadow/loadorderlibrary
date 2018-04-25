@@ -11,6 +11,7 @@
 
 		<!-- Styles -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+		<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
 		<link rel="stylesheet" href="{{ mix('css/app.css') }}">
         
     </head>
@@ -25,18 +26,11 @@
 
 					<!-- TODO: Extract the nav-menu to be in two differnt partials for guest and logged in -->
 
-					<div class="nav-menu">
-						<ul>
-							<li><h2><a href="">Upload</a></h2></li>
-							<li><h2><a href="/login">Login </a> | <a href="/register">Register</a></h2></li>
-							@if(Auth::check())
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
-										@csrf
-										<button type="submit">Logout</button>
-                                    </form>
-							@endif
-						</ul>
-					</div>
+					@if(Auth::check())
+						@include('layouts.partials.nav.user')
+					@else
+						@include('layouts.partials.nav.guest')
+					@endif
 				</nav>
 			</div>
 		@show
@@ -51,6 +45,6 @@
 			</div>
 		@show
 
-		
+		<script src="{{ mix('js/app.js') }}">
     </body>
 </html>
