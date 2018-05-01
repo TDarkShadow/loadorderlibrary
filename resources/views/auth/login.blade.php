@@ -7,7 +7,9 @@
 				<form method="POST" class="" action="{{ route('login') }}">
 					@csrf
 					<h2 class="text-center padding-bottom-10">Login</h2>
-
+						<span class="invalid-feedback">
+							<strong>{{ $errors->first('email') }}</strong>
+						</span>
 					<div class="text-inputs">
 						<div class="group group-center">      
 							<input id="email" type="email" class="" name="email" value="{{ old('email') }}" required autofocus>
@@ -15,11 +17,9 @@
 							<span class="bar"></span>
 							<label>Email</label>
 
-							@if ($errors->has('email'))
-								<span class="invalid-feedback">
-									<strong>{{ $errors->first('email') }}</strong>
-								</span>
-							@endif
+							<!-- @if ($errors->has('email')) -->
+								
+							<!-- @endif -->
 						</div>
 
 						<div class="group">      
@@ -30,11 +30,6 @@
 							<span class="forgot-password"><a class="" href="{{ route('password.request') }}">
 								{{ __('Forgot Your Password?') }}
 							</a></span>
-							@if ($errors->has('password'))
-								<span class="invalid-feedback">
-									<strong>{{ $errors->first('password') }}</strong>
-								</span>
-							@endif
 						</div>
 					</div>
 

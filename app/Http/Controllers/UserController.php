@@ -7,19 +7,20 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+	private $slug = '';
 
 	public function __construct()
 	{
-		$this->middleware("auth");
+		$this->middleware("auth", ['except' => ['show']]);
 	}
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($username, $slug)
     {
-        //
+		echo $username . ' ' .$slug;
     }
 
     /**
@@ -49,9 +50,9 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function show(User $user)
+    public function show()
     {
-        //
+		//REEEEEEEEE
     }
 
     /**
@@ -60,9 +61,12 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit(User $user)
+    public function edit($username)
     {
-        //
+		$user = \App\User::find(\Auth::user()->id);
+		
+		return view('user.edit-user');
+        dd($user);
     }
 
     /**
@@ -77,14 +81,22 @@ class UserController extends Controller
         //
     }
 
+	public function confirmDestroy()
+	{
+		return view('user.delete-account');
+	}
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($username)
     {
-        //
+		$user = \App\User::find(\Auth::user()->id);
+
+		$user->delete();
+        dd($user);
     }
 }

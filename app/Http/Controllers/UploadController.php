@@ -9,8 +9,9 @@ class UploadController extends Controller
 {
 	public function __construct()
 	{
-		if (Route::getFacadeRoot()->current()->uri() == 'guest/upload' && \Auth::check()) {
-			return redirect()->to('upload');
+		if (Route::getFacadeRoot()->current()->uri() == 'guest/upload') {
+			
+			//return redirect()->to(\Auth::user()->username . '/upload');
 		}
 	}
     /**
@@ -34,23 +35,33 @@ class UploadController extends Controller
     {	
 		$loadOrder = '';
 
-		$validatedData = $request->validate([
-			'files.*' => 'required|mimes:txt',
-			'game' => 'required|not_in:0'
-		]);
+		if(\Auth::check())
+		{
+			$validatedData = $request->validate([
+				'list-name' => 'required',
+				'files.*' => 'required|mimes:txt|max:2048',
+				'game' => 'required|not_in:0'
+			]);
+		} else {
+			$validatedData = $request->validate([
+				'files.*' => 'required|mimes:txt|max:2048',
+				'game' => 'required|not_in:0'
+			]);
+		}
+		
 
 		foreach ($request->file('files') as $file) {
-			$name = trim(explode('.', $file->getClientOriginalName())[0]);
+			$name = trim(explode('.', $file->getClientOriginalName())[0]) . '.' . strtolower(trim(explode('.', $file->getClientOriginalExtension())[0]));
 
 			$content = trim(file_get_contents($file));
 			$content = explode("\r\n", $content);
 
-			if($name == "modlist" || $name == "plugins")
+			if($name == "modlist.txt" || $name == "plugins.txt")
 			{
 				unset($content[0]);
 			}
 
-			if($name == "modlist")
+			if($name == "modlist.txt")
 			{
 				$content = array_reverse($content);
 			}
@@ -70,7 +81,6 @@ class UploadController extends Controller
 			}
 
 			$loadOrder->user_id = \Auth::user()->id;
-			$loadOrder->name = $request->input('list-name');
 			$loadOrder->description = $request->input('description');
 			$slug = $this->generateUserSlug($request->input('list-name'));
 
@@ -79,7 +89,7 @@ class UploadController extends Controller
 		}
 
 
-		
+		$loadOrder->name = $request->input('list-name');
 		$loadOrder->game_id = $request->input('game');
 		$loadOrder->slug = $slug;
 		$loadOrder->load_order = json_encode($contents);
@@ -88,7 +98,7 @@ class UploadController extends Controller
 		$loadOrder->save();
 
 
-		return redirect()->to('loadorders/' . $slug);
+		return redirect()->to('lo/' . $slug);
 	}
 
 	public function generateGuestSlug($content)
@@ -114,7 +124,7 @@ class UploadController extends Controller
 	public function buildSlugFromName($name)
 	{
 		$delimiter = "-";
-		$name = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', $name);
+		$name = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', \Auth::user()->username . '-' . $name);
 		$name = strtolower(trim($name, '-'));
 		$name = preg_replace("/[\/_|+ -]+/", $delimiter, $name);
 		return $name;

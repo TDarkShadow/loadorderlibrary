@@ -19,6 +19,8 @@ a {
 
 .indent {
   text-indent: 20px;
+  padding: 10px;
+  line-height: 1.6;
 }
 
 .footer {
@@ -45,10 +47,17 @@ a {
   text-transform: capitalize;
 }
 
+.text-button {
+  border: none;
+  text-decoration: none;
+  background: transparent;
+  cursor: pointer;
+}
+
 .md-button {
   border: none;
   text-decoration: none;
-  display: inline;
+  display: inline-block;
   -ms-flex-line-pack: middle;
       align-content: middle;
   background: #4CAF50;
@@ -67,12 +76,41 @@ a {
   color: inherit;
 }
 
-.md-button-red {
-  background: red;
+.md-button.button-red {
+  background: #e63c3c;
+}
+
+.md-button-small {
+  padding: 5px;
+  border: none;
+  text-decoration: none;
+  display: inline-block;
+  -ms-flex-line-pack: middle;
+      align-content: middle;
+  background: #4CAF50;
+  color: #fff;
+  margin: 5px;
+  text-transform: uppercase;
+  width: 80px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.md-button-small.button-red {
+  background: #e63c3c;
+}
+
+.md-button-small.button-blue {
+  background: #3c9be9;
 }
 
 .row {
   width: 100%;
+}
+
+.row a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .row-center,
@@ -346,12 +384,17 @@ a {
 }
 
 .invalid-feedback {
+  width: 100%;
   color: red;
   font-size: 12px;
+  display: block;
+  height: 50px;
+  margin-bottom: 15px;
 }
 
 .forgot-password,
 .tooltip {
+  width: 100%;
   font-size: 10px;
 }
 
@@ -367,28 +410,6 @@ input[type="file"] {
 
 .upload-label {
   margin-bottom: 20px;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  border: 1px solid #aaa;
-  margin: 0;
-  padding: 0;
-}
-
-table tr:hover {
-  background: #ccc;
-}
-
-table tr:nth-of-type(odd) {
-  background: #eee;
-}
-
-table td {
-  padding: 5px;
-  margin: 0;
-  border: none;
 }
 
 .quick-nav {
@@ -422,5 +443,109 @@ table td {
 
 .quick-nav a:hover {
   color: #646464;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #aaa;
+  margin: 0;
+  padding: 0;
+}
+
+table tr:nth-of-type(odd) {
+  background: #eee;
+}
+
+table tr:hover {
+  background: #ccc;
+}
+
+table th {
+  padding: 5px;
+}
+
+table td {
+  padding: 5px;
+  margin: 0;
+  border: none;
+  text-align: center;
+}
+
+table a {
+  color: #000;
+}
+
+table th:first-of-type,
+table td:first-of-type {
+  text-align: left;
+  padding-left: 10px;
+}
+
+table .description {
+  max-width: 250px;
+}
+
+.loadorder-info {
+  width: inherit;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-top: 1px solid #ddd;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.loadorder-info a {
+  color: inherit;
+}
+
+.loadorder-info .info {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.loadorder-info .head {
+  width: 100%;
+  margin-top: 10px;
+}
+
+.loadorder-info .head .author,
+.loadorder-info .head .last-updated,
+.loadorder-info .head .title {
+  margin: 0;
+}
+
+.loadorder-info .head .title {
+  font-size: 1.2em;
+  font-weight: bold;
+  line-height: 0.8;
+  display: inline-block;
+}
+
+.loadorder-info .head .last-updated {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.loadorder-info .description {
+  width: 100%;
+}
+
+.loadorder-info .actions {
+  padding: 0;
+  margin: 10px 0 0 15px;
+}
+
+.loadorder-info .actions button {
+  display: block;
+  width: 120px;
 }
 

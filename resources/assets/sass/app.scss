@@ -21,6 +21,8 @@ a {
 
 .indent {
 	text-indent: 20px;
+	padding: 10px;
+	line-height: 1.6;
 }
 
 .footer {
@@ -48,6 +50,7 @@ a {
 @import 'nav';
 @import 'card';
 @import 'forms';
-@import 'tables';
 @import 'tabs';
 @import 'quick-nav';
+@import 'tables';
+@import 'loadorder';

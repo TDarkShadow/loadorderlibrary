@@ -1,4 +1,3 @@
-
 var inputs = document.querySelectorAll('#files');
 Array.prototype.forEach.call(inputs, function (input) {
 	var label = input.nextElementSibling,
@@ -17,6 +16,3 @@ Array.prototype.forEach.call(inputs, function (input) {
 			label.innerHTML = labelVal;
 	});
 });
-
-var radio = document.querySelectorAll('.tab');
-radio[0].checked = true;

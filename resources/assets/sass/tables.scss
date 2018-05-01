@@ -6,18 +6,38 @@ table {
 	padding: 0;
 	
 	tr {
+		
+		&:nth-of-type(odd) {
+			background: #eee;
+		}
+
 		&:hover {
 			background: #ccc;
 		}
 	}
-
-	tr:nth-of-type(odd) {
-		background: #eee;
+	
+	th {
+		padding: 5px;
 	}
 
 	td {
 		padding: 5px;
 		margin: 0;
 		border: none;
+		
+		text-align: center;
+	}
+
+	a {
+		color: #000;
+	}
+
+	th:first-of-type, td:first-of-type {
+		text-align: left;
+		padding-left: 10px;
+	}
+
+	.description {
+		max-width: 250px;
 	}
 }

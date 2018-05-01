@@ -7,6 +7,18 @@ use Illuminate\Http\Request;
 class LoadOrderController extends Controller
 {
 	//
+	public function __construct()
+	{
+		//auth isOwner;
+	}
+
+	public function index()
+	{
+		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('updated_at', 'desc')->get();
+		
+		return view('loadorders')
+			->with('loadOrders', $loadOrders);
+	}
 	
 	public function show($slug)
 	{
@@ -19,20 +31,27 @@ class LoadOrderController extends Controller
 		{
 			$guest = 0;
 		}
-
-		$author = $loadOrder->user->username;
-		$uploaded_at = $loadOrder->created_at;
-		$updated_at = $loadOrder->updated_at;
-		$name = $loadOrder->name;
-		$description = $loadOrder->description;
 		
-		$loadOrder = json_decode($loadOrder->load_order);
-		$keys = array_keys((array) $loadOrder);
-
+		$list = json_decode($loadOrder->load_order);
+		$keys = array_keys((array) $list);
+		//dd($keys);
 		return view('loadorder')
-			->with('loadOrder', (array) $loadOrder)
+			->with('loadOrder', $loadOrder)
+			->with('list', (array) $list)
 			->with('keys', $keys)
-			->with('guest', $guest)
-			->with('listInfo', [$author, $uploaded_at, $updated_at, $name, $description]);
+			->with('guest', $guest);
+	}
+
+	public function edit($slug)
+	{
+		return view('user.edit-list');
+	}
+
+
+	public function destroy($slug)
+	{
+		$deleted = \App\LoadOrder::where('slug', $slug)->delete();
+
+		return redirect()->to('/');
 	}
 }

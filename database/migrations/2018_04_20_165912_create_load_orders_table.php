@@ -27,11 +27,13 @@ class CreateLoadOrdersTable extends Migration
 			$table->foreign('user_id')
 				  ->references('id')
 				  ->on('users')
+				  ->onDelete('cascade')
 				  ->onDelete('cascade');
 
 			$table->foreign('game_id')
 				  ->references('id')
-				  ->on('games');
+				  ->on('games')
+				  ->onDelete('cascade');
         });
     }
 
