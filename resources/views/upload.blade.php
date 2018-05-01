@@ -46,7 +46,7 @@
 
 					<div class="group group-center">
 						
-						<input class="file-upload" type="file" id="files" name="files[]" data-multiple-caption="{count} files selected" multiple required/>
+						<input class="file-upload" type="file" id="files" name="files[]" accept=".txt,.ini" data-multiple-caption="{count} files selected" multiple required/>
 						<label for="files" class="md-button"><span>Choose Files...</span></label>
 
 						<button type="submit" class="md-button">
