@@ -14,7 +14,7 @@
 								<input id="list-name" type="text" class="" name="list-name" value="{{ old('list-name') }}" autofocus>
 								<span class="highlight"></span>
 								<span class="bar"></span>
-								<label>List Name (optional)</label>
+								<label>List Name (required)</label>
 							</div>
 
 							<div class="group">      
