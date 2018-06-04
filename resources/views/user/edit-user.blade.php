@@ -8,7 +8,7 @@
 				<small>I mean... what do you really need to edit anyway?</small>
 
 
-				<a href="/u/{{Auth::user()->username}}/delete-account"><button class="md-button button-red">Delete Account?</button></a>
+				<a href="/delete-account"><button class="md-button button-red">Delete Account?</button></a>
 			</div>
 		</div>
 	</div>

@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Game;
 
 class UploadController extends Controller
 {
 	public function __construct()
 	{
-		if (Route::getFacadeRoot()->current()->uri() == 'guest/upload') {
-			
-			//return redirect()->to(\Auth::user()->username . '/upload');
-		}
 	}
     /**
      * Display a listing of the resource.
@@ -21,7 +18,7 @@ class UploadController extends Controller
      */
     public function index()
     {
-		$games = \App\Game::all();
+		$games = Game::all();
 		return view('upload')->with('games', $games);
     }
 
@@ -39,24 +36,27 @@ class UploadController extends Controller
 		{
 			$validatedData = $request->validate([
 				'list-name' => 'required',
-				'files.*' => 'required|mimes:txt|max:2048',
+				'files.*' => 'required|mimes:txt,ini|max:2048',
 				'game' => 'required|not_in:0'
 			]);
 		} else {
 			$validatedData = $request->validate([
-				'files.*' => 'required|mimes:txt|max:2048',
+				'files.*' => 'required|mimes:txt,ini|max:2048',
 				'game' => 'required|not_in:0'
 			]);
 		}
 		
+		//add forech and if for each file to validate
+		// validateTxtFile()
+		// validateIniFile()
 
 		foreach ($request->file('files') as $file) {
 			$name = trim(explode('.', $file->getClientOriginalName())[0]) . '.' . strtolower(trim(explode('.', $file->getClientOriginalExtension())[0]));
 
 			$content = trim(file_get_contents($file));
 			$content = explode("\r\n", $content);
-
-			if($name == "modlist.txt" || $name == "plugins.txt")
+			
+			if($name == "modlist.txt" || $name == "plugins.txt" || $name == "loadorder.txt")
 			{
 				unset($content[0]);
 			}
@@ -66,9 +66,16 @@ class UploadController extends Controller
 				$content = array_reverse($content);
 			}
 
+			if ($file->getClientOriginalExtension() == "txt" && $name != "modlist.txt") {
+				if($this->validateTxtFile($content) === false)
+				{
+					return redirect()->back()->withErrors('invalid-file', 'Please enter a valid file')->withInput();
+				}
+			}
+
 			$contents[$name] = array_values($content);
 
-		}
+		}		
 
 		$loadOrder = new \App\LoadOrder;
 
@@ -130,14 +137,42 @@ class UploadController extends Controller
 		return $name;
 	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+	/**
+	 * @param $file
+	 * @param $fileName
+	 * @return bool
+	 */
+
+	public function validateTxtFile($file)
+	{
+		$validLines = 0;
+
+		//[\w\s\-\.]+\.(esm|esp|esl)
+		foreach($file as $line)
+		{
+
+			if (preg_match(
+				'/^[\w\s\-\.]+\.(esm|esp|esl)/',
+				$line
+			)) {
+				$validLines++;
+			} else {
+				return false;
+			}
+		}
+
+		if($validLines === count($file))
+		{
+			//dd('true');
+			return true;
+		} else {
+			//dd('false');
+			return false;
+		}
+	}
+
+	public function validateIniFile($file)
+	{
+		return @parse_ini_file($file) !== false;
+	}
 }

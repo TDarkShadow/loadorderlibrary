@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 use App\Http\Middleware\IsOwner;
+use App\LoadOrder;
 
 class UserController extends Controller
 {
@@ -13,29 +14,7 @@ class UserController extends Controller
 	public function __construct()
 	{
 		$this->middleware("auth", ['except' => ['show']]);
-		$this->middleware(IsOwner::Class, ['except' => ['show']]);
 	}
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
     /**
      * Display the specified resource.
@@ -68,10 +47,10 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function edit($username)
+    public function edit()
     {
 		$user = \App\User::find(\Auth::user()->id);
-		
+
 		return view('user.edit-user');
     }
 
@@ -98,7 +77,7 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy($username)
+    public function destroy()
     {
 		$user = \App\User::find(\Auth::user()->id);
 

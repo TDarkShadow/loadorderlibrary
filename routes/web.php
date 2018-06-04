@@ -20,6 +20,6 @@ Route::put('/lo/{slug}/edit', 'LoadOrderController@update'); //check if logged i
 Route::delete('/lo/{slug}/delete', 'LoadOrderController@destroy'); //check if logged in is owner
 
 Route::get('/u/{username}', 'UserController@show')->name('user-view'); 
-Route::get('/u/{username}/settings', 'UserController@edit')->name('user-edit'); //check if logged in is owner
-Route::get('/u/{username}/delete-account', 'UserController@confirmDestroy')->name('user-delete-confirm');
-Route::delete('/u/{username}/delete-account', 'UserController@destroy')->name('user-delete'); //check if logged in is owner
+Route::get('/settings', 'UserController@edit')->name('user-edit'); //check if logged in is owner
+Route::get('/delete-account', 'UserController@confirmDestroy')->name('user-delete-confirm');
+Route::delete('/delete-account', 'UserController@destroy')->name('user-delete'); //check if logged in is owner
