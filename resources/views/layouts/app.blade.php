@@ -23,9 +23,6 @@
 					<div class="nav-logo">
 						<a href="/"><h2>Load Order Library</h2></a>
 					</div>
-
-					<!-- TODO: Extract the nav-menu to be in two differnt partials for guest and logged in -->
-
 					@if(Auth::check())
 						@include('layouts.partials.nav.user')
 					@else

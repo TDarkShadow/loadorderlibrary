@@ -65,13 +65,13 @@ class UploadController extends Controller
 			{
 				$content = array_reverse($content);
 			}
-
-			if ($file->getClientOriginalExtension() == "txt" && $name != "modlist.txt") {
-				if($this->validateTxtFile($content) === false)
-				{
-					return redirect()->back()->withErrors('invalid-file', 'Please enter a valid file')->withInput();
-				}
-			}
+			//TODO: It borked
+			// if ($file->getClientOriginalExtension() == "txt" && $name != "modlist.txt") {
+			// 	if($this->validateTxtFile($content) === false)
+			// 	{
+			// 		return redirect()->back()->withErrors('invalid-file', 'Please enter a valid file')->withInput();
+			// 	}
+			// }
 
 			$contents[$name] = array_values($content);
 
