@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('admin')->default(0);
             $table->rememberToken();
-            $table->timestamp('last_login')->nullable();
+            $table->timestamp('last_login')->default(\Carbon\Carbon::now());
             $table->timestamps();
         });
     }
