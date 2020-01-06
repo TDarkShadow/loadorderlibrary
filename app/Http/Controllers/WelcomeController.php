@@ -13,13 +13,16 @@ class WelcomeController extends Controller
 
 	public function index()
 	{
-		if(\Auth::check())
-		{
+		$compare = \App\LoadOrder::where('name', '!=', 'Untitled List')->get();
+
+		if (\Auth::check()) {
 			$loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->get();
-			
+
 			return view('welcome')
-				->with('loadOrders', $loadOrders);
+				->with('loadOrders', $loadOrders)
+				->with('compare', $compare);
 		}
-		return view('welcome');
+		return view('welcome')
+			->with('compare', $compare);
 	}
 }
