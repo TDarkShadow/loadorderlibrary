@@ -9,43 +9,41 @@ use App\Game;
 class UploadController extends Controller
 {
 	public function __construct()
+	{ }
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return \Illuminate\Http\Response
+	 */
+	public function index()
 	{
-	}
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
 		$games = Game::all();
 		return view('upload')->with('games', $games);
-    }
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {	
+	/**
+	 * Store a newly created resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @return \Illuminate\Http\Response
+	 */
+	public function store(Request $request)
+	{
 		$loadOrder = '';
 
-		if(\Auth::check())
-		{
+		if (\Auth::check()) {
 			$validatedData = $request->validate([
 				'list-name' => 'required',
-				'files.*' => 'required|mimes:txt,ini|max:2048',
+				'files.*' => 'required',
 				'game' => 'required|not_in:0'
 			]);
 		} else {
 			$validatedData = $request->validate([
-				'files.*' => 'required|mimes:txt,ini|max:2048',
+				'files.*' => 'required',
 				'game' => 'required|not_in:0'
 			]);
 		}
-		
+
 		//add forech and if for each file to validate
 		// validateTxtFile()
 		// validateIniFile()
@@ -55,14 +53,12 @@ class UploadController extends Controller
 
 			$content = trim(file_get_contents($file));
 			$content = explode("\r\n", $content);
-			
-			if($name == "modlist.txt" || $name == "plugins.txt" || $name == "loadorder.txt")
-			{
+
+			if ($name == "modlist.txt" || $name == "plugins.txt" || $name == "loadorder.txt") {
 				unset($content[0]);
 			}
 
-			if($name == "modlist.txt")
-			{
+			if ($name == "modlist.txt") {
 				$content = array_reverse($content);
 			}
 			//TODO: It borked
@@ -74,29 +70,25 @@ class UploadController extends Controller
 			// }
 
 			$contents[$name] = array_values($content);
-
-		}		
+		}
 
 		$loadOrder = new \App\LoadOrder;
 
 
-		if(\Auth::check())
-		{	
-			if($request->input('private'))
-			{
+		if (\Auth::check()) {
+			if ($request->input('private')) {
 				$loadOrder->is_private = true;
 			}
 
 			$loadOrder->user_id = \Auth::user()->id;
 			$loadOrder->description = $request->input('description');
 			$slug = $this->generateUserSlug($request->input('list-name'));
-
 		} else {
 			$slug = $this->generateGuestSlug($contents);
 		}
 
 
-		$loadOrder->name = $request->input('list-name');
+		$loadOrder->name = $request->input('list-name') ?? 'Untitled List';
 		$loadOrder->game_id = $request->input('game');
 		$loadOrder->slug = $slug;
 		$loadOrder->load_order = json_encode($contents);
@@ -117,8 +109,7 @@ class UploadController extends Controller
 	{
 		$slug = $this->buildSlugFromName($listName);
 
-		if(\App\LoadOrder::where('slug', $slug)->orderBy('slug', 'desc')->first() != null)
-		{
+		if (\App\LoadOrder::where('slug', $slug)->orderBy('slug', 'desc')->first() != null) {
 			$number = explode('-', $slug);
 			$number = array_reverse($number);
 
@@ -148,8 +139,7 @@ class UploadController extends Controller
 		$validLines = 0;
 
 		//[\w\s\-\.]+\.(esm|esp|esl)
-		foreach($file as $line)
-		{
+		foreach ($file as $line) {
 
 			if (preg_match(
 				'/^[\w\s\-\.]+\.(esm|esp|esl)/',
@@ -161,8 +151,7 @@ class UploadController extends Controller
 			}
 		}
 
-		if($validLines === count($file))
-		{
+		if ($validLines === count($file)) {
 			//dd('true');
 			return true;
 		} else {
