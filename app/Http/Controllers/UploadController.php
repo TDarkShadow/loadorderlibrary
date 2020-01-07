@@ -34,12 +34,12 @@ class UploadController extends Controller
 		if (\Auth::check()) {
 			$validatedData = $request->validate([
 				'list-name' => 'required',
-				'files.*' => 'required|mimes:txt,ini|max:2048',
+				'files.*' => 'required',
 				'game' => 'required|not_in:0'
 			]);
 		} else {
 			$validatedData = $request->validate([
-				'files.*' => 'required|mimes:txt,ini|max:2048',
+				'files.*' => 'required',
 				'game' => 'required|not_in:0'
 			]);
 		}
