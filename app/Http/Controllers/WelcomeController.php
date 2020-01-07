@@ -13,7 +13,7 @@ class WelcomeController extends Controller
 
 	public function index()
 	{
-		$compare = \App\LoadOrder::where('name', '!=', 'Untitled List')->get();
+		$compare = \App\LoadOrder::where('name', '!=', 'Untitled List')->where('is_private', false)->get();
 
 		if (\Auth::check()) {
 			$loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->get();

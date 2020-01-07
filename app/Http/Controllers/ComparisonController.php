@@ -50,7 +50,7 @@ class ComparisonController extends Controller
         $missing = [];
         foreach (array_keys($upload) as $key) {
             // Make sure the list you're comparing to has the file.
-            if ($compareTo[$key]) {
+            if (isset($compareTo[$key])) {
                 $diff = array_diff($compareTo[$key], $upload[$key]);
 
                 if (count($diff) > 0) {
