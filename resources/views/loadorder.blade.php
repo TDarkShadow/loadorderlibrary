@@ -3,7 +3,6 @@
 
 @section('content')
 <a id="top"></a>
-@if($guest != 0)
 <div class="row row-center">
 	<div class="col-md-8">
 		<div class="box-row card">
@@ -14,7 +13,9 @@
 						<div class="head">
 							<p class="title"><small><em>{{$loadOrder->game->name}}</em></small></p>
 							<p class="last-updated"><small><em>Updated: {{$loadOrder->updated_at}}</em></small></p>
+							@if($guest != 0)
 							<p class="author">By <a href="/{{$loadOrder->user->username}}">{{$loadOrder->user->username}}</a></p>
+							@endif
 						</div>
 					</a>
 
@@ -24,20 +25,19 @@
 				</div>
 			</div>
 
+			@if(auth()->user()->admin)
 			<div class="actions">
-				<a href="/lo/{{$loadOrder->slug}}/edit"><button class="md-button-small button-blue">Edit</button></a>
 				<form method="POST" action="/lo/{{$loadOrder->slug}}/delete">
 					{{ csrf_field() }}
 					{{ method_field('delete') }}
 					<button class="md-button-small button-red">Delete</button>
 				</form>
 			</div>
+			@endif
 		</div>
-
-
 	</div>
 </div>
-@endif
+
 
 <div class="row row-center">
 	@foreach($keys as $tab)
