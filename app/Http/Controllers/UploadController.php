@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Game;
+use App\Helpers\CreateSlug;
 
 class UploadController extends Controller
 {
@@ -82,9 +83,9 @@ class UploadController extends Controller
 
 			$loadOrder->user_id = \Auth::user()->id;
 			$loadOrder->description = $request->input('description');
-			$slug = $this->generateUserSlug($request->input('list-name'));
+			$slug = CreateSlug::new($request->input('list-name'));
 		} else {
-			$slug = $this->generateGuestSlug($contents);
+			$slug = CreateSlug::new('untitled-list');
 		}
 
 
@@ -99,40 +100,6 @@ class UploadController extends Controller
 
 		return redirect()->to('lo/' . $slug);
 	}
-
-	public function generateGuestSlug($content)
-	{
-		return substr(md5(serialize($content)), 0, 10);
-	}
-
-	public function generateUserSlug($listName)
-	{
-		$slug = $this->buildSlugFromName($listName);
-
-		if (\App\LoadOrder::where('slug', $slug)->orderBy('slug', 'desc')->first() != null) {
-			$number = explode('-', $slug);
-			$number = array_reverse($number);
-
-			$slug .= '-' . ((int) $number[0] + 1);
-		}
-
-		return $slug;
-	}
-
-	public function buildSlugFromName($name)
-	{
-		$delimiter = "-";
-		$name = preg_replace("/[^a-zA-Z0-9\/_|+ -]/", '', \Auth::user()->username . '-' . $name);
-		$name = strtolower(trim($name, '-'));
-		$name = preg_replace("/[\/_|+ -]+/", $delimiter, $name);
-		return $name;
-	}
-
-	/**
-	 * @param $file
-	 * @param $fileName
-	 * @return bool
-	 */
 
 	public function validateTxtFile($file)
 	{
