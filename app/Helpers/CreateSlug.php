@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\Team;
+use App\LoadOrder;
 use Illuminate\Support\Str;
 
 class CreateSlug
@@ -23,7 +23,7 @@ class CreateSlug
 
 	protected static function exists($slug)
 	{
-		$slugs = Team::where('slug', 'like', $slug . '%')->get();
+		$slugs = LoadOrder::where('slug', 'like', $slug . '%')->get();
 
 		return $slugs;
 	}
