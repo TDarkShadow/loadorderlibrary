@@ -25,16 +25,22 @@
 				</div>
 			</div>
 
-			@if(auth()->user()->admin)
-			<div class="actions">
-				<form method="POST" action="/lo/{{$loadOrder->slug}}/delete">
-					{{ csrf_field() }}
-					{{ method_field('delete') }}
-					<button class="md-button-small button-red">Delete</button>
-				</form>
-			</div>
+			@if(Auth::check())
+				@if(auth()->user()->admin)
+				<div class="actions">
+					<form method="POST" action="/lo/{{$loadOrder->slug}}/delete">
+						{{ csrf_field() }}
+						{{ method_field('delete') }}
+						<button class="md-button-small button-red">Delete</button>
+					</form>
+				</div>
+				@endif
 			@endif
 		</div>
+	</div>
+
+	<div class="col-md-4">
+			@include('components.comparethis')
 	</div>
 </div>
 
