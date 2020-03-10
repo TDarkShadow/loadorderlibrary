@@ -16,14 +16,14 @@ class UserController extends Controller
 		$this->middleware("auth", ['except' => ['show']]);
 	}
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show($username)
-    {
+	/**
+	 * Display the specified resource
+	 *
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function show($username)
+	{
 		$loadOrders = \App\User::with(['loadOrder' => function ($query) {
 			$query->where('is_private', false)->orderBy('updated_at', 'desc');
 		}])->where('username', $username)->get();
@@ -39,48 +39,48 @@ class UserController extends Controller
 		return view('user.users-mods')
 			->with('loadOrders', $loadOrders)
 			->with('username', $loadOrders[0]->username);
-    }
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit()
-    {
+	/**
+	 * Show the form for editing the specified resource.
+	 *
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function edit()
+	{
 		$user = \App\User::find(\Auth::user()->id);
 
 		return view('user.edit-user');
-    }
+	}
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, User $user)
-    {
-        //
-    }
+	/**
+	 * Update the specified resource in storage.
+	 *
+	 * @param  \Illuminate\Http\Request  $request
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function update(Request $request, User $user)
+	{
+		//
+	}
 
 	public function confirmDestroy()
 	{
 		return view('user.delete-account');
 	}
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy()
-    {
+	/**
+	 * Remove the specified resource from storage.
+	 *
+	 * @param  \App\User  $user
+	 * @return \Illuminate\Http\Response
+	 */
+	public function destroy()
+	{
 		$user = \App\User::find(\Auth::user()->id);
 
 		$user->delete();
-    }
+	}
 }
