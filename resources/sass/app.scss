@@ -6,3 +6,11 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.navbar-dark .navbar-nav .nav-link {
+    color: $link;
+}
+
+p {
+	text-indent: 20px;
+}
