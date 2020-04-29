@@ -82,6 +82,16 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer>
+            <div class="row justify-content-center">
+                <p>
+                    Load Order Library &copy; 2020 Phinocio.
+                    <a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
+                    <a href="https://github.com/phinocio/loadorderlibrary">Github</a>
+                </p>
+            </div>
+        </footer>
     </div>
 </body>
 
