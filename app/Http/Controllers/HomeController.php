@@ -13,7 +13,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
     }
 
     /**
@@ -23,6 +22,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $loadOrders = '';
+        $compare = \App\LoadOrder::where('name', '!=', 'Untitled List')->where('is_private', false)->get();
+
+        if (\Auth::check()) {
+            $loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->get();
+        }
+        
+        return view('home')
+            ->with('loadOrders', $loadOrders)
+            ->with('compare', $compare);
     }
 }
