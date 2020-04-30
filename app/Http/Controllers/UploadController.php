@@ -24,8 +24,9 @@ class UploadController extends Controller
             if ($request->input('private')) {
                 $loadOrder->is_private = true;
             }
-            
             $loadOrder->user_id = auth()->user()->id;
+            $loadOrder->description = $validated['description'];
+            $loadOrder->name = $validated['name'];
         } else {
             $loadOrder->slug = \App\Helpers\CreateSlug::new('untitled-list');
         }
@@ -39,12 +40,27 @@ class UploadController extends Controller
 
         foreach($validated['files'] as $file) 
         {
-            array_push($files, $file->getClientOriginalName());
+            $contents = file_get_contents($file);
+            $fileName = md5($file->getClientOriginalName() . $contents) . '-' . $file->getClientOriginalName();
+            array_push($files, $fileName);
+
+            // Check if file exists, if not, save it to disk.
+            if(!$this->checkFileExists($fileName))
+            {
+                echo 'no exists!';
+                \Storage::putFileAs('uploads', $file, $fileName);
+            }
         }
 
-        dd((string)$files);
+        $loadOrder->files = implode(',', $files);
+        $loadOrder->save();
 
+        // TODO: Change redirect to go to the list page itself.
+        return redirect('upload')->with('status', 'List Uploaded!');
+    }
 
-        dd($loadOrder->getAttributes());
+    private function checkFileExists($fileName)
+    {
+        return in_array('uploads/' . $fileName, \Storage::files('uploads'));
     }
 }
