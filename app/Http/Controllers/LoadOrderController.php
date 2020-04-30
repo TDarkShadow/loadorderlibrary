@@ -62,7 +62,8 @@ class LoadOrderController extends Controller
 		$loadOrder->save();
 
 		// TODO: Change redirect to go to the list page itself.
-		return redirect('upload')->with('success', 'List Uploaded!');
+		flash($loadOrder->name . ' successfully uploaded!')->success()->important();
+		return redirect('lists/' . $loadOrder->slug);
 	}
 
 	/**
@@ -110,7 +111,7 @@ class LoadOrderController extends Controller
 		$this->authorize('delete', $loadOrder);
 
 		$loadOrder->delete();
-		
+		flash($loadOrder->name . ' successfully deleted!');
 		return redirect()->back();
 	}
 

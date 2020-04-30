@@ -84,7 +84,7 @@
 
 		<main class="py-4">
 			<div class="container">
-				<!-- TODO: Make alert component -->
+				@include('flash::message')
 				@yield('content')
 			</div>
 		</main>

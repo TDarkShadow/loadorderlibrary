@@ -27,8 +27,8 @@ class HomeController extends Controller
 
         if (\Auth::check()) {
             $loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->get();
-        }
-        
+		}
+		
         return view('home')
             ->with('loadOrders', $loadOrders)
             ->with('compare', $compare);
