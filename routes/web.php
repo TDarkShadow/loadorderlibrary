@@ -16,8 +16,6 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/lo/{slug}', 'RedirectController@redirectToLists');
-
 Route::get('/lists', 'LoadOrderController@index')->name('lists');
 Route::get('/upload', 'LoadOrderController@create')->name('upload');
 Route::post('/upload', 'LoadOrderController@store')->name('upload.store');
