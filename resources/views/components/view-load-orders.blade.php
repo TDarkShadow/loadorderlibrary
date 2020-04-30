@@ -12,14 +12,16 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small><em>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by {{ $loadOrder->user->name }}</em></small>
+				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->user->name ?? 'Anonymous' }}</a></small>
+				@if($loadOrder->user == auth()->user())
 				<span>
-					<form method="POST" action="/loadOrders/{{$loadOrder->slug}}">
+					<form method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
 						<button class="btn text-danger" href="#" role="button">Delete</button>
 					</form>
 				</span>
+				@endif
 			</div>
 		</div>
 	</div>
