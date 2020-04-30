@@ -11,11 +11,7 @@
 				</div>
 
 				<div class="card-body">
-					@if(Auth::check())
-					<x-user-upload-form :games=$games />
-					@else
-					<!-- Guest Form -->
-					@endif
+					<x-upload-form :games=$games />
 				</div>
 			</div>
 		</div>
