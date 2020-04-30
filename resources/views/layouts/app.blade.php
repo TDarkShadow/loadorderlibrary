@@ -41,7 +41,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            <a class="btn btn-secondary" href="#" role="button">UPLOAD</a>
+                            <a class="btn btn-secondary" href="/upload" role="button">Upload List</a>
                         </li>
                         <li>
                             <a class="nav-link" href="/browse">Browse Lists</a>
@@ -84,7 +84,7 @@
         </main>
 
         <footer>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center text-white">
                 <p>
                     Load Order Library &copy; 2020 Phinocio.
                     <a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |

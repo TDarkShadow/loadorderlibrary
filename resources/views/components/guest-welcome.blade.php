@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card text-white bg-dark">
     <div class="card-header">What is this?</div>
 
     <div class="card-body">
