@@ -44,7 +44,7 @@
 							<a class="btn btn-secondary" href="/upload" role="button">Upload List</a>
 						</li>
 						<li>
-							<a class="nav-link" href="/browse">Browse Lists</a>
+							<a class="nav-link" href="/lists">Browse Lists</a>
 						</li>
 						<li class="mr-4">
 							<a class="nav-link" href="/browse">Compare a List</a>
@@ -84,6 +84,7 @@
 
 		<main class="py-4">
 			<div class="container">
+				<!-- TODO: Make alert component -->
 				@yield('content')
 			</div>
 		</main>

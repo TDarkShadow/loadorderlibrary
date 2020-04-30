@@ -14,7 +14,11 @@
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
 				<small><em>Uploaded {{ $loadOrder->created_at->diffForHumans() }}</em></small>
 				<span>
-					<a class="text-danger" href="#" role="button">Delete</a>
+					<form method="POST" action="/lists/{{$loadOrder->slug}}">
+						@method('delete')
+						@csrf
+						<button class="btn text-danger" href="#" role="button">Delete</button>
+					</form>
 				</span>
 			</div>
 		</div>
