@@ -22,13 +22,13 @@
 
     <div class="form-group">
         <label for="game">Game</label>
-        <select name="games" class="form-control @error('games') is-invalid @enderror" id="game">
+        <select name="game" class="form-control @error('game') is-invalid @enderror" id="game">
             <option value="">-Choose Game-</option>
             @foreach($games as $game)
-            <option value={{ $game->id }} @if(old('games')==$game->id) selected @endif> {{ $game->name }}</option>
+            <option value={{ $game->id }} @if(old('game')==$game->id) selected @endif> {{ $game->name }}</option>
             @endforeach
         </select>
-        @error('games')
+        @error('game')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>
         </span>
@@ -36,7 +36,7 @@
     </div>
 
     <div class="form-check form-check-inline">
-        <input name="private" class="form-check-input @error('private') is-invalid @enderror" type="checkbox" value="" id="private" aria-describedby="privateHelp">
+        <input name="private" class="form-check-input @error('private') is-invalid @enderror" type="checkbox" value="private" id="private" aria-describedby="privateHelp">
         <label class="form-check-label" for="private">
             Private?
         </label>

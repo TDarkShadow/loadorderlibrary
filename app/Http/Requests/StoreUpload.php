@@ -28,8 +28,7 @@ class StoreUpload extends FormRequest
         return [
             'name' => auth()->check() ? 'required' : '',
             'description' => 'string|nullable',
-            'private' => 'boolean',
-            'games' => 'required',
+            'game' => 'required',
             'files' => 'required',
             'files.*' => 'mimes:txt,ini|max:16'
         ];
