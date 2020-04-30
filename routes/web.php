@@ -1,27 +1,27 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
 */
+Auth::routes();
 
-Route::Auth();
+Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/', 'WelcomeController@index')->name('welcome');
+Route::get('/lists', 'LoadOrderController@index')->name('lists');
+Route::get('/upload', 'LoadOrderController@create')->name('upload');
+Route::post('/upload', 'LoadOrderController@store')->name('upload.store');
+Route::get('/lists/{load_order:slug}', 'LoadOrderController@show');
+Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
+// TODO: deleted/edit. 
 
-Route::get('/upload', 'UploadController@index')->name('guest-upload');
-Route::post('/upload', 'UploadController@store')->name('guest-upload-store');
 
-Route::get('/lo', 'LoadOrderController@index');
-Route::get('/lo/{slug}', 'LoadOrderController@show');
-Route::get('/lo/{slug}/edit', 'LoadOrderController@edit'); //check if logged in is owner
-Route::put('/lo/{slug}/edit', 'LoadOrderController@update'); //check if logged in is owner
-Route::delete('/lo/{slug}/delete', 'LoadOrderController@destroy'); //check if logged in is owner
 
-Route::get('/u/{username}', 'UserController@show')->name('user-view');
-Route::get('/settings', 'UserController@edit')->name('user-edit'); //check if logged in is owner
-Route::get('/delete-account', 'UserController@confirmDestroy')->name('user-delete-confirm');
-Route::delete('/delete-account', 'UserController@destroy')->name('user-delete'); //check if logged in is owner
-
-Route::post('/compare', 'ComparisonController@results')->name('compare-result');

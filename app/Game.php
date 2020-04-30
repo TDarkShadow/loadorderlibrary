@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Game extends Model
 {
-	//
-
-
-	public $timestamps = false;
-
-	public function loadOrder()
+	public function loadOrders()
 	{
-		return $this->hasMany('App\LoadOrder');
+		return $this->hasMany('\App\LoadOrder');
 	}
 }

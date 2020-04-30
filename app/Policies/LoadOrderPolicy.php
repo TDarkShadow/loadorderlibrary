@@ -2,8 +2,8 @@
 
 namespace App\Policies;
 
-use App\User;
 use App\LoadOrder;
+use App\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LoadOrderPolicy
@@ -11,7 +11,18 @@ class LoadOrderPolicy
     use HandlesAuthorization;
 
     /**
-     * Determine whether the user can view the load order.
+     * Determine whether the user can view any models.
+     *
+     * @param  \App\User  $user
+     * @return mixed
+     */
+    public function viewAny(User $user)
+    {
+        //
+    }
+
+    /**
+     * Determine whether the user can view the model.
      *
      * @param  \App\User  $user
      * @param  \App\LoadOrder  $loadOrder
@@ -23,7 +34,7 @@ class LoadOrderPolicy
     }
 
     /**
-     * Determine whether the user can create load orders.
+     * Determine whether the user can create models.
      *
      * @param  \App\User  $user
      * @return mixed
@@ -34,7 +45,7 @@ class LoadOrderPolicy
     }
 
     /**
-     * Determine whether the user can update the load order.
+     * Determine whether the user can update the model.
      *
      * @param  \App\User  $user
      * @param  \App\LoadOrder  $loadOrder
@@ -42,11 +53,11 @@ class LoadOrderPolicy
      */
     public function update(User $user, LoadOrder $loadOrder)
     {
-		return $user->id === $loadOrder->user_id;
+        //
     }
 
     /**
-     * Determine whether the user can delete the load order.
+     * Determine whether the user can delete the model.
      *
      * @param  \App\User  $user
      * @param  \App\LoadOrder  $loadOrder
@@ -54,6 +65,30 @@ class LoadOrderPolicy
      */
     public function delete(User $user, LoadOrder $loadOrder)
     {
+		return $user->id === $loadOrder->user_id || $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can restore the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\LoadOrder  $loadOrder
+     * @return mixed
+     */
+    public function restore(User $user, LoadOrder $loadOrder)
+    {
         return $user->id === $loadOrder->user_id;
+    }
+
+    /**
+     * Determine whether the user can permanently delete the model.
+     *
+     * @param  \App\User  $user
+     * @param  \App\LoadOrder  $loadOrder
+     * @return mixed
+     */
+    public function forceDelete(User $user, LoadOrder $loadOrder)
+    {
+		return $user->id === $loadOrder->user_id;
     }
 }

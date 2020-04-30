@@ -1,0 +1,16 @@
+// Fonts
+// @import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+
+.navbar-dark .navbar-nav .nav-link {
+	color: $link;
+}
+
+p {
+	text-indent: 20px;
+}

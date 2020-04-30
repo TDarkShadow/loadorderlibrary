@@ -1,0 +1,17 @@
+<VirtualHost *:80>
+    ServerAdmin admin@example.com
+    ServerName loadorderlibrary.localhost
+    DocumentRoot /srv/http/loadorderlibrary/public
+ 
+    <Directory /srv/http/loadorderlibrary>
+            Options Indexes FollowSymLinks MultiViews
+            AllowOverride All
+            Order allow,deny
+            allow from all
+            Require all granted
+    </Directory>
+ 
+    LogLevel debug
+    ErrorLog /var/log/httpd/loadorderlibrary-error.log
+    CustomLog /var/log/httpd/loadorderlibrary-access.log combined
+</VirtualHost>
