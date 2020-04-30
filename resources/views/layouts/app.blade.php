@@ -46,9 +46,6 @@
 						<li>
 							<a class="nav-link" href="/lists">Browse Lists</a>
 						</li>
-						<li class="mr-4">
-							<a class="nav-link" href="/browse">Compare a List</a>
-						</li>
 						<!-- Authentication Links -->
 						@guest
 						<li class="nav-item">
