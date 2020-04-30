@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class UserWelcome extends Component
+class ViewLists extends Component
 {
 
     /**
