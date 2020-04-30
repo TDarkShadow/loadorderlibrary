@@ -41,4 +41,9 @@ class User extends Authenticatable
 	{
 		return $this->hasMany('\App\LoadOrder');
 	}
+
+	public function isAdmin()
+	{
+		return $this->is_admin === 1;
+	}
 }

@@ -10,6 +10,11 @@ use Illuminate\Http\RedirectResponse;
 
 class LoadOrderController extends Controller
 {
+	public function __construct()
+	{
+		$this->middleware("auth", ['except' => ['index', 'show', 'create', 'store']]);
+	}
+
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -102,9 +107,11 @@ class LoadOrderController extends Controller
 	 */
 	public function destroy(LoadOrder $loadOrder): RedirectResponse
 	{
+		$this->authorize('delete', $loadOrder);
+
 		$loadOrder->delete();
 		
-		return redirect('/');
+		return redirect()->back();
 	}
 
 	/**
