@@ -12,9 +12,9 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small><em>Uploaded {{ $loadOrder->created_at->diffForHumans() }}</em></small>
+				<small><em>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by {{ $loadOrder->user->name }}</em></small>
 				<span>
-					<form method="POST" action="/lists/{{$loadOrder->slug}}">
+					<form method="POST" action="/loadOrders/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
 						<button class="btn text-danger" href="#" role="button">Delete</button>
@@ -27,10 +27,10 @@
 	<div class="col-md-6">
 		<div class="card text-white bg-dark">
 			<div class="card-header">
-				No Lists
+				No Load Orders
 			</div>
 			<div class="card-body">
-				<p>You do not have any lists yet.</p>
+				<p>There are no load orders to display.</p>
 			</div>
 		</div>
 	</div>

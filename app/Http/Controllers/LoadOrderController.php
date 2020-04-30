@@ -8,7 +8,7 @@ use Illuminate\View\View;
 use App\Http\Requests\StoreUpload;
 use Illuminate\Http\RedirectResponse;
 
-class ListController extends Controller
+class LoadOrderController extends Controller
 {
 	/**
 	 * Display a listing of the resource.
@@ -17,7 +17,9 @@ class ListController extends Controller
 	 */
 	public function index()
 	{
-		//
+		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->get();
+
+		return view('load-orders')->with('loadOrders', $loadOrders);
 	}
 
 	/**

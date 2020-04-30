@@ -5,7 +5,7 @@ namespace App\View\Components;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
 
-class ViewLists extends Component
+class ViewLoadOrders extends Component
 {
 
     /**
@@ -32,6 +32,6 @@ class ViewLists extends Component
      */
     public function render()
     {
-        return view('components.user-welcome');
+        return view('components.view-load-orders');
     }
 }

@@ -10,4 +10,9 @@ class LoadOrder extends Model
 	{
 		return $this->belongsTo('\App\Game');
 	}
+
+	public function user()
+	{
+		return $this->belongsTo('\App\User');
+	}
 }

@@ -16,10 +16,11 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('/lists', 'ListController@index')->name('lists');
-Route::get('/upload', 'ListController@create')->name('upload');
-Route::post('/upload', 'ListController@store')->name('upload.store');
-Route::delete('/lists/{load_order:slug}', 'ListController@destroy');
+Route::get('/lists', 'LoadOrderController@index')->name('lists');
+Route::get('/upload', 'LoadOrderController@create')->name('upload');
+Route::post('/upload', 'LoadOrderController@store')->name('upload.store');
+Route::get('/lists/{load_order:slug}', 'LoadOrderController@show');
+Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
 // TODO: deleted/edit. 
 
 
