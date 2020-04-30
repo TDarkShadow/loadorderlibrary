@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\LoadOrder;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpload;
 use Illuminate\Http\RedirectResponse;
 
@@ -16,11 +15,12 @@ class LoadOrderController extends Controller
 	}
 
 	/**
-	 * Display a listing of the resource.
+	 * Show all lists that are not private.
+	 * Route GET /lists
 	 *
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\View\View
 	 */
-	public function index()
+	public function index(): View
 	{
 		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->get();
 
@@ -67,14 +67,21 @@ class LoadOrderController extends Controller
 	}
 
 	/**
-	 * Display the specified resource.
+	 * Show a specific list
 	 *
 	 * @param  \App\LoadOrder  $loadOrder
-	 * @return \Illuminate\Http\Response
+	 * @return \Illuminate\View\View
 	 */
-	public function show(LoadOrder $loadOrder)
-	{
-		//
+	public function show(\App\LoadOrder $loadOrder)
+	{	
+		$files = [];
+		
+
+		foreach(explode(',', $loadOrder->files) as $file) {
+			$fileName = preg_replace('/[a-zA-Z0-9_]*-/i', '', $file);
+			array_push($files, ['name' => $fileName, 'content' => trim(\Storage::get('uploads/' . $file))]);
+		}
+		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files]);
 	}
 
 	/**
@@ -83,7 +90,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(LoadOrder $loadOrder)
+	public function edit(\App\LoadOrder $loadOrder)
 	{
 		//
 	}
@@ -95,7 +102,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, LoadOrder $loadOrder)
+	public function update(Request $request, \App\LoadOrder $loadOrder)
 	{
 		//
 	}
@@ -106,7 +113,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function destroy(LoadOrder $loadOrder): RedirectResponse
+	public function destroy(\App\LoadOrder $loadOrder): RedirectResponse
 	{
 		$this->authorize('delete', $loadOrder);
 
