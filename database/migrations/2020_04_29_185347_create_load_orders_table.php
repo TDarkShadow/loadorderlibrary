@@ -24,7 +24,7 @@ class CreateLoadOrdersTable extends Migration
             $table->foreignId('game_id')
                 ->references('id')
                 ->on('games');
-            $table->string('slug', 100);
+            $table->string('slug', 100)->unique();
             $table->string('name', 100);
             $table->text('description')->nullable();
             $table->string('files');
