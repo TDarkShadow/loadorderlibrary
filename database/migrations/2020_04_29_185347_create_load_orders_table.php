@@ -24,10 +24,10 @@ class CreateLoadOrdersTable extends Migration
             $table->foreignId('game_id')
                 ->references('id')
                 ->on('games');
-            $table->string('slug');
-            $table->string('name');
+            $table->string('slug', 100);
+            $table->string('name', 100);
             $table->text('description')->nullable();
-            $table->longText('loadOrder');
+            $table->string('files');
             $table->boolean('is_private')->default(false);
             $table->timestamps();
 
