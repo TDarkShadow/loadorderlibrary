@@ -13,7 +13,7 @@
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
 				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->user->name ?? 'Anonymous' }}</a></small>
-				@if($loadOrder->user == auth()->user() || auth()->user()->is_admin)
+				@if(auth()->check() && $loadOrder->user == auth()->user() || auth()->check() && auth()->user()->is_admin)
 				<span>
 					<form method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
