@@ -119,7 +119,7 @@ class LoadOrderController extends Controller
 
 		$loadOrder->delete();
 		flash($loadOrder->name . ' successfully deleted!');
-		return redirect()->back();
+		return redirect('/');
 	}
 
 	/**
