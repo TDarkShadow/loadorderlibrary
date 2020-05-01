@@ -24,6 +24,10 @@ class GamesTableSeeder extends Seeder
 		]);
 
 		DB::table('games')->insert([
+			'name' => 'TESV Skyrim SE',
+		]);
+
+		DB::table('games')->insert([
 			'name' => 'TESV Skyrim VR',
 		]);
 
