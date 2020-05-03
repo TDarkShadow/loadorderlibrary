@@ -26,11 +26,11 @@ class StoreUpload extends FormRequest
     public function rules()
     {
         return [
-            'name' => auth()->check() ? 'required' : '',
+            'name' => 'required',
             'description' => 'string|nullable',
             'game' => 'required',
             'files' => 'required',
-            'files.*' => 'mimes:txt,ini|max:16'
+            'files.*' => 'mimetypes:text/plain,application/x-wine-extension-ini|max:16'
         ];
     }
 
