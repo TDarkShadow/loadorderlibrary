@@ -81,7 +81,6 @@ Beards.esp
 Brows.esp
 DVA - Dynamic Vampire Appearance.esp
 WondersofWeather.esp
-FNIS_PCEA2.esp
 honedmetal.esp
 SimplyKnock.esp
 Faction Crossbows.esp
@@ -151,7 +150,6 @@ GIST soul trap.esp
 Ashes.esp
 EasyWheel.esp
 iEquip.esp
-Gamepad++.esp
 Requiem.esp
 iCompass - Immersive Compass.esp
 Fozars_Dragonborn_-_Requiem_Patch.esp
