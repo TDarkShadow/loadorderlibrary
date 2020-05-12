@@ -30,7 +30,7 @@ class StoreUpload extends FormRequest
             'description' => 'string|nullable',
             'game' => 'required',
             'files' => 'required',
-            'files.*' => 'mimetypes:text/plain,application/x-wine-extension-ini|max:16'
+            'files.*' => 'mimetypes:text/plain,application/x-wine-extension-ini|max:128'
         ];
     }
 
