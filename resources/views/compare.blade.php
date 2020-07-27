@@ -4,12 +4,8 @@
 	<div class="row justify-content-center">
 
 		<div class="col-md-12">
-			@if(Auth::check())
 			<h1 class="text-white">Compare Load Orders</h1>
-			<x-view-load-orders :loadOrders=$loadOrders />
-			@else
-			<x-guest-welcome />
-			@endif
+			<x-compare-load-orders :loadOrders=$loadOrders />
 		</div>
 	</div>
 @endsection
