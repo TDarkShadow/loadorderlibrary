@@ -34,7 +34,7 @@ class ComparisonController extends Controller
 
 		$results = $this->compareLists($list1, $list2);
 
-		return view('compare-results')->with('results', $results);
+		return view('compare-results')->with('results', $results)->with('list1', $list1)->with('list2', $list2);
 	}
 
 	private function compareLists($list1, $list2) {

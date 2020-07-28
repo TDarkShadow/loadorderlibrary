@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="col-md-6">
-					<h3>Added</h3>
+					<h3>Added (mods not in {{ $list2->name }})</h3>
 					<ul>
 						@foreach($result['added'] as $added)
 						<li>{{ $added }}</li>
