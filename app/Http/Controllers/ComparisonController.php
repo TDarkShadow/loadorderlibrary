@@ -36,10 +36,42 @@ class ComparisonController extends Controller
 	}
 
 	private function compareLists($list1, $list2) {
+		$results = [];
 		// Check if the names are the same
 		$list1Files = explode(',', $list1->files);
 		$list2Files = explode(',', $list2->files);
 
-		dd($list1Files, $list2Files);
+		foreach($list1Files as $list1File) {
+			$file1 = explode('-', $list1File);
+			
+			foreach($list2Files as $list2File) {
+				$file2 = explode('-', $list2File);
+				// We're working with the same file name
+				if($file1[1] == $file2[1]) {
+					// The hashes are the same, so the file is the same.
+					if($file1[0] != $file2[0]) {
+						echo $file1[1] . ' not the same! Do line by line compare';
+						$diff = $this->compareFiles($list1File, $list2File);
+
+						$results += [
+							$file1[1] => ['missing' => $diff['missing'], 'added' => $diff['added']]
+						];
+					}
+				}
+			}
+		}
+
+		dd($list1Files, $list2Files, $results);
+	}
+
+	private function compareFiles($file1, $file2) {
+		$file1 = explode("\n", trim(\Storage::get('uploads/' . $file1)));
+		$file2 = explode("\n", trim(\Storage::get('uploads/' . $file2)));
+		
+		$missing = array_diff($file2, $file1);
+		$added = array_diff($file1, $file2);
+
+		return ['missing' => $missing, 'added' => $added];
+
 	}
 }

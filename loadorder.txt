@@ -28,6 +28,7 @@ SkyUI.esp
 Customizable Camera.esp
 iHUD.esp
 FNIS.esp
+FNIS_NewPhin.esp
 RaceCompatibilityUSKPOverride.esp
 Chesko_LoreBasedLoadingScreens.esp
 Hothtrooper44_Armor_Ecksstra.esp
