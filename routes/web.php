@@ -21,6 +21,11 @@ Route::get('/upload', 'LoadOrderController@create')->name('upload');
 Route::post('/upload', 'LoadOrderController@store')->name('upload.store');
 Route::get('/lists/{load_order:slug}', 'LoadOrderController@show');
 Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
+
+
+Route::get('/compare', 'ComparisonController@index')->name('compare');
+Route::post('/compare', 'ComparisonController@post')->name('compare-post');
+Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
 // TODO: deleted/edit. 
 
 
