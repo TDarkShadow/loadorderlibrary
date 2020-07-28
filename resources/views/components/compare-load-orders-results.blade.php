@@ -26,11 +26,18 @@
 				</div>
 
 			</div>
+
+			<div class="card-footer">
+				<a href="/compare">Go back to compare different lists.</a>
+			</div>
 		</div>
 		@empty
 		<div class="card text-white bg-dark">
 			<div class="card-body">
 				No differences detected between lists!
+			</div>
+			<div class="card-footer">
+				<a href="/compare">Go back to compare different lists.</a>
 			</div>
 		</div>
 		@endforelse
