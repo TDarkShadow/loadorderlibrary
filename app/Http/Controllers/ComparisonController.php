@@ -32,7 +32,9 @@ class ComparisonController extends Controller
 		$list1 = \App\LoadOrder::where('is_private', false)->where('slug', $list1)->first();
 		$list2 = \App\LoadOrder::where('is_private', false)->where('slug', $list2)->first();
 
-		$this->compareLists($list1, $list2);
+		$results = $this->compareLists($list1, $list2);
+
+		return view('compare-results')->with('results', $results);
 	}
 
 	private function compareLists($list1, $list2) {
@@ -50,23 +52,22 @@ class ComparisonController extends Controller
 				if($file1[1] == $file2[1]) {
 					// The hashes are the same, so the file is the same.
 					if($file1[0] != $file2[0]) {
-						echo $file1[1] . ' not the same! Do line by line compare';
 						$diff = $this->compareFiles($list1File, $list2File);
 
 						$results += [
-							$file1[1] => ['missing' => $diff['missing'], 'added' => $diff['added']]
+							['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added']]
 						];
 					}
 				}
 			}
 		}
 
-		dd($list1Files, $list2Files, $results);
+		return $results;
 	}
 
 	private function compareFiles($file1, $file2) {
-		$file1 = explode("\n", trim(\Storage::get('uploads/' . $file1)));
-		$file2 = explode("\n", trim(\Storage::get('uploads/' . $file2)));
+		$file1 = explode("\n", str_replace(trim(\Storage::get('uploads/' . $file1)), '\r', ''));
+		$file2 = explode("\n", str_replace(trim(\Storage::get('uploads/' . $file2)), '\r', ''));
 		
 		$missing = array_diff($file2, $file1);
 		$added = array_diff($file1, $file2);
