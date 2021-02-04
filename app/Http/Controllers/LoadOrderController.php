@@ -48,7 +48,7 @@ class LoadOrderController extends Controller
 	 * @return RedirectResponse
 	 */
 	public function store(StoreUpload $request): RedirectResponse
-	{
+	{	
 		$validated = $request->validated();
 
 		$loadOrder = new \App\LoadOrder();

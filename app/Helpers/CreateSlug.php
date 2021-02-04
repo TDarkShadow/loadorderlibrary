@@ -23,8 +23,7 @@ class CreateSlug
 
 	protected static function exists($slug)
 	{
-		$slugs = LoadOrder::where('slug', 'like', $slug)->get();
-
+		$slugs = LoadOrder::where('slug', 'like', $slug . "%")->get();
 		return $slugs;
 	}
 }
