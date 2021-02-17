@@ -66,6 +66,9 @@
 							</a>
 
 							<div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+								<a class="dropdown-item bg-dark text-white" href="{{ route('change-password') }}">
+									{{ __('Change Password') }}
+								</a>
 								<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}
@@ -82,9 +85,9 @@
 			</div>
 		</nav>
 		@if(env('APP_ENV') == 'testing')
-			<div class="alert alert-danger text-center" role="alert">
-				You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
-			</div>
+		<div class="alert alert-danger text-center" role="alert">
+			You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
+		</div>
 		@endif
 		<main class="py-4">
 			<div class="container">
