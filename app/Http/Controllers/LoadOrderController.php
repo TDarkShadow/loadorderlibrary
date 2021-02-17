@@ -118,7 +118,12 @@ class LoadOrderController extends Controller
 		$this->authorize('delete', $loadOrder);
 
 		$loadOrder->delete();
-		flash($loadOrder->name . ' successfully deleted!');
+		flash($loadOrder->name . ' successfully deleted!')->success();
+
+		if(env('APP_URL') . '/lists/' . $loadOrder->slug == back()->getTargetUrl()) {
+			return redirect('/');
+		}
+		
 		return back();
 	}
 
