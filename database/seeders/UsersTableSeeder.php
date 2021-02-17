@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -13,7 +14,7 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-		\DB::table('users')->insert([
+		DB::table('users')->insert([
 			'name' => 'Phinocio',
 			'email' => 'contact@phinocio.com',
 			'password' => \Hash::make('supersecret'),

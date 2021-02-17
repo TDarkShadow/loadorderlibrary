@@ -26,6 +26,9 @@ Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
 Route::get('/compare', 'ComparisonController@index')->name('compare');
 Route::post('/compare', 'ComparisonController@post')->name('compare-post');
 Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
+
+Route::get('/account/change-password', 'ChangePasswordController@index')->name('change-password');
+Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
 // TODO: deleted/edit. 
 
 
