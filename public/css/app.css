@@ -10948,11 +10948,25 @@ a.text-dark:focus {
   color: #FFFFFF;
 }
 
-.navbar-dropdown .dropdown-item:hover {
-  background: #626d78;
-}
-
 p {
   text-indent: 20px;
+}
+
+.lo-list-item {
+  display: flex !important;
+}
+
+.lo-list-item .counter {
+  margin-right: 20px;
+  padding: 10px;
+  background: #3490dc;
+}
+
+.lo-list-item:nth-child(odd) {
+  background: #3f474e !important;
+}
+
+.lo-list-item:hover {
+  background: #4b545c !important;
 }
 

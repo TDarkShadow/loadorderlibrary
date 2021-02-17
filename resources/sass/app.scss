@@ -11,10 +11,37 @@
 	color: $link;
 }
 
-.navbar-dropdown .dropdown-item:hover {
-	background: lighten($dark, 20);
-} 
-
 p {
 	text-indent: 20px;
+}
+
+// .lo-list .lo-list-item
+// {
+//     counter-increment: step-counter;
+// }
+
+// .lo-list-item::before {
+// 	content: counter(step-counter, decimal-leading-zero);
+// 	margin-right: 20px;
+// 	padding: 50px;
+// 	background: $secondary;
+// 	display: inline-flex;
+// }
+
+.lo-list-item {
+	display: flex !important;
+}
+
+.lo-list-item .counter {
+	margin-right: 20px;
+	padding: 10px;
+	background: $secondary;
+}
+
+.lo-list-item:nth-child(odd) {
+	background: lighten($dark, 5) !important;
+}
+
+.lo-list-item:hover {
+	background: lighten($dark, 10) !important;
 }
