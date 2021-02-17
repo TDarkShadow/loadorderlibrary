@@ -81,7 +81,9 @@
 				</div>
 			</div>
 		</nav>
-
+		<div class="alert alert-danger text-center" role="alert">
+			You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
+		</div>
 		<main class="py-4">
 			<div class="container">
 				@include('flash::message')
