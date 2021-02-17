@@ -93,7 +93,7 @@
 			<div class="container">
 				<div class="row justify-content-center text-white">
 					<p>
-						Load Order Library &copy; 2020 Phinocio.
+						Load Order Library &copy; 2021 Phinocio.
 						<a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
 						<a href="https://github.com/phinocio/loadorderlibrary">Github</a>
 					</p>
