@@ -34,6 +34,16 @@ class UploadController extends Controller
 			return response()->json($validator->errors(), 400);
 		}
 
+		$files =
+		$this->getFileNames((array) $request->file('files'));
+
+		if (gettype($files) != 'string') {
+			return response()->json([
+					"error" => $files['error'],
+					"note" => "it's likely that the getFileNames method cannot read the file names. Please ensure you have the files variable be exactly 'files[]'. If that doesn't work, contact Phin."
+			], 422);
+		}
+
 		$loadOrder = new \App\LoadOrder();
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
 		$loadOrder->game_id     = (int) $request->input('game');
@@ -52,7 +62,7 @@ class UploadController extends Controller
 		]);
     }
 
-	private function getFileNames(array $files): string
+	private function getFileNames(array $files): string | array
 	{
 
 		$fileNames = [];
@@ -71,9 +81,9 @@ class UploadController extends Controller
 				}
 			} catch (\Throwable $th) {
 				//throw $th;
-				return response()->json([
+				return [
 					"error" => $th->getMessage()
-				], 422);
+				];
 			}
 
 
