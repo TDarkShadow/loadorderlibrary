@@ -62,7 +62,7 @@ class UploadController extends Controller
 		]);
     }
 
-	private function getFileNames(array $files): string | array
+	private function getFileNames(array $files)
 	{
 
 		$fileNames = [];
