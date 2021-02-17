@@ -10948,6 +10948,10 @@ a.text-dark:focus {
   color: #FFFFFF;
 }
 
+.navbar-dropdown .dropdown-item:hover {
+  background: #626d78;
+}
+
 p {
   text-indent: 20px;
 }

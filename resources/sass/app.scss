@@ -11,6 +11,10 @@
 	color: $link;
 }
 
+.navbar-dropdown .dropdown-item:hover {
+	background: lighten($dark, 20);
+} 
+
 p {
 	text-indent: 20px;
 }
