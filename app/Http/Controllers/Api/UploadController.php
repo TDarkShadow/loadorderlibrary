@@ -34,15 +34,13 @@ class UploadController extends Controller
 			return response()->json($validator->errors(), 400);
 		}
 
-
-
 		$loadOrder = new \App\LoadOrder();
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
 		$loadOrder->game_id     = (int) $request->input('game');
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($request->input('name'));
 		$loadOrder->name        = $request->input('name');
 		$loadOrder->description = $request->input('description');
-		$loadOrder->files       = $this->getFileNames((array) $request->input('files'));
+		$loadOrder->files       = $this->getFileNames((array) $request->file('files'));
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 
@@ -56,6 +54,7 @@ class UploadController extends Controller
 
 	private function getFileNames(array $files): string
 	{
+
 		$fileNames = [];
 
 		foreach ($files as $file) {
