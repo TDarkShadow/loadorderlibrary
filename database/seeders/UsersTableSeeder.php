@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
 			'name' => 'Phinocio',
 			'email' => 'contact@phinocio.com',
 			'password' => \Hash::make('supersecret'),
+			'is_admin' => true
 		]);
     }
 }
