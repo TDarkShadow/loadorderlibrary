@@ -17,7 +17,6 @@ class UploadController extends Controller
      */
     public function store(Request $request)
     {
-		dd($request);
 		$validator = Validator::make($request->all(), [
 			'name' => 'required',
 			'description' => 'string|nullable',
@@ -59,16 +58,25 @@ class UploadController extends Controller
 		$fileNames = [];
 
 		foreach ($files as $file) {
-			$contents = file_get_contents($file);
-			$contents = preg_replace('~\R~u', "\n", $contents);
-			file_put_contents($file, $contents);
-			$fileName = md5($file->getClientOriginalName() . $contents) . '-' . $file->getClientOriginalName();
-			array_push($fileNames, $fileName);
+			try {
+				$contents = file_get_contents($file);
+				$contents = preg_replace('~\R~u', "\n", $contents);
+				file_put_contents($file, $contents);
+				$fileName = md5($file->getClientOriginalName() . $contents) . '-' . $file->getClientOriginalName();
+				array_push($fileNames, $fileName);
 
-			// Check if file exists, if not, save it to disk.
-			if (!$this->checkFileExists($fileName)) {
-				\Storage::putFileAs('uploads', $file, $fileName);
+				// Check if file exists, if not, save it to disk.
+				if (!$this->checkFileExists($fileName)) {
+					\Storage::putFileAs('uploads', $file, $fileName);
+				}
+			} catch (\Throwable $th) {
+				//throw $th;
+				return response()->json([
+					"error" => $th->getMessage()
+				], 422);
 			}
+
+
 		}
 
 		return implode(',', $fileNames);
