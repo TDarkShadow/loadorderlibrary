@@ -81,9 +81,11 @@
 				</div>
 			</div>
 		</nav>
-		<div class="alert alert-danger text-center" role="alert">
-			You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
-		</div>
+		@if(env('APP_ENV') == 'testing')
+			<div class="alert alert-danger text-center" role="alert">
+				You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
+			</div>
+		@endif
 		<main class="py-4">
 			<div class="container">
 				@include('flash::message')
