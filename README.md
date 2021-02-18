@@ -12,6 +12,8 @@ https://www.patreon.com/phinocio
 - [Goal](#goal)
 - [Features](#features)
 - [Planned Features](#planned-features)
+- [Privacy](#privacy)
+- [Support/Issues](#supportissues)
 
 <!-- /TOC -->
 
