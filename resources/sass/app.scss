@@ -55,10 +55,12 @@ p {
 
 .files-heading {
 	.missing{
+		min-width: 45%;
 		max-width: 48%;
 	}
 	.added {
-		min-width: 48%;
+		min-width: 49%;
+		max-width: 49%;
 		text-align: left;
 	}
 }
