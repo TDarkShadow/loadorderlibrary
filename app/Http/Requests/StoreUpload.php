@@ -31,7 +31,7 @@ class StoreUpload extends FormRequest
             'description' => 'string|nullable',
             'game' => 'required',
             'files' => 'required',
-            'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:32', new ValidNumLines]
+            'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:128', new ValidNumLines]
         ];
     }
 
@@ -43,7 +43,7 @@ class StoreUpload extends FormRequest
     public function messages()
     {
         return [
-            'files.*.max' => 'Files may not be more than 32KB.',
+            'files.*.max' => 'Files may not be more than 128KB.',
             'files.*.mimes' => 'Files must be of type txt or ini'
         ];
     }

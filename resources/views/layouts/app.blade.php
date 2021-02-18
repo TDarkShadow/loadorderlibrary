@@ -5,14 +5,14 @@
 	<!-- FB Meta -->
 	<meta property="og:url" content="{{ Request::url() }}" />
 	<meta property="og:title" content="Load Order Library - @yield('title')" />
-	<meta property="og:description" content="a modlist files site to help with support." />
+	<meta property="og:description" content="@yield('description', 'A modlist files site to help with support.')" />
 	<meta property="og:type" content="website" />
 
 	<!-- Twitter Meta -->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:url" content="{{ Request::url() }}">
 	<meta name="twitter:title" content="Load Order Library - @yield('title')">
-	<meta name="twitter:description" content="a modlist files site to help with support.">
+	<meta name="twitter:description" content="@yield('description', 'A modlist files site to help with support.')">
 
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

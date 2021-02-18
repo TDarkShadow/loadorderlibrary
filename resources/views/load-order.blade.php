@@ -2,6 +2,8 @@
 
 @section('title', $loadOrder['name'])
 
+@section('description', $loadOrder['description'])
+
 @section('content')
 <div class="row justify-content-center">
 	<div class="col-md-12">
