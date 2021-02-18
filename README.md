@@ -51,6 +51,7 @@ The following are features that are planned and do not currently exist.
 - 2FA (authenticator app based). Low-priority. I don't feel anything on this site is really worth the security 2FA provides, and this will be more a learning exercise.
 - List filtering by game/author.
 - Pagination for browse lists page so it doesn't become too long.
+- Complete re-write to be more API driven for integration into othe tools such as [Azura's Star](https://github.com/RingComics/azuras-star)
 
 # Privacy
 
