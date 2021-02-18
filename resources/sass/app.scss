@@ -37,6 +37,38 @@ p {
 	}
 }
 
+.compare-results {
+	.list1 {
+		max-width: 45%;
+		min-width: 45%;
+	}
+	.vs {
+		min-width: 5%;
+		text-align: center;
+	}
+
+	.list2 {
+		max-width: 45%;
+	}
+}
+
+.files-heading {
+	.missing, .added {
+		max-width: 48%;
+	}
+}
+
+.files {
+	.missing, .added {
+		max-width: 48%;
+	}
+}
+
+.helper {
+
+	min-height: 50px;
+}
+
 .lo-list-item {
 	display: flex !important;
 	width: 100% !important;
