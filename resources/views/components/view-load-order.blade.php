@@ -79,7 +79,6 @@
 
 <script>
 	function filter(search, list) {
-		console.log(search, list);
 
 		// Declare variables
 		var input, filter, ul, li, a, i, txtValue;
@@ -93,7 +92,6 @@
 		for (i = 0; i < li.length; i++) {
 			a = li[i].getElementsByTagName("div")[1];
 			txtValue = a.textContent.trim() || a.innerText.trim();
-			console.log(txtValue.toLowerCase().indexOf(filter));
 			if (txtValue.toLowerCase().indexOf(filter) >= 0) {
 				li[i].style.display = "";
 				li[i].classList = 'bg-dark text-white list-group-item lo-list-item d-flex align-items-center';

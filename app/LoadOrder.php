@@ -11,8 +11,8 @@ class LoadOrder extends Model
 		return $this->belongsTo('\App\Game');
 	}
 
-	public function user()
+	public function author()
 	{
-		return $this->belongsTo('\App\User');
+		return $this->belongsTo('\App\User', 'user_id');
 	}
 }
