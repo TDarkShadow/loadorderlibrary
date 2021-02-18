@@ -39,9 +39,11 @@ More planned and coming soon!
 
 The following are features that are planned and do not currently exist. 
 
-- Account deletion (high priority).
+- Account deletion (high priority). Currently there is no way for accounts to be deleted.
 - Downloading of list files. (high priority).
-- Password recovery (forgot password). (Email is complicated). Changing of passwords provided you know the current one is implemented.
+- Implement a method whereby if a list is deleted and it was the only list to contain file(s) associated with it, delete those files from the disk as well.
+- A method of starting a list compare from a specific list, instead of having to go to the compare lists page explicity. 
+- Password recovery (forgot password). (Email is complicated). Changing of passwords provided you know the current one is already implemented.
 - Editing lists. Due to trying to keep the integrity of lists for the comparison tool, this will however only ever allow editing of the title, description, and game. If you missed uploading a file, or uploaded the wrong one, simply make a new list. 
 - Verified users/lists. For example, Dylan Perry (creator of Ultimate Skyrim) could have an account verified and upload an official Ultimate Skyrim for people to compare against with confidence. 
 - More filtering options. For example, hiding disabled mods in modlist.txt by default and having a toggle to view them.
@@ -49,7 +51,7 @@ The following are features that are planned and do not currently exist.
 
 # Privacy
 
-Load Order Library uses no analytic services at all. Some 3rd party tools are used, but no external requests are made, they are served with the page itself. 
+Load Order Library uses no analytic services at all. Some 3rd party tools are used, but no external requests are made, they are served with the page itself. Files uploaded currently are on the server forever, however one of the next things I'm doing is implementing a way for files to be deleted if a list that contains them is the only one that does and it is deleted (the same files are shared across lists to save on disk space).
 
 Data provided is entirely for the use of the site, and does not leave the server except in the case of database backups. Passwords are hashed and never stored in plain text. The server is hosted via Digital Ocean and located in Toronto, Canada.
 
