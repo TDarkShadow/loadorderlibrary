@@ -1,1 +1,64 @@
-Simple Website to share Bethesda games Mod Organizer config file. Useful for debugging installs. 
+# Load Order Library
+Load Order Library is a tool mostly intended to help in debugging/supporting Mod Organizer lists for Bethesda games. It's meant to serve as an alternative/replacement for [Modwatch](https://modwat.ch/). The premiere feature being a list comparison tool. 
+
+I have a Patreon I guess. Don't feel the need to contribute or anything, I have no intention of doing perks/goals. If anything, the only thing I care about is covering the costs of the site/server, which atm are like CA$14/yr for the domain, and ~CA$8/mn for Digital Ocean hosting (though I host a few things on it). See EXPENSES.md for details.
+
+https://www.patreon.com/phinocio
+
+# Table Of Contents
+
+<!-- TOC -->
+
+- [Goal](#goal)
+- [Features](#features)
+- [Planned Features](#planned-features)
+- [Privacy](#privacy)
+- [Support/Issues](#supportissues)
+
+<!-- /TOC -->
+
+# Goal
+
+The goal of Load Order Library is to make the life of people doing support for mod lists easier. Often times we ask for an upload to [Modwatch](https://modwat.ch/) and then manually go through the files to determine if a mod is missing, or a mod is added. Whether the ini settings are correct, etc. By using the comparison tool, you get a quick view at a glance at what files are missing/added, and what contents of those files are also missing/added.
+
+![Image of comparison tool](https://cdn.discordapp.com/attachments/577715234752430082/811766182856097802/unknown.png)
+
+# Features
+
+Load Order Library has a slew of features.
+
+- No registration required. Lists can be uploaded anonymously. You do need and account to delete lists, however. Anonymous ones can't be deleted.
+- Private lists. Only people with the link can view them.
+- For users that decide to register, you can have as many lists as you want - modwatch only ever lets you have 1.
+- Comparison tool.
+- Completely free. No Ads.
+
+More planned and coming soon!
+
+# Planned Features 
+
+The following are features that are planned and do not currently exist. 
+
+- Account deletion (high priority).
+- Downloading of list files. (high priority).
+- Password recovery (forgot password). (Email is complicated). Changing of passwords provided you know the current one is implemented.
+- Editing lists. Due to trying to keep the integrity of lists for the comparison tool, this will however only ever allow editing of the title, description, and game. If you missed uploading a file, or uploaded the wrong one, simply make a new list. 
+- Verified users/lists. For example, Dylan Perry (creator of Ultimate Skyrim) could have an account verified and upload an official Ultimate Skyrim for people to compare against with confidence. 
+- More filtering options. For example, hiding disabled mods in modlist.txt by default and having a toggle to view them.
+- 2FA (authenticator app based). Low-priority. I don't feel anything on this site is really worth the security 2FA provides, and this will be more a learning exercise.
+
+# Privacy
+
+Load Order Library uses no analytic services at all. Some 3rd party tools are used, but no external requests are made, they are served with the page itself. 
+
+Data provided is entirely for the use of the site, and does not leave the server except in the case of database backups. Passwords are hashed and never stored in plain text. The server is hosted via Digital Ocean and located in Toronto, Canada.
+
+# Support/Issues
+
+If you find any issues or have any questions, please make an issue on this repository. Should this tool get big enough I may make a discord server or something.
+
+# Thanks
+
+Thanks to RingComics for helping me test.
+
+Thaks to Gatonegro for the icons. 

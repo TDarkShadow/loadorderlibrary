@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->user->name ?? 'Anonymous' }}</a></small>
+				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
 				@if(auth()->check())
 				@if($loadOrder->user == auth()->user() || auth()->user()->is_admin)
 				<span>
@@ -79,7 +79,6 @@
 
 <script>
 	function filter(search, list) {
-		console.log(search, list);
 
 		// Declare variables
 		var input, filter, ul, li, a, i, txtValue;
@@ -93,7 +92,6 @@
 		for (i = 0; i < li.length; i++) {
 			a = li[i].getElementsByTagName("div")[1];
 			txtValue = a.textContent.trim() || a.innerText.trim();
-			console.log(txtValue.toLowerCase().indexOf(filter));
 			if (txtValue.toLowerCase().indexOf(filter) >= 0) {
 				li[i].style.display = "";
 				li[i].classList = 'bg-dark text-white list-group-item lo-list-item d-flex align-items-center';

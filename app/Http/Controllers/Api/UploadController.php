@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Rules\ValidNumLines;
 
 class UploadController extends Controller
 {
@@ -22,11 +23,11 @@ class UploadController extends Controller
 			'description' => 'string|nullable',
 			'game' => 'required',
 			'files' => 'required',
-			'files.*' => 'mimetypes:text/plain,application/x-wine-extension-ini|max:128'
+			'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:18', new ValidNumLines]
 		], 
 		[
 			'files' => 'Files are required',
-			'files.*.max' => 'Files may not be more than 16KB.',
+			'files.*.max' => 'Files may not be more than 128KB.',
 			'files.*.mimes' => 'Files must be of type txt or ini'
 		]);
 
@@ -50,7 +51,7 @@ class UploadController extends Controller
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($request->input('name'));
 		$loadOrder->name        = $request->input('name');
 		$loadOrder->description = $request->input('description');
-		$loadOrder->files       = $this->getFileNames((array) $request->file('files'));
+		$loadOrder->files       = $files;
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 

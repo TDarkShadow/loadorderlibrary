@@ -1,8 +1,8 @@
 /node_modules
 /public/hot
 /public/storage
-/public/js/*
-/public/css/*
+/public/js/
+/public/css/
 /storage/*.key
 /vendor
 .env
@@ -13,3 +13,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 .phpstorm.meta.php
+_ide_helper.php

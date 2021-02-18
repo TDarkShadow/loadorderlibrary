@@ -38,10 +38,31 @@ class ComparisonController extends Controller
 	}
 
 	private function compareLists($list1, $list2) {
-		$results = [];
-		// Check if the names are the same
+		$results = [
+			'files' => [],
+			'contents' => []
+		];
+
 		$list1Files = explode(',', $list1->files);
 		$list2Files = explode(',', $list2->files);
+
+		$list1FilesCleanName = [];
+		$list2FilesCleanName = [];
+
+		foreach ($list1Files as $list1File) {
+			$file1 = explode('-', $list1File);
+			array_push($list1FilesCleanName, $file1[1]);
+		}
+
+		foreach ($list2Files as $list2File) {
+			$file2 = explode('-', $list2File);
+			array_push($list2FilesCleanName, $file2[1]);
+		}
+
+		$missingFiles = array_diff($list2FilesCleanName, $list1FilesCleanName);
+		$addedFiles = array_diff($list1FilesCleanName, $list2FilesCleanName);
+
+		array_push($results['files'], ['missing' => $missingFiles, 'added' => $addedFiles]);
 
 		foreach($list1Files as $list1File) {
 			$file1 = explode('-', $list1File);
@@ -54,13 +75,14 @@ class ComparisonController extends Controller
 					if($file1[0] != $file2[0]) {
 						$diff = $this->compareFiles($list1File, $list2File);
 
-						$results += [
-							['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added']]
-						];
+						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added']]);
+						
 					}
 				}
 			}
 		}
+
+		// dd($results, $list1FilesCleanName, $list2FilesCleanName, $missingFiles, $addedFiles);
 
 		return $results;
 	}

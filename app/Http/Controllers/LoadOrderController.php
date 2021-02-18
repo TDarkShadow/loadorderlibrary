@@ -81,7 +81,10 @@ class LoadOrderController extends Controller
 			$fileName = preg_replace('/[a-zA-Z0-9_]*-/i', '', $file);
 			array_push($files, ['name' => $fileName, 'content' => trim(\Storage::get('uploads/' . $file))]);
 		}
-		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files]);
+
+		$author = $loadOrder->author ? $loadOrder->author->name : 'Anonymous';
+
+		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files, 'author' => $author]);
 	}
 
 	/**

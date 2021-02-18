@@ -47,12 +47,13 @@
         @enderror
     </div>
     <small id="privateHelp" class="form-text text-muted">
-        Private lists will not appear on the Browse Lists page, but can be viewed directly with the link, or from Your Lists.
+        Private lists will not appear on the Browse Lists page, but can be viewed directly with the link, or from Your Lists if uploading with an account.
     </small>
 
     <div class="form-group">
         <label for="files">Choose Files</label>
         <input name="files[]" type="file" class="form-control-file @error('files.*') is-invalid @enderror" id="files" accept=".txt,.ini" multiple required>
+		<span class="text-muted">It's recommended to copy the files you want to upload to a single folder, then choose them all from that folder.</span>
         @error('files.*')
         <span class="invalid-feedback" role="alert">
             <strong>{{ $message }}</strong>

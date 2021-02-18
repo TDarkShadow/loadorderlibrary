@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\ValidNumLines;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -30,7 +31,7 @@ class StoreUpload extends FormRequest
             'description' => 'string|nullable',
             'game' => 'required',
             'files' => 'required',
-            'files.*' => 'mimetypes:text/plain,application/x-wine-extension-ini|max:128'
+            'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:128', new ValidNumLines]
         ];
     }
 
@@ -42,7 +43,7 @@ class StoreUpload extends FormRequest
     public function messages()
     {
         return [
-            'files.*.max' => 'Files may not be more than 16KB.',
+            'files.*.max' => 'Files may not be more than 128KB.',
             'files.*.mimes' => 'Files must be of type txt or ini'
         ];
     }

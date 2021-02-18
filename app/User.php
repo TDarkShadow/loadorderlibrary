@@ -37,7 +37,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
 	];
 
-	public function loadOrders()
+	public function lists()
 	{
 		return $this->hasMany('\App\LoadOrder');
 	}
