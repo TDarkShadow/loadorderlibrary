@@ -64,7 +64,7 @@
 			</div>
 
 			<div class="card-footer text-white">
-				NOTE: Results below only show differences between files that exist in both lists.
+				NOTE: Results below only show differences between files that exist in both lists. If no files are shown below, they are the exact same in both lists.
 			</div>
 
 		</div>
