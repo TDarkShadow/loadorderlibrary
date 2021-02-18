@@ -10,7 +10,7 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->user->name ?? 'Anonymous' }}</a></small>
+				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
 				@if(auth()->check())
 				@if($loadOrder->user == auth()->user() || auth()->user()->is_admin)
 				<span>
