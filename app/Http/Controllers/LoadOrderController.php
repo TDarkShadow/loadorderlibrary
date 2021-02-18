@@ -82,7 +82,9 @@ class LoadOrderController extends Controller
 			array_push($files, ['name' => $fileName, 'content' => trim(\Storage::get('uploads/' . $file))]);
 		}
 
-		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files]);
+		$author = $loadOrder->author ? $loadOrder->author->name : 'Anonymous';
+
+		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files, 'author' => $author]);
 	}
 
 	/**
