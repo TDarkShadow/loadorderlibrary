@@ -37,6 +37,49 @@ p {
 	}
 }
 
+.compare-results {
+	.list1 {
+		max-width: 45%;
+		min-width: 45%;
+	}
+	.vs {
+		min-width: 5%;
+		text-align: center;
+	}
+
+	.list2 {
+		min-width: 45%;
+		text-align: right;
+	}
+}
+
+.files-heading {
+	.missing{
+		min-width: 45%;
+		max-width: 48%;
+	}
+	.added {
+		min-width: 49%;
+		max-width: 49%;
+		text-align: left;
+	}
+}
+
+.files {
+	.missing {
+		max-width: 48%;
+	}
+
+	.added {
+		min-width: 48%;
+	}
+}
+
+.helper {
+
+	min-height: 50px;
+}
+
 .lo-list-item {
 	display: flex !important;
 	width: 100% !important;
