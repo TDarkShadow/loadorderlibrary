@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Compare Results')
+
 @section('content')
 <h1 class="text-white">Compare Results (BETA)</h1>
 <div class="row justify-content-center">
