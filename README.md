@@ -56,3 +56,9 @@ Data provided is entirely for the use of the site, and does not leave the server
 # Support/Issues
 
 If you find any issues or have any questions, please make an issue on this repository. Should this tool get big enough I may make a discord server or something.
+
+# Thanks
+
+Thanks to RingComics for helping me test.
+
+Thaks to Gatonegro for the icons. 
