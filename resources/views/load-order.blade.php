@@ -2,7 +2,7 @@
 
 @section('title', $loadOrder['name'])
 
-@section('description', $loadOrder->authour ? $loadOrder->author->name : 'Anonymous\' ' . $loadOrder['name'] . ' list for ' . $loadOrder['game']->name) 
+@section('description', $loadOrder['name'] . ' for ' . $loadOrder['game']->name . ' by ' $loadOrder->author ? $loadOrder->author->name : 'Anonymous' )
 
 @section('content')
 <div class="row justify-content-center">
