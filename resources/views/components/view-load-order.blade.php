@@ -3,7 +3,7 @@
 		<div class="card text-white bg-dark mb-3">
 			<div class="card-header d-flex justify-content-between align-items-center">
 				<h3><strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong></h3>
-				<small><em><a href="/games/{{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em></small>
+				<small><em><a href="#">{{ $loadOrder->game->name }}</a></em></small>
 			</div>
 			<div class="card-body">
 				{{ $loadOrder->description ?? 'No description provided.'}}

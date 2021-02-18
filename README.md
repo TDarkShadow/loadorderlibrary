@@ -14,6 +14,7 @@ https://www.patreon.com/phinocio
 - [Planned Features](#planned-features)
 - [Privacy](#privacy)
 - [Support/Issues](#supportissues)
+- [Thanks](#thanks)
 
 <!-- /TOC -->
 
@@ -48,6 +49,8 @@ The following are features that are planned and do not currently exist.
 - Verified users/lists. For example, Dylan Perry (creator of Ultimate Skyrim) could have an account verified and upload an official Ultimate Skyrim for people to compare against with confidence. 
 - More filtering options. For example, hiding disabled mods in modlist.txt by default and having a toggle to view them.
 - 2FA (authenticator app based). Low-priority. I don't feel anything on this site is really worth the security 2FA provides, and this will be more a learning exercise.
+- List filtering by game/author.
+- Pagination for browse lists page so it doesn't become too long.
 
 # Privacy
 
