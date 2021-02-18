@@ -13,45 +13,56 @@
 		</div>
 
 		<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
-			<div class="card-body bg-dark d-flex m-0 pr-10">
-				<div class="col-md-6 missing">
-					<h3 class="text-white">Missing <small class="text-white">(mods/settings not in {{ $list1->name }})</small></h3>
-					<ul class="list-group bg-dark lo-list" id="list{{$loop->index}}">
-						@forelse($file['missing'] as $missing)
-						<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
-							<div class="line">
-								{{$missing}}
-							</div>
-						</li>
-						@empty
-						<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
-							<div class="line">
-								Nothing is missing.
-							</div>
-						</li>
-						@endforelse
-					</ul>
+			<div class="text-white card-body bg-dark m-0 pr-10">
+				<div class="files-heading d-flex justify-content-between align-self-stretch mb-2">
+					<div class="missing">
+						<h3 class="text-white">Missing Files</h3>
+						<small class="text-white">Mods/settings not in <b>{{ $list1->name }}</b></small>
+					</div>
+
+					<div class="added">
+						<h3 class="text-white">Added Files</h3>
+						<small class="text-white">Mods/settings not in <b>{{ $list2->name }}</b></small>
+					</div>
+				</div>
+				<div class="files d-flex justify-content-between">
+					<div class="p-0 col-md-6 missing">
+						<ul class="list-group bg-dark lo-list d-flex" id="list{{$loop->index}}">
+							@forelse($file['missing'] as $missing)
+							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+								<div class="line">
+									{{$missing}}
+								</div>
+							</li>
+							@empty
+							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+								<div class="line">
+									Nothing is missing.
+								</div>
+							</li>
+							@endforelse
+						</ul>
+					</div>
+
+					<div class="p-0 col-md-6 added">
+						<ul class="list-group bg-dark lo-list" id="list{{$loop->index}}">
+							@forelse($file['added'] as $added)
+							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+								<div class="line">
+									{{$added}}
+								</div>
+							</li>
+							@empty
+							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+								<div class="line">
+									Nothing is added.
+								</div>
+							</li>
+							@endforelse
+						</ul>
+					</div>
 				</div>
 
-				<div class="col-md-6 added">
-					<h3 class="text-white">Added <small class="text-white">(mods/settings not in {{ $list2->name }})</small></h3>
-
-					<ul class="list-group bg-dark lo-list" id="list{{$loop->index}}">
-						@forelse($file['added'] as $added)
-						<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
-							<div class="line">
-								{{$added}}
-							</div>
-						</li>
-						@empty
-						<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
-							<div class="line">
-								Nothing is added.
-							</div>
-						</li>
-						@endforelse
-					</ul>
-				</div>
 			</div>
 		</div>
 	</div>
