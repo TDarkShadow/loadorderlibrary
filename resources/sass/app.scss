@@ -48,19 +48,28 @@ p {
 	}
 
 	.list2 {
-		max-width: 45%;
+		min-width: 45%;
+		text-align: right;
 	}
 }
 
 .files-heading {
-	.missing, .added {
+	.missing{
 		max-width: 48%;
+	}
+	.added {
+		min-width: 48%;
+		text-align: left;
 	}
 }
 
 .files {
-	.missing, .added {
+	.missing {
 		max-width: 48%;
+	}
+
+	.added {
+		min-width: 48%;
 	}
 }
 
