@@ -29,7 +29,7 @@
 							@endforeach
 						</ul>
 					</div>
-					<div class="d-flex justify-content-around align-self-center compare">
+					<div class="d-flex justify-content-around align-self-start compare">
 						<button type="submit" class="btn btn-primary">Compare!</button>
 					</div>
 
