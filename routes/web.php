@@ -31,5 +31,8 @@ Route::get('/account/change-password', 'ChangePasswordController@index')->name('
 Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
 // TODO: deleted/edit. 
 
+// Intentional error routes for testing purposes.
+Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('500-error');
+
 
 
