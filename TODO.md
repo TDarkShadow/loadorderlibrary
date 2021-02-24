@@ -4,12 +4,27 @@ A list of things to do, ordered by priority.
 
 <!-- TOC -->
 
-- [Load Order Library TODO](#load-order-library-todo)
+- [Account Deletion](#account-deletion)
+- [Add More Supported Games](#add-more-supported-games)
+- [Pagination For Browse Lists Page](#pagination-for-browse-lists-page)
+- [Better Filtering Of Lists](#better-filtering-of-lists)
+- [Delete Files From Disk](#delete-files-from-disk)
+- [Compare List From Its Page](#compare-list-from-its-page)
+- [Re-Write To Be More API Driven](#re-write-to-be-more-api-driven)
+- [List Search By Game/Author](#list-search-by-gameauthor)
+- [Downloading Of List Files.](#downloading-of-list-files)
+- [Password Recovery Forgot Password](#password-recovery-forgot-password)
+- [Editing Lists](#editing-lists)
+- [Implement 2FA](#implement-2fa)
+- [Verified Users/Lists](#verified-userslists)
 
 <!-- /TOC -->
 
 # Account Deletion
 Create a method of deleting accounts and lists associated with those accounts. Account recovery will not be possible.
+
+# Add More Supported Games
+Mod Organizer recently updated and added support for more games. Add those as options for lists, to be more in-line with MO2.
 
 # Pagination For Browse Lists Page
 Implement pagination, showing ~20 lists per page so it doesn't become too big.
