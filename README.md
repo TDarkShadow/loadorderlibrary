@@ -38,20 +38,7 @@ More planned and coming soon!
 
 # Planned Features 
 
-The following are features that are planned and do not currently exist. 
-
-- Account deletion (high priority). Currently there is no way for accounts to be deleted.
-- Downloading of list files. (high priority).
-- Implement a method whereby if a list is deleted and it was the only list to contain file(s) associated with it, delete those files from the disk as well.
-- A method of starting a list compare from a specific list, instead of having to go to the compare lists page explicity. 
-- Password recovery (forgot password). (Email is complicated). Changing of passwords provided you know the current one is already implemented.
-- Editing lists. Due to trying to keep the integrity of lists for the comparison tool, this will however only ever allow editing of the title, description, and game. If you missed uploading a file, or uploaded the wrong one, simply make a new list. 
-- Verified users/lists. For example, Dylan Perry (creator of Ultimate Skyrim) could have an account verified and upload an official Ultimate Skyrim for people to compare against with confidence. 
-- More filtering options. For example, hiding disabled mods in modlist.txt by default and having a toggle to view them.
-- 2FA (authenticator app based). Low-priority. I don't feel anything on this site is really worth the security 2FA provides, and this will be more a learning exercise.
-- List filtering by game/author.
-- Pagination for browse lists page so it doesn't become too long.
-- Complete re-write to be more API driven for integration into othe tools such as [Azura's Star](https://github.com/RingComics/azuras-star)
+See [TODO.md](https://github.com/phinocio/loadorderlibrary/blob/master/TODO.md).
 
 # Privacy
 
@@ -62,6 +49,10 @@ Data provided is entirely for the use of the site, and does not leave the server
 # Support/Issues
 
 If you find any issues or have any questions, please make an issue on this repository. Should this tool get big enough I may make a discord server or something.
+
+# Changelog
+
+See [CHANGELOG.md](https://github.com/phinocio/loadorderlibrary/blob/master/CHANGELOG.md).
 
 # Thanks
 
