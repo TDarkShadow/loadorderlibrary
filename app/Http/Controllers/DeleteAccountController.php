@@ -20,7 +20,7 @@ class DeleteAccountController extends Controller
 	{
 		$name = Auth()->user()->name;
 		try {
-			flash('Account <b>' . $name . '</b> successfully deleted!')->success()->important();
+			flash('Account <b>' . $name . '</b> and all its lists successfully deleted!')->success()->important();
 			Auth()->user()->delete();
 			return redirect('/');
 		} catch (\Throwable $th) {
