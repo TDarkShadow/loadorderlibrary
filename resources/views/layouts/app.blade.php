@@ -83,6 +83,10 @@
 								<a class="dropdown-item bg-dark text-white" href="{{ route('change-password') }}">
 									{{ __('Change Password') }}
 								</a>
+								<a class="dropdown-item bg-dark text-danger" href="{{ route('delete-account') }}">
+									{{ __('Delete Account') }}
+								</a>
+								<div class="dropdown-divider bg-dark"></div>
 								<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
 									{{ __('Logout') }}

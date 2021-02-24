@@ -114,3 +114,7 @@ p {
 .compare-radio:checked ~ .compare-checkbox {
 	background-color: $secondary;
 }
+
+.dropdown-divider {
+	border-top: 1px solid darken($dark, 20);
+}
