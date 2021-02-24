@@ -19,8 +19,13 @@ class DeleteAccountController extends Controller
 	public function destroy()
 	{
 		$name = Auth()->user()->name;
-		Auth()->user()->delete();
-		flash('Account <b>' . $name . '</b> successfully deleted!')->success()->important();
-		return redirect('/');
+		try {
+			flash('Account <b>' . $name . '</b> successfully deleted!')->success()->important();
+			Auth()->user()->delete();
+			return redirect('/');
+		} catch (\Throwable $th) {
+			flash('Something went wrong with account deletion. Please <a href="https://github.com/phinocio/loadorderlibrary/issues/new">make a Github issue</a> and let Phin know.')->error()->important();
+			return redirect()->back();
+		}
 	}
 }
