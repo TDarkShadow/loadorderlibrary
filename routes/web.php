@@ -32,7 +32,7 @@ Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results'
 Route::get('/account/change-password', 'ChangePasswordController@index')->name('change-password');
 Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
 Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-account');
-Route::post('/account/delete', 'DeleteAccountController@destroy')->name('delete-account-post');
+Route::post('/account/delete/{id}', 'DeleteAccountController@destroy')->name('delete-account-post');
 // TODO: deleted/edit. 
 
 // Intentional error routes for testing purposes.
