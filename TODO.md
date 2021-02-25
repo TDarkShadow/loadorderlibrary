@@ -7,6 +7,7 @@ A list of things to do, ordered by priority.
 - [**In Progress**](#in-progress)
 	- [**Add More Supported Games**](#add-more-supported-games)
 	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
+	- [**Implement Admin Page**](#implement-admin-page)
 - [**Future**](#future)
 	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
@@ -30,6 +31,17 @@ Mod Organizer recently updated and added support for more games. Add those as op
 
 ## **Pagination For Browse Lists Page**
 Implement pagination, showing ~20 lists per page so it doesn't become too big.
+
+## **Implement Admin Page**
+Add an admin only page that shows some minor stats such as
+
+- Total number of anonymous lists
+- Total number of lists with exact same name uploaded within say, ~5m of each other (to give me a slight idea on if people are having trouble uploading the first time).
+- Total number of registered users (no other info, literally just total number). 
+- Total number of lists. 
+- Total number of files stored on the server and the total size (good to see at a glance for space reasons - server only has 25GB storage).
+- Few other generic numbers I forget I want at the time of writing.
+
 
 ___
 
