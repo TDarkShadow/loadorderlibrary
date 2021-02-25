@@ -26,12 +26,6 @@ A list of things to do, ordered by priority.
 
 # **In Progress**
 
-## **Add More Supported Games**
-Mod Organizer recently updated and added support for more games. Add those as options for lists, to be more in-line with MO2.
-
-## **Pagination For Browse Lists Page**
-Implement pagination, showing ~20 lists per page so it doesn't become too big.
-
 ## **Implement Admin Page**
 Add an admin only page that shows some minor stats such as
 
@@ -42,6 +36,11 @@ Add an admin only page that shows some minor stats such as
 - Total number of files stored on the server and the total size (good to see at a glance for space reasons - server only has 25GB storage).
 - Few other generic numbers I forget I want at the time of writing.
 
+## **Add More Supported Games**
+Mod Organizer recently updated and added support for more games. Add those as options for lists, to be more in-line with MO2.
+
+## **Pagination For Browse Lists Page**
+Implement pagination, showing ~20 lists per page so it doesn't become too big.
 
 ___
 
