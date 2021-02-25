@@ -48,7 +48,7 @@ Data provided is entirely for the use of the site, and does not leave the server
 
 # Support/Issues
 
-If you find any issues or have any questions, please make an issue on this repository. Should this tool get big enough I may make a discord server or something.
+If you find any issues or have any questions, please make an issue on this repository or find help on the [Discord server](https://discord.gg/K3KnEgrQE4).
 
 # Changelog
 

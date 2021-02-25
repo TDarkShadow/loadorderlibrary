@@ -120,8 +120,8 @@
 					<p>
 						Load Order Library &copy; 2021 Phinocio.
 						<a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
-						<a href="https://github.com/phinocio/loadorderlibrary">Github</a>
-					</p>
+						<a href="https://github.com/phinocio/loadorderlibrary">Github</a> |
+						<a href="https://discord.gg/K3KnEgrQE4">Discord</a> </p>
 				</div>
 			</div>
 		</footer>
