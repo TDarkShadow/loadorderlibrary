@@ -13,6 +13,11 @@
 
 <!-- /TOC -->
 
+# v1.1.2
+> 2021-02-24
+
+- Update TODO with info on Admin page future addition and re-order in-progress to reflect working on Admin page currently. 
+
 # v1.1.1
 > 2021-02-24
 
