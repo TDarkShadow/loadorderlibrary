@@ -28,7 +28,6 @@
 
 ## Added
 - Added removed subheading definition
-- Added `jquery.min` import to `app.js`
 
 ## Changed
 - Changed previous changelog entry to add removed section.
