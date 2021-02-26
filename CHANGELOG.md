@@ -28,9 +28,11 @@
 
 ## Added
 - Added removed subheading definition
+- Added `laravel-mix-purgecss` package
 
 ## Changed
 - Changed previous changelog entry to add removed section.
+- Changed up `webpack.mix.js` file to try an minimize file sizes even more
 
 ## Removed
 - Deleted `resources/js/bootstrap.js` file
