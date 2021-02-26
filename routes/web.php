@@ -35,6 +35,9 @@ Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-acc
 Route::post('/account/delete', 'DeleteAccountController@destroy')->name('delete-account-post');
 // TODO: deleted/edit. 
 
+// Admin routes
+Route::get('admin/stats', 'AdminController@stats')->name('admin-stats');
+
 // Intentional error routes for testing purposes.
 Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('500-error');
 
