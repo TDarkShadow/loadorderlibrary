@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,7 +13,7 @@ const mix = require('laravel-mix');
  */
 
 // Sass
-mix.sass('resources/sass/app.scss', 'public/css').extract().sourceMaps();
+mix.sass('resources/sass/app.scss', 'public/css').purgeCss().extract().sourceMaps();
 
 // JS
 mix.js('resources/js/app.js', 'public/js').extract().sourceMaps();
