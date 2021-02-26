@@ -18,6 +18,13 @@
 
 <!-- /TOC -->
 
+# v1.2.4
+> 2021-02-24
+
+## Changed
+
+- Changed the file size display on stats page to be 2 decimals.
+
 # v1.2.3
 > 2021-02-25
 
