@@ -4,16 +4,9 @@
 
 <!-- TOC -->
 
+- [v1.2.2](#v122)
 - [v1.2.1](#v121)
-	- [Added](#added)
-	- [Changed](#changed)
-	- [Fixed](#fixed)
-	- [Updates](#updates)
 - [v1.2.0](#v120)
-	- [Added](#added)
-	- [Changed](#changed)
-	- [Fixed](#fixed)
-	- [Updates](#updates)
 - [v1.1.2](#v112)
 - [v1.1.1](#v111)
 - [v1.1.0](#v110)
@@ -24,20 +17,25 @@
 
 <!-- /TOC -->
 
-# v1.2.1
+# v1.2.2
 > 2021-02-25
 
-## Added
-- Nothing
+## Fixed
+- Fixed the display of percents for anonymous/private lists to be fixed to 2 decimals
+
+## Changed
+- Changed CHANGELOG subheadings (added/changed/etc) to only display if there was something in it so as to not clutter the changelog
+- Added subheadings to the rest of the CHANGELOG file
+
+
+# v1.2.1
+> 2021-02-25
 
 ## Changed
 - Changed all instances of `env()` in non config files to `config()`
 - Capitalized all insatances of `nothing` in CHANGELOG file
 - Removed ending period from every line in CHANGELOG file
 - Updated `package.json` scripts to reflect updates to `laravel-mix`
-
-## Fixed
-- Nothing
 
 ## Updates
 - NPM
@@ -72,23 +70,16 @@
 - Added CSS class for `.list-group-item-dark` to make it actually dark, and alternate color
 - Added link to stats page in user drop down if the user is an Admin
 
-## Changed
-- Nothing
-
-## Fixed
-- Nothing
-
-## Updates
-- Nothing
-
 # v1.1.2
 > 2021-02-24
 
+## Changed
 - Update TODO with info on Admin page future addition and re-order in-progress to reflect working on Admin page currently
 
 # v1.1.1
 > 2021-02-24
 
+## Changed
 - Updated README and added Discord links to README and site footer
 
 # v1.1.0
@@ -96,27 +87,33 @@
 
 Users are now able to delete accounts. Deleting an account completely deletes it and any associated lists with it from the database. 
 
+## Added
 - Added `Delete Account` link to user drop down
 - Added a divider between account actions and log out button in user drop down
 - Added `/account/delete` route with confirmation that deleting the account will also delete lists and will not be able to be reversed
 - Added `DeleteAccountController` to handle showing the previously added page (`index()` method), and handle deleting user accounts (`destroy()` method). 
 - Added view `delete-account.blade.php`
 - Added simple try/catch error handling to account deletion
+
+## Updates
 - Updated composer deps
 
 # v1.0.3
 > 2021-02-18
 
+## Added
 - Added CHANGELOG.md and previous entries
 
 # v1.0.2
 > 2021-02-18
 
+## Added
 - Added a route to intentionally provide an `HTTP 500` error for testing purposes with Azura's Star
 
 # v1.0.1 
 > 2021-02-18
 
+## Fixed
 - Fixed users not being able to see delete button on their own modlists as I was checking the wrong attribute. `$loadOrder->user` instead of `$loadOrder->author`
 
 # v1.0.0 
