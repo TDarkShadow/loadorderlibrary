@@ -85,7 +85,7 @@ class AdminController extends Controller
 
 		$fileStats[] = [
 			"name" => "File Size",
-			"value" => $fileSize / 1000000 // Divide by 1 million to get it into MB.
+			"value" => number_format($fileSize / 1000000, 2, '.', '') // Divide by 1 million to get it into MB.
 		];
 
 		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats]);
