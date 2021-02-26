@@ -51,6 +51,20 @@ class AdminController extends Controller
 		];
 
 		$listStats[] = [
+			"name" => "Private Lists",
+			"value" => count($lists->filter(function ($value, $key) {
+				return $value->is_private === 1;
+			}))
+		];
+
+		$listStats[] = [
+			"name" => "Percent Private",
+			"value" => (count($lists->filter(function ($value, $key) {
+				return $value->is_private === 1;
+			})) / count($lists)) * 100 . "%"
+		];
+
+		$listStats[] = [
 			"name" => "Anonymous Lists",
 			"value" => count($lists->filter(function ($value, $key) {
 				return $value->user_id == null;

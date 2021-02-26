@@ -9,12 +9,12 @@
 		<div class="d-flex col-md-4 align-items-stretch">
 			<div class="flex-fill card text-white bg-dark">
 				<div class="card-header">
-					<h3 class="card-title p-0 m-0">{{ __('User Stats') }}</h3>
+					<h3 class="card-title p-0 m-0">{{ __('List Stats') }}</h3>
 				</div>
 
 				<div class="card-body p-0">
 					<ul class="list-group bg-dark">
-						@foreach($userStats as $stat)
+						@foreach($listStats as $stat)
 						<li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
 							{{ $stat['name'] }}
 							<span class="badge badge-secondary badge-pill">{{ $stat['value'] }}</span>
@@ -28,12 +28,12 @@
 		<div class="d-flex col-md-4 align-items-stretch">
 			<div class="flex-fill card text-white bg-dark">
 				<div class="card-header">
-					<h3 class="card-title p-0 m-0">{{ __('List Stats') }}</h3>
+					<h3 class="card-title p-0 m-0">{{ __('User Stats') }}</h3>
 				</div>
 
 				<div class="card-body p-0">
 					<ul class="list-group bg-dark">
-						@foreach($listStats as $stat)
+						@foreach($userStats as $stat)
 						<li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
 							{{ $stat['name'] }}
 							<span class="badge badge-secondary badge-pill">{{ $stat['value'] }}</span>
