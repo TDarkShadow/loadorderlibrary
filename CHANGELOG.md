@@ -18,6 +18,12 @@
 
 <!-- /TOC -->
 
+# v1.2.3
+> 2021-02-25
+
+# Fixed
+- Fixed trying to load IDE Helper on testing by removing it from `AppServiceProvider`. 
+
 # v1.2.2
 > 2021-02-25
 
