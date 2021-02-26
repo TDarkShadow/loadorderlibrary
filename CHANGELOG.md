@@ -21,6 +21,26 @@
 
 <!-- /TOC -->
 
+# v1.2.6
+> 2021-02-25
+
+## Added
+- Added `manifest.js` and `vendor.js` files to js includes in `app.blade.php`
+
+## Changed
+- Change Laravel Mix to version files and create sourcemaps
+- Updated gitignore to ignore `mix-manifest.json`
+- Updated `app.blade.php` to use mix include for versioned files
+- Moved JS includes to bottom of body tag
+- Changed `app.js` to not include `bootstrap.js` (the file, not the framework) and manually defined includes
+- Removed commented out font include in `app.scss`
+
+## Updates
+- NPM
+	- Removed `popper.js`
+	- Removed `axios`
+	- Removed `lodash`
+
 # v1.2.5
 > 2021-02-25
 
