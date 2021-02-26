@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v1.2.6](#v126)
 - [v1.2.5](#v125)
 - [v1.2.4](#v124)
 - [v1.2.3](#v123)
@@ -34,6 +37,7 @@
 - Moved JS includes to bottom of body tag
 - Changed `app.js` to not include `bootstrap.js` (the file, not the framework) and manually defined includes
 - Removed commented out font include in `app.scss`
+- Removed ignored files from git cache
 
 ## Updates
 - NPM
