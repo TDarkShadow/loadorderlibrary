@@ -4,6 +4,8 @@
 
 <!-- TOC -->
 
+- [v1.2.0](#v120)
+- [v1.1.2](#v112)
 - [v1.1.1](#v111)
 - [v1.1.0](#v110)
 - [v1.0.3](#v103)
@@ -12,6 +14,41 @@
 - [v1.0.0](#v100)
 
 <!-- /TOC -->
+
+# v1.2.0
+> 2021-02-25
+
+## Added
+- Added `/admin/stats` route pointing to `AdminController::stats()`.
+- Added `AdminController` for handling Admin routes. 
+- Created an `IsAdmin` middleware check if user is admin and redirect back to `/` if not.
+- Added `admin-stats` view page.
+- Added stats of the following
+	- User Stats
+		- Total number of Users
+		- Total number of Admins
+		- How long ago the last user registered
+	- List Stats
+		- Total number of Lists
+		- Total number of Private Lists
+		- Percent of lists that are Private
+		- Total number of Anonymous Lists
+		- Percent of lists that are Anonymous
+	- File Stats
+		- Total Files
+		- Total size of Files (not same as "size on disk")
+- Added a cast to the `User` model to cast created_at into a timestamp.
+- Added CSS class for `.list-group-item-dark` to make it actually dark, and alternate color.
+- Added link to stats page in user drop down if the user is an Admin.
+
+## Changed
+- nothing
+
+## Fixed
+- nothing
+
+## Updates
+- nothing
 
 # v1.1.2
 > 2021-02-24
