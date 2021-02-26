@@ -12,10 +12,9 @@ const mix = require('laravel-mix');
  */
 
 // Sass
-mix.sass('resources/sass/app.scss', 'public/css').sourceMaps();
+mix.sass('resources/sass/app.scss', 'public/css').extract().sourceMaps();
 
 // JS
-mix.js('resources/js/app.js', 'public/js').sourceMaps();
-mix.extract(['bootstrap', 'jquery']);
+mix.js('resources/js/app.js', 'public/js').extract().sourceMaps();
 
 mix.version();
