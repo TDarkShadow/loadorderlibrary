@@ -15,19 +15,6 @@ p {
 	text-indent: 20px;
 }
 
-// .lo-list .lo-list-item
-// {
-//     counter-increment: step-counter;
-// }
-
-// .lo-list-item::before {
-// 	content: counter(step-counter, decimal-leading-zero);
-// 	margin-right: 20px;
-// 	padding: 50px;
-// 	background: $secondary;
-// 	display: inline-flex;
-// }
-
 .compare-choose {
 	.list1,
 	.compare,
@@ -117,4 +104,14 @@ p {
 
 .dropdown-divider {
 	border-top: 1px solid darken($dark, 20);
+}
+
+.list-group-item-dark {
+	border-radius: 0 !important;
+	background: lighten($dark, 5) !important;
+	color: $white;
+}
+
+.list-group-item-dark:nth-child(odd) {
+	background: lighten($dark, 10) !important;
 }
