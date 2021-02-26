@@ -107,7 +107,7 @@
 				</div>
 			</div>
 		</nav>
-		@if(env('APP_ENV') == 'testing')
+		@if(config('app.env') == 'testing')
 		<div class="alert alert-danger text-center" role="alert">
 			You are on the testing site! This version uses a completely separate database and stuff will be deleted/break. <a class="alert-link" href="https://loadorderlibrary.com">Return To Main Site</a>
 		</div>

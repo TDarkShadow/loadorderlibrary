@@ -123,7 +123,7 @@ class LoadOrderController extends Controller
 		$loadOrder->delete();
 		flash($loadOrder->name . ' successfully deleted!')->success();
 
-		if(env('APP_URL') . '/lists/' . $loadOrder->slug == back()->getTargetUrl()) {
+		if(config('app.url') . '/lists/' . $loadOrder->slug == back()->getTargetUrl()) {
 			return redirect('/');
 		}
 		

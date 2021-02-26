@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(GamesTableSeeder::class);
-		if(env('APP_ENV') == 'testing') {
+		if(config('app.env') == 'testing') {
 			$this->call(UsersTableSeeder::class);
 		}
     }

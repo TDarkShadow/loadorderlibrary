@@ -59,7 +59,7 @@ class UploadController extends Controller
 		// TODO: Change redirect to go to the list page itself.
 		flash($loadOrder->name . ' successfully uploaded!')->success()->important();
 		return response()->json([
-			"url" => env('APP_URL') . "/lists/" . $loadOrder->slug
+			"url" => config('app.url') . "/lists/" . $loadOrder->slug
 		]);
     }
 
