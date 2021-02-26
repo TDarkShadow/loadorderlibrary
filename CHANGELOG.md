@@ -14,6 +14,7 @@
 - [v1.0.2](#v102)
 - [v1.0.1](#v101)
 - [v1.0.0](#v100)
+- [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
 
@@ -120,3 +121,17 @@ Users are now able to delete accounts. Deleting an account completely deletes it
 > 2021-02-18
 
 - Initial release
+
+# Subheading definitions
+
+## Added
+Used for additions that did not already exist.
+
+## Fixed
+Used for fixes to existing things that don't function as intended.
+
+## Changed
+Used for updates/changes to existing things that doesn't fall under fixes. (Eg: adding headings to changelog, or changing the color of an element).
+
+## Updates
+Used for updates to NPM/Composer dependencies, whether updated, added, or removed.
