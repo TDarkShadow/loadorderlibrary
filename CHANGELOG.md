@@ -24,6 +24,12 @@
 
 <!-- /TOC -->
 
+# v1.2.7
+> 2021-02-25
+
+## Fixed
+- Fixed bootstrap import to hopefully not give popper error on server
+
 # v1.2.6
 > 2021-02-25
 
