@@ -23,6 +23,19 @@
 
 <!-- /TOC -->
 
+# v1.2.8
+> 2021-02-25
+
+## Added
+- Added removed subheading definition
+- Added `jquery.min` import to `app.js`
+
+## Changed
+- Changed previous changelog entry to add removed section.
+
+## Removed
+- Deleted `resources/js/bootstrap.js` file
+
 # v1.2.7
 > 2021-02-25
 
@@ -41,6 +54,8 @@
 - Updated `app.blade.php` to use mix include for versioned files
 - Moved JS includes to bottom of body tag
 - Changed `app.js` to not include `bootstrap.js` (the file, not the framework) and manually defined includes
+
+## Removed
 - Removed commented out font include in `app.scss`
 - Removed ignored files from git cache
 
@@ -192,6 +207,9 @@ Example: in [v1.2.2](#v122) I listed changing the decimals to be 2 spaces as a f
 
 ## Changed
 Used for updates/changes to existing things that doesn't fall under fixes. (Eg: adding headings to changelog, or changing the color of an element).
+
+## Removed
+Used for indicating things that were removed and not changed into something else. Like removing commenting code in a file, full functions, or entire files.
 
 ## Updates
 Used for updates to NPM/Composer dependencies, whether updated, added, or removed.
