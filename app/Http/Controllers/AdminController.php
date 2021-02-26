@@ -59,9 +59,9 @@ class AdminController extends Controller
 
 		$listStats[] = [
 			"name" => "Percent Private",
-			"value" => (count($lists->filter(function ($value, $key) {
+			"value" => number_format(((count($lists->filter(function ($value, $key) {
 				return $value->is_private === 1;
-			})) / count($lists)) * 100 . "%"
+			})) / count($lists)) * 100), 2, '.', '') . "%"
 		];
 
 		$listStats[] = [
@@ -73,9 +73,9 @@ class AdminController extends Controller
 
 		$listStats[] = [
 			"name" => "Percent Anonymous",
-			"value" => (count($lists->filter(function ($value, $key) {
-				return $value->user_id == null;
-			})) / count($lists)) * 100 . '%'
+			"value" => number_format(((count($lists->filter(function ($value, $key) {
+				return $value->user_id === null;
+			})) / count($lists)) * 100), 2, '.', '') . "%"
 		];
 
 		$fileStats[] = [
