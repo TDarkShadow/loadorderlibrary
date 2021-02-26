@@ -65,38 +65,43 @@
 						</li>
 						<!-- Authentication Links -->
 						@guest
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+							</li>
 						@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-						</li>
+							<li class="nav-item">
+								<a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+							</li>
 						@endif
 						@else
-						<li class="nav-item dropdown">
-							<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-								{{ Auth::user()->name }} <span class="caret"></span>
-							</a>
-
-							<div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item bg-dark text-white" href="{{ route('change-password') }}">
-									{{ __('Change Password') }}
-								</a>
-								<a class="dropdown-item bg-dark text-danger" href="{{ route('delete-account') }}">
-									{{ __('Delete Account') }}
-								</a>
-								<div class="dropdown-divider bg-dark"></div>
-								<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-									{{ __('Logout') }}
+							<li class="nav-item dropdown">
+								<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+									{{ Auth::user()->name }} <span class="caret"></span>
 								</a>
 
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									@csrf
-								</form>
-							</div>
-						</li>
+								<div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="navbarDropdown">
+									@if(Auth::user()->isAdmin())
+										<a class="dropdown-item bg-dark text-white" href="{{ route('admin-stats') }}">
+											{{ __('Stats') }}
+										</a>
+									@endif
+									<a class="dropdown-item bg-dark text-white" href="{{ route('change-password') }}">
+										{{ __('Change Password') }}
+									</a>
+									<a class="dropdown-item bg-dark text-danger" href="{{ route('delete-account') }}">
+										{{ __('Delete Account') }}
+									</a>
+									<div class="dropdown-divider bg-dark"></div>
+									<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
+														document.getElementById('logout-form').submit();">
+										{{ __('Logout') }}
+									</a>
+
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										@csrf
+									</form>
+								</div>
+							</li>
 						@endguest
 					</ul>
 				</div>
@@ -121,7 +126,8 @@
 						Load Order Library &copy; 2021 Phinocio.
 						<a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
 						<a href="https://github.com/phinocio/loadorderlibrary">Github</a> |
-						<a href="https://discord.gg/K3KnEgrQE4">Discord</a> </p>
+						<a href="https://discord.gg/K3KnEgrQE4">Discord</a>
+					</p>
 				</div>
 			</div>
 		</footer>
