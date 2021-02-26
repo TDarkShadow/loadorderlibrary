@@ -2,8 +2,11 @@
 
 # Table of Contents
 
-<!-- TOC -->
+<!-- TOC depthto:1 -->
 
+- [v1.2.5](#v125)
+- [v1.2.4](#v124)
+- [v1.2.3](#v123)
 - [v1.2.2](#v122)
 - [v1.2.1](#v121)
 - [v1.2.0](#v120)
@@ -18,18 +21,31 @@
 
 <!-- /TOC -->
 
+# v1.2.5
+> 2021-02-25
+
+## Fixed
+- Fixed wrong date on last 2 changelog entries. Oops
+- Fixed TOC
+
+## Changed
+- Updated TODO to reflect recent updates
+	- Moved `Implement Admin Page` to compelted
+	- Moved add more supported games to end of future as MO2 support isn't fully there
+	- Move `Better Filtering Of Lists` to in-progress
+
 # v1.2.4
-> 2021-02-24
+> 2021-02-25
 
 ## Changed
 
-- Changed the file size display on stats page to be 2 decimals.
+- Changed the file size display on stats page to be 2 decimals
 
 # v1.2.3
 > 2021-02-25
 
-# Fixed
-- Fixed trying to load IDE Helper on testing by removing it from `AppServiceProvider`. 
+## Fixed
+- Fixed trying to load IDE Helper on testing by removing it from `AppServiceProvider`
 
 # v1.2.2
 > 2021-02-25
@@ -141,7 +157,9 @@ Users are now able to delete accounts. Deleting an account completely deletes it
 Used for additions that did not already exist.
 
 ## Fixed
-Used for fixes to existing things that don't function as intended.
+Used for fixes to existing things that don't function as intended. 
+
+Example: in [v1.2.2](#v122) I listed changing the decimals to be 2 spaces as a fix as that was the intended result but I forgot to implement that. Whereas in [v1.2.4](#v124) I listed the change as a change instead, as it was already working as intended and I decided to change it to 2 decimal places.
 
 ## Changed
 Used for updates/changes to existing things that doesn't fall under fixes. (Eg: adding headings to changelog, or changing the color of an element).

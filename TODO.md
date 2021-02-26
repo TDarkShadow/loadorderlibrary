@@ -2,12 +2,10 @@
 
 A list of things to do, ordered by priority.
 
-<!-- TOC -->
+<!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
-	- [**Add More Supported Games**](#add-more-supported-games)
 	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
-	- [**Implement Admin Page**](#implement-admin-page)
 - [**Future**](#future)
 	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
@@ -19,35 +17,24 @@ A list of things to do, ordered by priority.
 	- [**Editing Lists**](#editing-lists)
 	- [**Implement 2FA**](#implement-2fa)
 	- [**Verified Users/Lists**](#verified-userslists)
+	- [**Add More Supported Games**](#add-more-supported-games)
 - [**Completed**](#completed)
 	- [**Account Deletion**](#account-deletion)
+	- [**Implement Admin Page**](#implement-admin-page)
 
 <!-- /TOC -->
 
 # **In Progress**
 
-## **Implement Admin Page**
-Add an admin only page that shows some minor stats such as
-
-- Total number of anonymous lists
-- Total number of lists with exact same name uploaded within say, ~5m of each other (to give me a slight idea on if people are having trouble uploading the first time).
-- Total number of registered users (no other info, literally just total number). 
-- Total number of lists. 
-- Total number of files stored on the server and the total size (good to see at a glance for space reasons - server only has 25GB storage).
-- Few other generic numbers I forget I want at the time of writing.
-
-## **Add More Supported Games**
-Mod Organizer recently updated and added support for more games. Add those as options for lists, to be more in-line with MO2.
-
 ## **Pagination For Browse Lists Page**
 Implement pagination, showing ~20 lists per page so it doesn't become too big.
+
+## **Better Filtering Of Lists**
+For example, hiding disabled mods and separators in modlist.txt by default, and giving a toggle to show them.
 
 ___
 
 # **Future**
-
-## **Better Filtering Of Lists**
-For example, hiding disabled mods and separators in modlist.txt by default, and giving a toggle to show them.
 
 ## **Delete Files From Disk**
 Implement a method were if a list is deleted and it's the only one associated with any files in it, also delete those files from disk.
@@ -76,6 +63,9 @@ Self-explanatory.
 ## **Verified Users/Lists**
 For example, Dylan Perry (creator of Ultimate Skyrim) could have an account verified and upload an official Ultimate Skyrim for people to compare against with confidence. Verified users will have a checkmark similar to Twitter. Official lists (which will be determined as such on upload by a verified user) will have a badge indicating it's an official list. The idea is to help users be confident that the list they're comparing against in the compare tool is the actual list as it's meant to be.
 
+## **Add More Supported Games**
+Mod Organizer recently updated and added support for more games. Add those as options for lists, to be more in-line with MO2.
+
 ____
 
 # **Completed**
@@ -85,5 +75,15 @@ ____
 
 Created a method of deleting accounts and lists associated with those accounts. Account recovery is not possible.
 
+## **Implement Admin Page**
+> Completed 2021-02-25
 
+Added an admin only page that shows some minor stats such as
+
+- Total number of anonymous lists
+- Total number of lists with exact same name uploaded within say, ~5m of each other (to give me a slight idea on if people are having trouble uploading the first time)
+- Total number of registered users (no other info, literally just total number)
+- Total number of lists
+- Total number of files stored on the server and the total size (good to see at a glance for space reasons - server only has 25GB storage)
+- Few other generic numbers I forget I want at the time of writing
 
