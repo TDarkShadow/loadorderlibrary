@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.3.1](#v131)
 - [v1.3.0](#v130)
 - [v1.2.8](#v128)
 - [v1.2.7](#v127)
@@ -24,6 +25,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.3.1
+> 2021-02-28
+
+## Fixed
+- Fixed separators not being parsed properly by changing `trim()` to `str_replace()`
 
 # v1.3.0
 > 2021-02-28
