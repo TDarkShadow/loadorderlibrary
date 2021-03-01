@@ -7,7 +7,6 @@ A list of things to do, ordered by priority.
 - [**In Progress**](#in-progress)
 	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
 - [**Future**](#future)
-	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
@@ -21,6 +20,7 @@ A list of things to do, ordered by priority.
 - [**Completed**](#completed)
 	- [**Account Deletion**](#account-deletion)
 	- [**Implement Admin Page**](#implement-admin-page)
+	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
 
 <!-- /TOC -->
 
@@ -28,9 +28,6 @@ A list of things to do, ordered by priority.
 
 ## **Pagination For Browse Lists Page**
 Implement pagination, showing ~20 lists per page so it doesn't become too big.
-
-## **Better Filtering Of Lists**
-For example, hiding disabled mods and separators in modlist.txt by default, and giving a toggle to show them.
 
 ___
 
@@ -87,3 +84,7 @@ Added an admin only page that shows some minor stats such as
 - Total number of files stored on the server and the total size (good to see at a glance for space reasons - server only has 25GB storage)
 - Few other generic numbers I forget I want at the time of writing
 
+## **Better Filtering Of Lists**
+> Completed 2021-02-28
+
+Modlist.txt now shows in the "proper" order, the `automatically generated` line is removed for display, separators are supported, and disabled mods in modlist.txt are hidden by default, with a toggle to show them. Also removed the `*` pre-fixing plugins in `plugins.txt`.
