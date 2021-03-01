@@ -35,49 +35,58 @@
 			<div class="card bg-dark col-md-12 mb-1 p-0">
 				<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
 					<h5 class="mb-0">
-						<button class="btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
-							{{ $file['name'] }}
+						<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
+							<span class="text-white">&#11166;</span> <b>{{ $file['name'] }}</b>
 						</button>
-
 					</h5>
+
 					<form class="form-inline my-2 my-lg-0">
+						@if($file['name'] == 'modlist.txt')
+						<div class="custom-control custom-switch mr-2">
+							<input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleHidden()">
+							<label class="custom-control-label text-white" for="customSwitch1">Show Disabled</label>
+						</div>
+						@endif
 						<input class="form-control mr-sm-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
 					</form>
 				</div>
 
 				<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
 					<div class="card-body bg-dark m-0 p-0">
-						<ul class="list-group bg-dark lo-list" id="list{{$loop->index}}">
-							@foreach(explode("\n", $file['content']) as $row)
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
-								<div class="counter">
-									{{ $loop->index + 1 }}
-								</div>
-								<div class="line">
+						<ul class="list-group bg-dark {{ $file['name'] }}" id="list{{$loop->index}}">
+							@foreach($file['content'] as $row)
+							<span>
+								<li class="bg-dark text-white {{ $loop->index % 2 == 0 ? 'list-group-item-dark' : 'list-group-item-dark-odd'}} d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
+									<div class="counter">
+										<span>
+											{{ $loop->index + 1 }}
+										</span>
+									</div>
+									<div class="line">
 
-									{{ $row }}
-								</div>
-							</li>
+										{{ $row['line'] }}
+									</div>
+								</li>
+							</span>
 							@endforeach
 						</ul>
-						<!-- <table class="table table-striped table-dark">
-							@foreach(explode("\n", $file['content']) as $row)
-							<tr>
-								<td>{{ $row }}</td>
-							</tr>
-							@endforeach
-						</table> -->
 					</div>
 				</div>
 			</div>
 			@endforeach
-
 		</div>
 	</div>
 
 </div>
 
 <script>
+	const disabled = document.querySelectorAll('.list-disabled');
+	function toggleHidden() {
+		console.log(disabled);
+
+		disabled[0].classList.toggle('list-disabled-hidden');
+	}
+
 	function filter(search, list) {
 
 		// Declare variables
@@ -92,12 +101,11 @@
 		for (i = 0; i < li.length; i++) {
 			a = li[i].getElementsByTagName("div")[1];
 			txtValue = a.textContent.trim() || a.innerText.trim();
+			console.log(li[i].parentElement);
 			if (txtValue.toLowerCase().indexOf(filter) >= 0) {
-				li[i].style.display = "";
-				li[i].classList = 'bg-dark text-white list-group-item lo-list-item d-flex align-items-center';
+				li[i].parentElement.className = "";
 			} else {
-				li[i].style.display = 'none';
-				li[i].classList -= 'd-flex';
+				li[i].parentElement.className = 'd-none';
 			}
 		}
 	}
