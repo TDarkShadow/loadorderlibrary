@@ -97,7 +97,7 @@ class LoadOrderController extends Controller
 				$class = null;
 				if ($fileName == 'modlist.txt') {
 					if (str_starts_with($line, '-')) {
-						$class = 'list-disabled';
+						$class = 'list-disabled list-disabled-hidden';
 						if (str_ends_with($line, '_separator')) {
 							$class = 'list-separator';
 							
