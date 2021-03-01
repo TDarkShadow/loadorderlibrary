@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v1.3.0](#v130)
 - [v1.2.8](#v128)
 - [v1.2.7](#v127)
 - [v1.2.6](#v126)
@@ -23,6 +26,35 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.3.0
+> 2021-02-28
+
+## Added
+- Added IDEAS.md for ideas that may or may not becom actual features
+- Added the removal of the `automatically generated` text that is present in certain files. The text still exists in the files themselves as I don't want to touch those, this is simply for display purposes
+- Added parsing of `modlist.txt` file in `LoadOrderController::show` to determine if a line is disabled or a separator and not use JS in front-end. Disabled mods in `modlist.txt` start hidden, with a toggle to view them
+- Added `.list-separator` and `.list-disabled` classes to style separators differently than the other items
+- Added a parent `<span>` around each `<li>` on `view-load-order.blade.php` for purposes of filtering and keeping classes. Bad fix, but eventual re-write will make it better
+- Added flex related settings to `.counter` to prevent bad looking spaces showing for lines that are too tall
+- Added a `list-group-item-dark-odd` class to alternate background because I'm too lazy to figure out a better method when I'm going to re-write anyway
+- Added a button to toggle hidden `modlist.txt` mods and accompanying JS to `view-load-order.blade.php` for it
+- Added an indicator that the file names are dropdowns
+
+## Fixed
+- Fixed typo of `insatances` to correct `instances` in [v1.2.1](#v121)
+
+## Changed
+- Changed `modlist.txt`, `loadorder.txt` and `plugins.txt` to reflect a more complex list for testing (TPF 4.3.2)
+- `view-load-order.blade.php` no longer does the logic of converting the txt of a file into an array, that is now done in `LoadOrderController::show` method
+- Changed top and bottom padding of `.counter` to 5 so each entry doesn't feel so big
+- Changed all `lo-list-item` classes to `list-group-item-dark` across multiple files to be more consistent
+- Cleaned up classes in `app.scss` to be more consistent
+- By changing to `list-group-item-dark`, lines are now more compact to view
+- Changed filter on `view-load-order.blade.php` to work somewhat better by not removing classes on elements but dealing with a parent `<span>`
+
+## Removed
+- Removed `lo-list` and `lo-list-item` classes
 
 # v1.2.8
 > 2021-02-25
@@ -109,7 +141,7 @@
 
 ## Changed
 - Changed all instances of `env()` in non config files to `config()`
-- Capitalized all insatances of `nothing` in CHANGELOG file
+- Capitalized all instances of `nothing` in CHANGELOG file
 - Removed ending period from every line in CHANGELOG file
 - Updated `package.json` scripts to reflect updates to `laravel-mix`
 
