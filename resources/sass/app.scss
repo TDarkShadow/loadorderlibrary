@@ -38,7 +38,7 @@ p {
 }
 
 .files-heading {
-	.missing{
+	.missing {
 		min-width: 45%;
 		max-width: 48%;
 	}
@@ -60,31 +60,7 @@ p {
 }
 
 .helper {
-
 	min-height: 50px;
-}
-
-.lo-list-item {
-	display: flex !important;
-	width: 100% !important;
-}
-
-.lo-list-item .counter {
-	margin-right: 20px;
-	padding: 10px;
-	background: $secondary;
-}
-
-.lo-list-item:nth-child(odd) {
-	background: lighten($dark, 5) !important;
-}
-
-.lo-list-item:hover {
-	background: lighten($dark, 10) !important;
-}
-
-.compare-radio {
-	display: none;
 }
 
 .compare-checkbox {
@@ -103,12 +79,63 @@ p {
 	border-top: 1px solid darken($dark, 20);
 }
 
+.counter {
+	margin: 0 20px 0 0;
+	padding: 5px 10px;
+	background: $secondary;
+	min-width: 5%;
+	min-height: 100%;
+	text-align: center;
+	display: flex;
+	align-self: stretch;
+	align-items: center;
+	justify-content: center;
+}
+
+.compare-radio {
+	display: none;
+}
+
 .list-group-item-dark {
 	border-radius: 0 !important;
 	background: lighten($dark, 5) !important;
 	color: $white;
 }
 
-.list-group-item-dark:nth-child(odd) {
+.list-group-item-dark-odd {
 	background: lighten($dark, 10) !important;
+}
+
+.list-group-item-dark,
+.list-group-item-dark-odd {
+	&:hover {
+		background: $dark !important;
+	}
+}
+
+.list-disabled {
+	background: darken($red, 10) !important;
+	text-decoration: line-through;
+	&:nth-child(odd) {
+		background: lighten($red, 10) !important;
+	}
+}
+
+.list-disabled-hidden {
+	display: none !important;
+}
+
+.list-separator {
+	background: $primary !important;
+	justify-content: center;
+	width: 100%;
+	&:nth-child(odd) {
+		background: $primary !important;
+	}
+	&:hover {
+		background: darken($primary, 10) !important;
+	}
+	.counter {
+		display: none;
+	}
 }
