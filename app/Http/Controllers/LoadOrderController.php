@@ -101,7 +101,7 @@ class LoadOrderController extends Controller
 						if (str_ends_with($line, '_separator')) {
 							$class = 'list-separator';
 							
-							$line = trim($line, '_separator');
+							$line = str_replace('_separator', '', $line);
 						}
 					}
 
