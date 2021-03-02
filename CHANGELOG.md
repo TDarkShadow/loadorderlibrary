@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.3.4](#v134)
 - [v1.3.3](#v133)
 - [v1.3.2](#v132)
 - [v1.3.1](#v131)
@@ -28,6 +29,29 @@
 
 <!-- /TOC -->
 
+# v1.3.4
+> 2021-03-02
+
+## Fixed
+
+- Fixed display of counter in list view on phones (I hope, only have so many to test on)
+- Fixed display of files in general on mobile. Compare results page still looks bad-ish, but it's good enough for now and not a priority
+
+## Changed
+
+- Changed subheading `Updates` to `Internals`
+- Moved both the list filter input and the `show disabled` switch into the file collapse itself as they're only needed when viewing a specific file
+- Changed the &#11166; arrow on files to a bold `+` since phones weren't displaying it
+
+## Internals
+- NPM
+	- Added `browser-sync`
+	- Added `browser-sync-webpack-plugin`
+- Composer
+	- Removed `fruitcake/laravel-cors`
+	- Updated `laravel/framework` from `v8.29.0` -> `v8.30.0`
+	- Updated `laravel/tinker` from `v2.6.0` -> `v2.6.1`
+
 # v1.3.3
 > 2021-03-01
 
@@ -49,6 +73,10 @@
 ## Removed
 
 - Removed commented out code on `compare-load-orders-results.blade.php`
+
+## Closed
+
+- https://github.com/phinocio/loadorderlibrary/issues/32
 
 
 # v1.3.2
@@ -152,7 +180,7 @@
 - Removed commented out font include in `app.scss`
 - Removed ignored files from git cache
 
-## Updates
+## Internals
 - NPM
 	- Removed `popper.js`
 	- Removed `axios`
@@ -204,7 +232,7 @@
 - Removed ending period from every line in CHANGELOG file
 - Updated `package.json` scripts to reflect updates to `laravel-mix`
 
-## Updates
+## Internals
 - NPM
 	- Update `laravel-mix` from `v5.0.9` -> `v6.0.13`
 	- Update `sass-loader` from `v10.1.1` -> `v11.0.1`
@@ -262,7 +290,7 @@ Users are now able to delete accounts. Deleting an account completely deletes it
 - Added view `delete-account.blade.php`
 - Added simple try/catch error handling to account deletion
 
-## Updates
+## Internals
 - Updated composer deps
 
 # v1.0.3
@@ -304,5 +332,8 @@ Used for updates/changes to existing things that doesn't fall under fixes. (Eg: 
 ## Removed
 Used for indicating things that were removed and not changed into something else. Like removing commenting code in a file, full functions, or entire files.
 
-## Updates
+## Internals
 Used for updates to NPM/Composer dependencies, whether updated, added, or removed.
+
+## Closed
+Used to link to closed Github issues, if applicable.
