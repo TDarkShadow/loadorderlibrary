@@ -102,7 +102,7 @@ p {
 	color: $white;
 }
 
-.list-group-item-dark-odd {
+.list-group-item-dark:nth-child(odd) {
 	background: lighten($dark, 10) !important;
 }
 
