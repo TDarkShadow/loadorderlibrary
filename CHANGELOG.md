@@ -27,8 +27,31 @@
 
 <!-- /TOC -->
 
+# v1.3.3
+> 2021-03-01
+
+## Added
+
+- Added `Differences` and `No Differences` badge to files on comparison results for a quick glance at what is different
+
+## Fixed
+
+- Fixed wrong date on previous changelog entry
+- Fixed heading saying `files` on the line by line results for files. It should have said `lines` instead
+
+## Changed
+
+- Changed comment on line 75 of `ComparisonController` to better indicate what it's doing
+- Change comparison results page to show all files that are in both lists
+- Changed card footer note on comparison results page to match now showing all files that are in both lists
+
+## Removed
+
+- Removed commented out code on `compare-load-orders-results.blade.php`
+
+
 # v1.3.2
-> 2021-02-29
+> 2021-03-01
 
 ## Fixed
 
