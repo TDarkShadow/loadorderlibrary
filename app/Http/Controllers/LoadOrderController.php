@@ -111,8 +111,9 @@ class LoadOrderController extends Controller
 					];
 
 				} else {
+					// First, check if the file is plugins.txt
 					if ($fileName == "plugins.txt") {
-						$line = substr($line, 1);
+						$line = str_replace("*", '', $line);
 					}
 					$parsedContent[] = [
 						"line" => $line,
