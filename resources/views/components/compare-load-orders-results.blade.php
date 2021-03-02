@@ -4,7 +4,7 @@
 		<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
 			<h5 class="mb-0">
 				<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
-					<span class="text-white">&#11166;</span> <b>{{ $file['filename'] }}</b>
+					<span class="text-white"><b>+</b></span> <b>{{ $file['filename'] }}</b>
 				</button>
 			</h5>
 

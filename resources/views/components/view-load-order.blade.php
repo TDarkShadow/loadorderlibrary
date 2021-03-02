@@ -36,36 +36,38 @@
 				<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
 					<h5 class="mb-0">
 						<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
-							<span class="text-white">&#11166;</span> <b>{{ $file['name'] }}</b>
+							<span class="text-white"><b>+</b></span> <b>{{ $file['name'] }}</b>
 						</button>
 					</h5>
 
-					<form class="form-inline my-2 my-lg-0">
-						@if($file['name'] == 'modlist.txt')
-						<div class="custom-control custom-switch mr-2">
-							<input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleHidden()">
-							<label class="custom-control-label text-white" for="customSwitch1">Show Disabled</label>
-						</div>
-						@endif
-						<input class="form-control mr-sm-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
-					</form>
+
 				</div>
 
 				<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
 					<div class="card-body bg-dark m-0 p-0">
+						<form class="form-inline d-flex justify-content-between">
+							<input class="form-control mb-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
+
+							@if($file['name'] == 'modlist.txt')
+							<div class="custom-control custom-switch mx-2 mb-2">
+								<input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleHidden()">
+								<label class="custom-control-label text-white" for="customSwitch1">Show Disabled</label>
+							</div>
+							@endif
+						</form>
 						<ul class="list-group bg-dark {{ $file['name'] }}" id="list{{$loop->index}}">
 							@foreach($file['content'] as $row)
-								<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
-									<div class="counter">
-										<span>
-											{{ $loop->index + 1 }}
-										</span>
-									</div>
-									<div class="line">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
+								<div class="counter">
+									<span>
+										{{ $loop->index + 1 }}
+									</span>
+								</div>
+								<div class="line">
 
-										{{ $row['line'] }}
-									</div>
-								</li>
+									{{ $row['line'] }}
+								</div>
+							</li>
 							@endforeach
 						</ul>
 					</div>
