@@ -98,6 +98,7 @@ p {
 
 .list-group-item-dark {
 	border-radius: 0 !important;
+	border: none !important;
 	background: lighten($dark, 5) !important;
 	color: $white;
 }

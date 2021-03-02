@@ -19,7 +19,6 @@
 					<h3><a href="/lists/{{ $list2->slug }}">{{ $list2->name }}</a></h3>
 					<span>by <b>{{ $list2->author ? $list2->author->name : 'Anonymous' }}</b></span>
 				</div>
-
 			</div>
 
 			<div class="text-white card-body bg-dark m-0 pr-10">
@@ -38,13 +37,13 @@
 					<div class="p-0 col-md-6 missing">
 						<ul class="list-group bg-dark lo-list d-flex">
 							@forelse($results['files'][0]['missing'] as $missing)
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									{{$missing}}
 								</div>
 							</li>
 							@empty
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									Nothing is missing.
 								</div>
@@ -56,13 +55,13 @@
 					<div class="p-0 col-md-6 added">
 						<ul class="list-group bg-dark lo-list">
 							@forelse($results['files'][0]['added'] as $added)
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									{{$added}}
 								</div>
 							</li>
 							@empty
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									Nothing is added.
 								</div>

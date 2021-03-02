@@ -17,7 +17,7 @@
 						<ul class="list-group bg-dark mt-2" id="list1">
 							@foreach($loadOrders as $list)
 							<label for="list1-{{ $list->id }}">
-								<li class="bg-dark text-white list-group-item-dark d-flex align-items-center">
+								<li class="bg-dark text-white list-group-item list-group-item-dark p-2 d-flex align-items-center">
 									<input class="compare-radio" type="radio" name="list1" id="list1-{{ $list->id }}" value="{{ $list->slug }}">
 									<span class="compare-checkbox"></span>
 									<div class="list-info">
@@ -45,7 +45,7 @@
 						<ul class="list-group bg-dark mt-2" id="list2">
 							@foreach($loadOrders as $list)
 							<label for="list2-{{ $list->id }}">
-								<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+								<li class="bg-dark text-white list-group-item list-group-item-dark p-2 d-flex align-items-center">
 									<input class="compare-radio" type="radio" name="list2" id="list2-{{ $list->id }}" value="{{ $list->slug }}">
 									<span class=" compare-checkbox"></span>
 									<div class="list-info">

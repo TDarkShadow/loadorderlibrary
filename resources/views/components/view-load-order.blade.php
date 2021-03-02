@@ -55,7 +55,7 @@
 					<div class="card-body bg-dark m-0 p-0">
 						<ul class="list-group bg-dark {{ $file['name'] }}" id="list{{$loop->index}}">
 							@foreach($file['content'] as $row)
-								<li class="bg-dark text-white list-group-item-dark d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
+								<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
 									<div class="counter">
 										<span>
 											{{ $loop->index + 1 }}
