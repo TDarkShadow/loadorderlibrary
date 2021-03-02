@@ -110,7 +110,7 @@ p {
 .list-group-item-dark,
 .list-group-item-dark-odd {
 	&:hover {
-		background: $dark !important;
+		background: lighten($dark, 15) !important;
 	}
 }
 
