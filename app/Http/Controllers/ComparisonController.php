@@ -71,19 +71,21 @@ class ComparisonController extends Controller
 				$file2 = explode('-', $list2File);
 				// We're working with the same file name
 				if($file1[1] == $file2[1]) {
-					// The hashes are the same, so the file is the same.
+
+					// Check that the hashes aren't the same, else the file is the same
 					if($file1[0] != $file2[0]) {
 						$diff = $this->compareFiles($list1File, $list2File);
 
-						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added']]);
+						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added'], 'class' => 'badge-danger']);
 						
+					} else {
+						array_push($results['contents'], ['filename' => $file1[1], 'missing' => [], 'added' => [], 'class' => 'badge-success']);
 					}
 				}
 			}
 		}
 
 		// dd($results, $list1FilesCleanName, $list2FilesCleanName, $missingFiles, $addedFiles);
-
 		return $results;
 	}
 
