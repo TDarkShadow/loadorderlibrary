@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.3.2](#v132)
 - [v1.3.1](#v131)
 - [v1.3.0](#v130)
 - [v1.2.8](#v128)
@@ -25,6 +26,38 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.3.2
+> 2021-02-29
+
+## Added
+
+## Fixed
+
+- Fixed alternating BG for list items on admin stats page, compare page, and compare results page
+- Fixed compare page list of lists looking ugly
+- Fixed removing first letter of a plugin name if plugins in `plugins.txt` do not start with `*`
+
+## Changed
+
+- Changed filter to use `remove()` and `add()` `classList` methods so I don't need to use the wrapping `<span>` hack
+- Changed all `list-group-item-dark` to `list-group item list-group-item-dark` as that's what it's meant to be. Oops
+- Changed file name display on compare results page to be the same as list view
+- Changed the hover BG color for list items to be lighter as it was matching the BG on other pages
+
+## Removed
+
+- Removed leftover debugging `console.log` in `view-load-order.blade.php`
+- Removed wrapping `<span>` around each list item in `view-load-order.blade.php`
+- Removed hacky if statement to apply `list-group-item-dark` or `list-group-item-dark-odd` classes on list items in `view-load-order.blade.php`
+- Removed `.list-group-item-dark-odd` class
+
+## Updated
+
+## Closed
+
+- https://github.com/phinocio/loadorderlibrary/issues/35
+- https://github.com/phinocio/loadorderlibrary/issues/36
 
 # v1.3.1
 > 2021-02-28
