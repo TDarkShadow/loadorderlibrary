@@ -30,8 +30,6 @@
 # v1.3.2
 > 2021-02-29
 
-## Added
-
 ## Fixed
 
 - Fixed alternating BG for list items on admin stats page, compare page, and compare results page
@@ -52,10 +50,9 @@
 - Removed hacky if statement to apply `list-group-item-dark` or `list-group-item-dark-odd` classes on list items in `view-load-order.blade.php`
 - Removed `.list-group-item-dark-odd` class
 
-## Updated
-
 ## Closed
 
+- https://github.com/phinocio/loadorderlibrary/issues/34
 - https://github.com/phinocio/loadorderlibrary/issues/35
 - https://github.com/phinocio/loadorderlibrary/issues/36
 
