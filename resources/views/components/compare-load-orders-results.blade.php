@@ -3,13 +3,10 @@
 	<div class="card bg-dark col-md-12 mb-1 p-0">
 		<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
 			<h5 class="mb-0">
-				<button class="btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
-					{{ $file['filename'] }}
+				<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
+					<span class="text-white">&#11166;</span> <b>{{ $file['filename'] }}</b>
 				</button>
 			</h5>
-			<!-- <form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
-			</form> -->
 		</div>
 
 		<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
@@ -29,13 +26,13 @@
 					<div class="p-0 col-md-6 missing">
 						<ul class="list-group bg-dark lo-list d-flex" id="list{{$loop->index}}">
 							@forelse($file['missing'] as $missing)
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark  d-flex align-items-center">
 								<div class="line">
 									{{$missing}}
 								</div>
 							</li>
 							@empty
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									Nothing is missing.
 								</div>
@@ -47,13 +44,13 @@
 					<div class="p-0 col-md-6 added">
 						<ul class="list-group bg-dark lo-list" id="list{{$loop->index}}">
 							@forelse($file['added'] as $added)
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									{{$added}}
 								</div>
 							</li>
 							@empty
-							<li class="bg-dark text-white list-group-item lo-list-item d-flex align-items-center">
+							<li class="bg-dark text-white list-group-item list-group-item-dark d-flex align-items-center">
 								<div class="line">
 									Nothing is added.
 								</div>
