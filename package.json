@@ -11,6 +11,9 @@
 	},
 	"devDependencies": {
 		"bootstrap": "^4.6.0",
+		"browser-sync": "^2.26.14",
+		"browser-sync-webpack-plugin": "^2.2.2",
+		"browsersync": "^0.0.1-security",
 		"cross-env": "^7.0.3",
 		"jquery": "^3.5.1",
 		"laravel-mix": "^6.0.13",
