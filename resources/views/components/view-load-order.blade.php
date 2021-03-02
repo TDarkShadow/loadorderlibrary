@@ -55,8 +55,7 @@
 					<div class="card-body bg-dark m-0 p-0">
 						<ul class="list-group bg-dark {{ $file['name'] }}" id="list{{$loop->index}}">
 							@foreach($file['content'] as $row)
-							<span>
-								<li class="bg-dark text-white {{ $loop->index % 2 == 0 ? 'list-group-item-dark' : 'list-group-item-dark-odd'}} d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
+								<li class="bg-dark text-white list-group-item-dark d-flex align-items-center p-0 m-0 {{ $row['class'] }}">
 									<div class="counter">
 										<span>
 											{{ $loop->index + 1 }}
@@ -67,7 +66,6 @@
 										{{ $row['line'] }}
 									</div>
 								</li>
-							</span>
 							@endforeach
 						</ul>
 					</div>
@@ -81,6 +79,7 @@
 
 <script>
 	const disabled = document.querySelectorAll('.list-disabled');
+
 	function toggleHidden() {
 		console.log(disabled);
 
@@ -101,11 +100,12 @@
 		for (i = 0; i < li.length; i++) {
 			a = li[i].getElementsByTagName("div")[1];
 			txtValue = a.textContent.trim() || a.innerText.trim();
-			console.log(li[i].parentElement);
 			if (txtValue.toLowerCase().indexOf(filter) >= 0) {
-				li[i].parentElement.className = "";
+				li[i].classList.remove('d-none');
+				li[i].classList.add('d-flex');
 			} else {
-				li[i].parentElement.className = 'd-none';
+				li[i].classList.remove('d-flex');
+				li[i].classList.add('d-none');
 			}
 		}
 	}
