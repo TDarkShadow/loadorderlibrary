@@ -13,7 +13,7 @@
 					<span>by <b>{{ $list1->author ? $list1->author->name : 'Anonymous' }}</b></span>
 				</div>
 				<div class="align-self-center vs">
-					<h5>VS.</h5>
+					<h5>VS</h5>
 				</div>
 				<div class="list2">
 					<h3><a href="/lists/{{ $list2->slug }}">{{ $list2->name }}</a></h3>
