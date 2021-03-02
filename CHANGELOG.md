@@ -29,6 +29,13 @@
 
 <!-- /TOC -->
 
+# v1.3.5
+> 20201-03-02
+
+## Internals
+- Composer
+	- Added `fruitcake/laravel-cors`. Apparently it's required. Oops
+
 # v1.3.4
 > 2021-03-02
 
