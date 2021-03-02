@@ -19,3 +19,8 @@ mix.sass('resources/sass/app.scss', 'public/css').purgeCss().sourceMaps();
 mix.js('resources/js/app.js', 'public/js').extract().sourceMaps();
 
 mix.version();
+
+if(!mix.inProduction()) {
+	// Browsersync
+	mix.browserSync('loadorderlibrary.localhost');
+}
