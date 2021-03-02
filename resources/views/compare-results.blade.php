@@ -73,7 +73,7 @@
 			</div>
 
 			<div class="card-footer text-white">
-				NOTE: Results below only show that exist in both lists.
+				NOTE: Results below only show files that exist in both lists.
 			</div>
 
 		</div>
