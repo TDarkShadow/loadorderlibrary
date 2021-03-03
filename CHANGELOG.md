@@ -4,8 +4,6 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
 - [v1.4.2](#v142)
 - [v1.4.1](#v141)
 - [v1.4.0](#v140)
