@@ -46,7 +46,7 @@
 				<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
 					<div class="card-body bg-dark m-0 p-0">
 						<form class="form-inline d-flex justify-content-between">
-							<input class="form-control mb-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
+							<input class="form-control mx-2 mb-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
 
 							@if($file['name'] == 'modlist.txt')
 							<div class="custom-control custom-switch mx-2 mb-2">
