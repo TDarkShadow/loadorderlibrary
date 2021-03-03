@@ -5,10 +5,9 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
-	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
 	- [**Downloading Of List Files**](#downloading-of-list-files)
 - [**Future**](#future)
-	- [\*\*Parse File Names On Upload](#%5C%5Cparse-file-names-on-upload)
+	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
@@ -22,14 +21,11 @@ A list of things to do, ordered by priority.
 	- [**Account Deletion**](#account-deletion)
 	- [**Implement Admin Page**](#implement-admin-page)
 	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
+	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
 
 <!-- /TOC -->
 
 # **In Progress**
-
-## **Pagination For Browse Lists Page**
-
-Implement pagination, showing ~20 lists per page so it doesn't become too big.
 
 ## **Downloading Of List Files**
 
@@ -39,7 +35,7 @@ Implement a way to download individual files, or all of them as a .zip.
 
 # **Future**
 
-## \*\*Parse File Names On Upload
+## **Parse File Names On Upload**
 
 Currently, files uploaded as `modlist(1).txt` and the like, don't get changed into `modlist.txt` which is breaking some things as I rely on the filename. To fix that I'll probablby validate names on upload compared to a masterlist of relevant files for lists. Including but not limited to
 
@@ -97,7 +93,6 @@ Mod Organizer recently updated and added support for more games. Add those as op
 Created a method of deleting accounts and lists associated with those accounts. Account recovery is not possible.
 
 ## **Implement Admin Page**
-
 > Completed 2021-02-25
 
 Added an admin only page that shows some minor stats such as
@@ -110,7 +105,11 @@ Added an admin only page that shows some minor stats such as
 -   Few other generic numbers I forget I want at the time of writing
 
 ## **Better Filtering Of Lists**
-
 > Completed 2021-02-28
 
 Modlist.txt now shows in the "proper" order, the `automatically generated` line is removed for display, separators are supported, and disabled mods in modlist.txt are hidden by default, with a toggle to show them. Also removed the `*` pre-fixing plugins in `plugins.txt`.
+
+## **Pagination For Browse Lists Page**
+> Completed 2021-03-02
+
+Pagination for the Browse Lists page shows 15 per page.
