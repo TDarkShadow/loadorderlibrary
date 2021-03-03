@@ -23,14 +23,12 @@ class HomeController extends Controller
     public function index()
     {
         $loadOrders = '';
-        $compare = \App\LoadOrder::where('name', '!=', 'Untitled List')->where('is_private', false)->get();
 
         if (\Auth::check()) {
-            $loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->get();
+            $loadOrders = \App\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(15);
 		}
 		
         return view('home')
-            ->with('loadOrders', $loadOrders)
-            ->with('compare', $compare);
+            ->with('loadOrders', $loadOrders);
     }
 }
