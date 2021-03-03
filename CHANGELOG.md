@@ -31,6 +31,12 @@
 
 <!-- /TOC -->
 
+# v1.4.1
+> 2021-03-02
+
+## Changed
+- Gave the filter input more margin on `view-load-order.blade.php`
+
 # v1.4.0
 > 2021-03-02
 
