@@ -4,6 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\View\Component;
+Use Illuminate\Pagination\LengthAwarePaginator;
 
 class ViewLoadOrders extends Component
 {
@@ -20,7 +21,7 @@ class ViewLoadOrders extends Component
      * @var Collection $loadOrders
      * @return void
      */
-    public function __construct(Collection $loadOrders)
+    public function __construct(LengthAwarePaginator $loadOrders)
     {
         $this->loadOrders = $loadOrders;
     }
