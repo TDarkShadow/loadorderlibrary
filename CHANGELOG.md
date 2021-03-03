@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.4.0](#v140)
 - [v1.3.5](#v135)
 - [v1.3.4](#v134)
 - [v1.3.3](#v133)
@@ -30,6 +31,17 @@
 
 <!-- /TOC -->
 
+# v1.4.0
+> 2021-03-02
+
+## Added
+- Added pagniation view files so I can edit them
+- Added Pagination to the list view page so it doesn't get too big
+
+## Changed
+- Removed spaces between subheader and content to be consistent
+- Changed `->get()` to `->paginate(15)` when getting lists in `LoadOrderController`
+
 # v1.3.5
 > 20201-03-02
 
@@ -41,12 +53,10 @@
 > 2021-03-02
 
 ## Fixed
-
 - Fixed display of counter in list view on phones (I hope, only have so many to test on)
 - Fixed display of files in general on mobile. Compare results page still looks bad-ish, but it's good enough for now and not a priority
 
 ## Changed
-
 - Changed subheading `Updates` to `Internals`
 - Moved both the list filter input and the `show disabled` switch into the file collapse itself as they're only needed when viewing a specific file
 - Changed the &#11166; arrow on files to a bold `+` since phones weren't displaying it
@@ -64,26 +74,21 @@
 > 2021-03-01
 
 ## Added
-
 - Added `Differences` and `No Differences` badge to files on comparison results for a quick glance at what is different
 
 ## Fixed
-
 - Fixed wrong date on previous changelog entry
 - Fixed heading saying `files` on the line by line results for files. It should have said `lines` instead
 
 ## Changed
-
 - Changed comment on line 75 of `ComparisonController` to better indicate what it's doing
 - Change comparison results page to show all files that are in both lists
 - Changed card footer note on comparison results page to match now showing all files that are in both lists
 
 ## Removed
-
 - Removed commented out code on `compare-load-orders-results.blade.php`
 
 ## Closed
-
 - https://github.com/phinocio/loadorderlibrary/issues/32
 
 
@@ -91,20 +96,17 @@
 > 2021-03-01
 
 ## Fixed
-
 - Fixed alternating BG for list items on admin stats page, compare page, and compare results page
 - Fixed compare page list of lists looking ugly
 - Fixed removing first letter of a plugin name if plugins in `plugins.txt` do not start with `*`
 
 ## Changed
-
 - Changed filter to use `remove()` and `add()` `classList` methods so I don't need to use the wrapping `<span>` hack
 - Changed all `list-group-item-dark` to `list-group item list-group-item-dark` as that's what it's meant to be. Oops
 - Changed file name display on compare results page to be the same as list view
 - Changed the hover BG color for list items to be lighter as it was matching the BG on other pages
 
 ## Removed
-
 - Removed leftover debugging `console.log` in `view-load-order.blade.php`
 - Removed wrapping `<span>` around each list item in `view-load-order.blade.php`
 - Removed hacky if statement to apply `list-group-item-dark` or `list-group-item-dark-odd` classes on list items in `view-load-order.blade.php`
