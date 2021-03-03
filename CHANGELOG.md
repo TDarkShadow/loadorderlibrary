@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v1.4.2](#v142)
 - [v1.4.1](#v141)
 - [v1.4.0](#v140)
 - [v1.3.5](#v135)
@@ -31,6 +34,18 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.4.2
+> 2021-03-02
+
+## Added
+- Added pagination links to main page when logged in
+
+## Fixed
+- Fixed 500 error on main page when logged in by adding the same pagination to it that I added to browse lists page
+
+## Removed
+- Removed `$compare` from `HomeController` as it was unused
 
 # v1.4.1
 > 2021-03-02
