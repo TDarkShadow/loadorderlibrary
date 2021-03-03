@@ -22,7 +22,7 @@ class LoadOrderController extends Controller
 	 */
 	public function index(): View
 	{
-		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->get();
+		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->paginate(2);
 
 		return view('load-orders')->with('loadOrders', $loadOrders);
 	}
