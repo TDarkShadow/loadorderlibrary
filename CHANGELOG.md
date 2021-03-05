@@ -34,6 +34,21 @@
 
 <!-- /TOC -->
 
+# v1.6.0
+> 2021-03-04
+
+## Added
+
+## Fixed
+
+## Changed
+
+## Removed
+
+## Internals
+
+## Closed
+
 # v1.5.0
 > 2021-03-04
 
