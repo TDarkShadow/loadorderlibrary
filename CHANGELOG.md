@@ -4,7 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [v1.6.0](#v160)
+- [v1.5.1](#v151)
 - [v1.5.0](#v150)
 - [v1.4.2](#v142)
 - [v1.4.1](#v141)
@@ -35,14 +35,13 @@
 
 <!-- /TOC -->
 
-<<<<<<< HEAD
-=======
-# v1.6.0
+# v1.5.1
 > 2021-03-04
 
 ## Added
 
 ## Fixed
+- Fixed issues with comparing plugins.txt by just removing `*` from the file before compare (doesn't touch the file on disk)
 
 ## Changed
 
@@ -52,7 +51,6 @@
 
 ## Closed
 
->>>>>>> 5f4067b (update changelog)
 # v1.5.0
 > 2021-03-04
 
