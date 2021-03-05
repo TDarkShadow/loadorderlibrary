@@ -37,7 +37,8 @@ class ComparisonController extends Controller
 		return view('compare-results')->with('results', $results)->with('list1', $list1)->with('list2', $list2);
 	}
 
-	private function compareLists($list1, $list2) {
+	private function compareLists($list1, $list2)
+	{
 		$results = [
 			'files' => [],
 			'contents' => []
@@ -64,20 +65,19 @@ class ComparisonController extends Controller
 
 		array_push($results['files'], ['missing' => $missingFiles, 'added' => $addedFiles]);
 
-		foreach($list1Files as $list1File) {
+		foreach ($list1Files as $list1File) {
 			$file1 = explode('-', $list1File);
-			
-			foreach($list2Files as $list2File) {
+
+			foreach ($list2Files as $list2File) {
 				$file2 = explode('-', $list2File);
 				// We're working with the same file name
-				if($file1[1] == $file2[1]) {
+				if ($file1[1] == $file2[1]) {
 
 					// Check that the hashes aren't the same, else the file is the same
-					if($file1[0] != $file2[0]) {
+					if ($file1[0] != $file2[0]) {
 						$diff = $this->compareFiles($list1File, $list2File);
 
 						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added'], 'class' => 'badge-danger']);
-						
 					} else {
 						array_push($results['contents'], ['filename' => $file1[1], 'missing' => [], 'added' => [], 'class' => 'badge-success']);
 					}
@@ -89,16 +89,16 @@ class ComparisonController extends Controller
 		return $results;
 	}
 
-	private function compareFiles($file1, $file2) {
-		$file1 = explode("\n", trim(str_replace('*', '', \Storage::get('uploads/' . $file1))));
-		$file2 = explode("\n", trim(str_replace('*', '', \Storage::get('uploads/' . $file2))));
-		
+	private function compareFiles($file1, $file2)
+	{
+		$file1 = array_map('trim', explode("\n", trim(str_replace('*', '', \Storage::get('uploads/' . $file1)))));
+		$file2 = array_map('trim', explode("\n", trim(str_replace('*', '', \Storage::get('uploads/' . $file2)))));
+
 		$missing = array_diff($file2, $file1);
 		$added = array_diff($file1, $file2);
 
-		
+
 
 		return ['missing' => $missing, 'added' => $added];
-
 	}
 }
