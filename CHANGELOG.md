@@ -4,8 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v1.5.0](#v150)
 - [v1.4.2](#v142)
 - [v1.4.1](#v141)
 - [v1.4.0](#v140)
@@ -34,6 +33,27 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.6.0
+> 2021-03-04
+
+## Added
+
+## Fixed
+
+## Changed
+
+## Removed
+
+## Internals
+
+## Closed
+
+# v1.5.0
+> 2021-03-04
+
+## Changed
+- Changed comparison page to be "disabled" with a note I found an issue and am working on it
 
 # v1.4.2
 > 2021-03-02
