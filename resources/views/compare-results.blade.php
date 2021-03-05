@@ -3,10 +3,9 @@
 @section('title', 'Compare Results')
 
 @section('content')
-<h1 class="text-white">Compare Results (BETA) - DISABLED</h1>
+<h1 class="text-white">Compare Results (BETA)</h1>
 <div class="row justify-content-center">
 	<div class="col-md-12">
-
 		<div class="card bg-dark col-md-12 mb-3">
 			<div class="card-header d-flex justify-content-between align-items-center text-white compare-results">
 				<div class="list1">
