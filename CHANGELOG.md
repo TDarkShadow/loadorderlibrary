@@ -4,7 +4,8 @@
 
 <!-- TOC depthto:1 -->
 
-- [v1.5.1](#v151)
+- [v1.6.1](#v161)
+- [v1.6.0](#v160)
 - [v1.5.0](#v150)
 - [v1.4.2](#v142)
 - [v1.4.1](#v141)
@@ -34,6 +35,13 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.6.1
+> 2021-03-05
+
+## Fixed
+- Fixed a bad regex to find all line break characters and replace them with `\n`. All uploaded files should now be converted to LF on upload as intended
+
 
 # v1.6.0
 > 2021-03-04
