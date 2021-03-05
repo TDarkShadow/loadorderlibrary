@@ -187,7 +187,7 @@ class LoadOrderController extends Controller
 
 		foreach ($files as $file) {
 			$contents = file_get_contents($file);
-			$contents = preg_replace('[\r\n]+', "\n", $contents);
+			$contents = preg_replace('/[\r\n]+/', "\n", $contents);
 			file_put_contents($file, $contents);
 			$fileName = md5($file->getClientOriginalName() . $contents) . '-' . $file->getClientOriginalName();
 			array_push($fileNames, $fileName);
