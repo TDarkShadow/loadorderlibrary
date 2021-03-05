@@ -3,18 +3,10 @@
 @section('title', 'Compare Results')
 
 @section('content')
-<h1 class="text-white">Compare Results (BETA) - DISABLED</h1>
+<h1 class="text-white">Compare Results (BETA)</h1>
 <div class="row justify-content-center">
 	<div class="col-md-12">
-		<div class="card text-white bg-dark">
-			<div class="card-header">
-				Comparison Disabled
-			</div>
-			<div class="card-body">
-				<p>Comparison is currently disabled as I fix an issue that was making results completely inaccurate, and therefore effectively useless.</p>
-			</div>
-		</div>
-		<!-- <div class="card bg-dark col-md-12 mb-3">
+		<div class="card bg-dark col-md-12 mb-3">
 			<div class="card-header d-flex justify-content-between align-items-center text-white compare-results">
 				<div class="list1">
 					<h3><a href="/lists/{{ $list1->slug }}">{{ $list1->name }}</a></h3>
@@ -84,9 +76,9 @@
 				NOTE: Results below only show files that exist in both lists.
 			</div>
 
-		</div> -->
+		</div>
 
-		<!-- <x-compare-load-orders-results :results=$results :list1=$list1 :list2=$list2 /> -->
+		<x-compare-load-orders-results :results=$results :list1=$list1 :list2=$list2 />
 	</div>
 </div>
 @endsection
