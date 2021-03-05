@@ -34,6 +34,24 @@
 
 <!-- /TOC -->
 
+<<<<<<< HEAD
+=======
+# v1.6.0
+> 2021-03-04
+
+## Added
+
+## Fixed
+
+## Changed
+
+## Removed
+
+## Internals
+
+## Closed
+
+>>>>>>> 5f4067b (update changelog)
 # v1.5.0
 > 2021-03-04
 
