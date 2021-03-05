@@ -5,6 +5,7 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
+	- [**More Robust Solution To Line Endings**](#more-robust-solution-to-line-endings)
 	- [**Downloading Of List Files**](#downloading-of-list-files)
 - [**Future**](#future)
 	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
@@ -26,6 +27,10 @@ A list of things to do, ordered by priority.
 <!-- /TOC -->
 
 # **In Progress**
+
+## **More Robust Solution To Line Endings**
+
+Implement a much more robust solution to line endings than `trim` in an `array_map()`. Likely by converting all files to LF on upload (since the server is Linux). This will also likely require manually editing all files already on the server to have LF line endings (after backing up, first).
 
 ## **Downloading Of List Files**
 
