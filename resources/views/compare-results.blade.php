@@ -77,7 +77,7 @@
 				NOTE: Results below only show files that exist in both lists.
 			</div>
 
-		</div> -->
+		</div>
 
 		<x-compare-load-orders-results :results=$results :list1=$list1 :list2=$list2 />
 	</div>
