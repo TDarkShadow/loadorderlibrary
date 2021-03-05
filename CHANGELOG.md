@@ -35,21 +35,18 @@
 
 <!-- /TOC -->
 
-# v1.5.1
+# v1.6.0
 > 2021-03-04
 
 ## Added
+- Added TODO entry to implement a much more robust solution to line endings
 
 ## Fixed
 - Fixed issues with comparing plugins.txt by just removing `*` from the file before compare (doesn't touch the file on disk)
-
-## Changed
-
-## Removed
-
-## Internals
+- Implemented a temporary fix of comparison showing things that appear to be the same when the files being tested are of differing line endings. Current fix is `array_map('trim', $file)`
 
 ## Closed
+- https://github.com/phinocio/loadorderlibrary/issues/37
 
 # v1.5.0
 > 2021-03-04
