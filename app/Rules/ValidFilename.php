@@ -3,20 +3,12 @@
 namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
+use app\Helpers\ValidFiles;
 
 class ValidFilename implements Rule
 {
 
-	protected $validFilenames = [
-		'modlist.txt',
-		'plugins.txt',
-		'loadorder.txt',
-		'Skyrim.ini',
-		'SkyrimPrefs.ini',
-		'morrowind.ini',
-		'MGE.ini',
-		''
-	];
+
 
 	protected $file = '';
 
@@ -41,7 +33,7 @@ class ValidFilename implements Rule
     {
 		$this->file = $value->getClientOriginalName();
 
-        return in_array($this->file, $this->validFilenames);
+        return in_array(strtolower($this->file), ValidFiles::all());
     }
 
     /**
