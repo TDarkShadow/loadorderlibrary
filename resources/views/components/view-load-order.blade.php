@@ -84,8 +84,9 @@
 
 	function toggleHidden() {
 		console.log(disabled);
-
-		disabled[0].classList.toggle('list-disabled-hidden');
+		for (const item of disabled) {
+			item.classList.toggle('list-disabled-hidden');
+		}
 	}
 
 	function filter(search, list) {
