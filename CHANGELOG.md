@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.7.0](#v170)
+- [v1.6.3](#v163)
+- [v1.6.2](#v162)
 - [v1.6.1](#v161)
 - [v1.6.0](#v160)
 - [v1.5.0](#v150)
@@ -36,6 +39,12 @@
 
 <!-- /TOC -->
 
+# v1.7.0
+> 2021-03-05
+
+## Fixed
+- Fixed `show disabled` function only toggling the *first* disabled item in modlist.txt. Toggling now works as intended
+
 # v1.6.3
 > 2021-03-05
 
@@ -53,7 +62,6 @@
 
 ## Fixed
 - Fixed a bad regex to find all line break characters and replace them with `\n`. All uploaded files should now be converted to LF on upload as intended
-
 
 # v1.6.0
 > 2021-03-04
