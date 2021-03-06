@@ -2,7 +2,14 @@
 	<div class="col-md-12">
 		<div class="card text-white bg-dark mb-3">
 			<div class="card-header d-flex justify-content-between align-items-center">
-				<h3><strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong></h3>
+				<div>
+					<h3><strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong></h3>
+					@if($loadOrder->is_private)
+					<span class="display-block text-muted">
+						Private List
+					</span>
+					@endif
+				</div>
 				<small><em><a href="#">{{ $loadOrder->game->name }}</a></em></small>
 			</div>
 			<div class="card-body">

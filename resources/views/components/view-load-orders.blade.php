@@ -1,10 +1,23 @@
 <div class="row d-flex align-items-stretch">
 	@forelse($loadOrders as $loadOrder)
-	<div class="col-md-4 card-group">
+	<div class="col-md-6 card-group">
 		<div class="mb-3 card text-white bg-dark">
 			<div class="card-header d-flex justify-content-between align-items-center">
-				<strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong>
-				<small><em>{{ $loadOrder->game->name }}</em></small>
+				<div>
+					<strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong>
+					@if($loadOrder->is_private)
+					<small class="display-block text-muted">
+						<em>
+							Private List
+						</em>
+					</small>
+					@endif
+				</div>
+
+				<small>
+
+					<em>{{ $loadOrder->game->name }}</em>
+				</small>
 			</div>
 
 			<div class="card-body">
@@ -40,6 +53,6 @@
 	</div>
 	@endforelse
 	<div class="col-md-12 mt-3">
-	{{ $loadOrders->links() }}
+		{{ $loadOrders->links() }}
 	</div>
 </div>
