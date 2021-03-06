@@ -36,6 +36,12 @@
 
 <!-- /TOC -->
 
+# v1.6.3
+> 2021-03-05
+
+## Changed
+- Moved all testing files to a git ignored `test-files` folder so clean up repo a bit
+
 # v1.6.2
 > 2021-03-05
 
