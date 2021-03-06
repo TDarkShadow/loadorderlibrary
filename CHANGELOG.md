@@ -4,6 +4,8 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.8.0](#v180)
+- [v1.7.2](#v172)
 - [v1.7.1](#v171)
 - [v1.7.0](#v170)
 - [v1.6.3](#v163)
@@ -39,6 +41,20 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.8.0
+> 2021-03-05
+
+## Added
+- Added download buttons for downloading individual file from a list, or all files in a list
+- Added `DownloadController` to handle downloading of files
+- Added `/lists/{load_order:slug}/download/{file}` route to `web.php` to handle file downloading
+- `DownloadController` handles leting the user download a single file or all of them together depending on if the `{file}` sent is `all` or a specific file
+
+## Changed
+- Changed `Delete` text for deleting a list to be more explicit: `Delete List`
+- Changed display of `Delete List` button to be `btn-outline`
+
 
 # v1.7.2
 > 2021-03-05
