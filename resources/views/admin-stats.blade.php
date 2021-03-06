@@ -61,6 +61,11 @@
 							{{ $fileStats[1]['name'] }}
 							<span class="badge {{ ($fileStats[1]['value'] > 10) ? 'badge-danger' : 'badge-secondary' }} badge-pill">{{ $fileStats[1]['value'] }} MB</span>
 						</li>
+
+						<li class="list-group-item list-group-item-dark d-flex justify-content-between align-items-center">
+							{{ $fileStats[2]['name'] }}
+							<span class="badge {{ ($fileStats[1]['value'] > 10) ? 'badge-danger' : 'badge-secondary' }} badge-pill">{{ $fileStats[2]['value'] }} MB</span>
+						</li>
 					</ul>
 				</div>
 			</div>

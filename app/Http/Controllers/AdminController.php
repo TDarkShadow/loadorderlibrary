@@ -21,12 +21,19 @@ class AdminController extends Controller
 		$users = \App\User::orderBy('created_at', 'desc')->get();
 		$lists = \App\LoadOrder::all();
 		$files = \Storage::allFiles('uploads');
+		$tmpFiles = \Storage::disk('tmp')->allFiles();
 
 		
 		$fileSize = 0;
 
 		foreach ($files as $file) {
 			$fileSize += \Storage::size($file);
+		}
+
+		$tmpSize = 0;
+
+		foreach ($tmpFiles as $file) {
+			$tmpSize += \Storage::disk('tmp')->size($file);
 		}
 
 		$userStats[] = [
@@ -86,6 +93,11 @@ class AdminController extends Controller
 		$fileStats[] = [
 			"name" => "File Size",
 			"value" => number_format($fileSize / 1000000, 2, '.', '') // Divide by 1 million to get it into MB.
+		];
+
+		$fileStats[] = [
+			"name" => "Tmp Size",
+			"value" => number_format($tmpSize / 1000000, 2, '.', '') // Divide by 1 million to get it into MB.
 		];
 
 		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats]);
