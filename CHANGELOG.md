@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.7.1](#v171)
 - [v1.7.0](#v170)
 - [v1.6.3](#v163)
 - [v1.6.2](#v162)
@@ -44,6 +45,9 @@
 
 ## Added
 - Added an indicator of if a list is private or not to the `My Lists` page and the direct list view
+
+## Changed
+- Changed list view page to show 2 per line as 3 felt a bit squished
 
 # v1.7.0
 > 2021-03-05
