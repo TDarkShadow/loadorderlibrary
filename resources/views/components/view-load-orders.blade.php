@@ -32,7 +32,7 @@
 					<form method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
-						<button class="btn text-danger" href="#" role="button">Delete List</button>
+						<button class="btn btn-outline-danger" href="#" role="button">Delete List</button>
 					</form>
 				</span>
 				@endif
