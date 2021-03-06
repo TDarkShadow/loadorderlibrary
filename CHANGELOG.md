@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.8.1](#v181)
 - [v1.8.0](#v180)
 - [v1.7.2](#v172)
 - [v1.7.1](#v171)
@@ -41,6 +42,15 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.8.1
+> 2021-03-05
+
+## Added
+- Added `tmp` disk to `config/filesystems.php`
+- Added stat to admin stats page to show size of all `tmp` files
+- Added artisan command `tmp:clear` to clear the `app/storage/tmp` directory
+- Added task to run `tmp:clear` every 24h
 
 # v1.8.0
 > 2021-03-05
