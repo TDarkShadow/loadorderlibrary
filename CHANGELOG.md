@@ -39,6 +39,12 @@
 
 <!-- /TOC -->
 
+# v1.7.1
+> 2021-03-05
+
+## Added
+- Added an indicator of if a list is private or not to the `My Lists` page and the direct list view
+
 # v1.7.0
 > 2021-03-05
 
