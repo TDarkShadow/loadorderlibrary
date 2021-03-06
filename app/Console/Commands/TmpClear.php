@@ -37,12 +37,10 @@ class TmpClear extends Command
      */
     public function handle()
     {
-		// Files to not delete
-		$filesKeep = ['.gitignore'];
+		$files = \Storage::disk('tmp')->allFiles();
 
-		$files = array_diff(\Storage::disk('tmp')->allFiles(), $filesKeep);
-		
 		\Storage::disk('tmp')->delete($files);
+		
 		$this->info('Files cleared successfully');
     }
 }
