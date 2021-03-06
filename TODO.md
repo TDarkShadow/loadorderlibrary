@@ -5,10 +5,9 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
-	- [**More Robust Solution To Line Endings**](#more-robust-solution-to-line-endings)
-	- [**Downloading Of List Files**](#downloading-of-list-files)
-- [**Future**](#future)
+	- [**QOL Improvements For List Comparison Results](#qol-improvements-for-list-comparison-results)
 	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
+- [**Future**](#future)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
@@ -23,22 +22,20 @@ A list of things to do, ordered by priority.
 	- [**Implement Admin Page**](#implement-admin-page)
 	- [**Better Filtering Of Lists**](#better-filtering-of-lists)
 	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
+	- [**More Robust Solution To Line Endings**](#more-robust-solution-to-line-endings)
+	- [**Downloading Of List Files**](#downloading-of-list-files)
 
 <!-- /TOC -->
 
 # **In Progress**
 
-## **More Robust Solution To Line Endings**
+## **QOL Improvements For List Comparison Results
 
-Implement a much more robust solution to line endings than `trim` in an `array_map()`. Likely by converting all files to LF on upload (since the server is Linux). This will also likely require manually editing all files already on the server to have LF line endings (after backing up, first).
+Things like
 
-## **Downloading Of List Files**
-
-Implement a way to download individual files, or all of them as a .zip.
-
----
-
-# **Future**
+- Being able to download a file from the compared to list
+- Better layout of files, mirroring that of the individual list view page
+- Filter the results like you can on individual list view page
 
 ## **Parse File Names On Upload**
 
@@ -50,6 +47,10 @@ Currently, files uploaded as `modlist(1).txt` and the like, don't get changed in
 -   skyrimprefs.ini
 -   mwse-version.txt
 -   mge.ini
+
+---
+
+# **Future**
 
 ## **Delete Files From Disk**
 
@@ -118,3 +119,13 @@ Modlist.txt now shows in the "proper" order, the `automatically generated` line 
 > Completed 2021-03-02
 
 Pagination for the Browse Lists page shows 15 per page.
+
+## **More Robust Solution To Line Endings**
+> Completed 2021-03-05
+
+This was a lot easier than I expected. Fixed regex I was already using, then ran `dos2unix *` command on the files currently uploaded to the site.
+
+## **Downloading Of List Files**
+> Completed 2021-03-05
+
+Files now have download buttons for each file, or all in a list. .zip file is stored in a `tmp` directory that is cleared daily. Also added a stat to Admin Stats showing total size of tmp files.
