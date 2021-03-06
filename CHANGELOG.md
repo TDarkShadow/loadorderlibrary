@@ -40,6 +40,12 @@
 
 <!-- /TOC -->
 
+# v1.7.2
+> 2021-03-05
+
+## Added
+- Added version info to `config/app.php` and `package.json`
+
 # v1.7.1
 > 2021-03-05
 
