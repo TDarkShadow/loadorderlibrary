@@ -18,17 +18,21 @@
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
 				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
-				@if(auth()->check())
-				@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
-				<span>
-					<form method="POST" action="/lists/{{$loadOrder->slug}}">
+				<div class="d-flex">
+					@if(auth()->check())
+					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
+					<form class="form-inline" method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
-						<button class="btn text-danger" href="#" role="button">Delete</button>
+						<button class="btn btn-outline-danger btn-sm" href="#" role="button">Delete List</button>
 					</form>
-				</span>
-				@endif
-				@endif
+					@endif
+					@endif
+					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/all">
+						@csrf
+						<button class="ml-2 btn btn-outline-info btn-sm" href="#" aria-label="download-all" role="button">Download All Files</button>
+					</form>
+				</div>
 			</div>
 		</div>
 
@@ -43,9 +47,14 @@
 				<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
 					<h5 class="mb-0">
 						<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
-							<span class="text-white"><b>+</b></span> <b>{{ $file['name'] }}</b>
+							<span class="text-white"><b>&plus;</b></span> <b>{{ $file['name'] }}</b>
 						</button>
 					</h5>
+
+					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/{{ $file['name'] }}">
+						@csrf
+						<button class="btn btn-outline-info btn-sm" href="#" aria-label="download" role="button">Download File</button>
+					</form>
 
 
 				</div>
