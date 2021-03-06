@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v1.9.0](#v190)
 - [v1.8.1](#v181)
 - [v1.8.0](#v180)
 - [v1.7.2](#v172)
@@ -42,6 +45,13 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.9.0
+> 2021-03-06
+
+## Added
+- Added `ValidFilenames` rule to check that the files being uploaded are valid names
+- Created a `validFilenames` array to list valid names
 
 # v1.8.1
 > 2021-03-05
