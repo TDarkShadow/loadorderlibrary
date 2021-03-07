@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\ValidFiles;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpload;
@@ -37,7 +38,7 @@ class LoadOrderController extends Controller
 	{
 		$games = \App\Game::orderBy('name', 'asc')->get();
 
-		return view('upload')->with('games', $games);
+		return view('upload')->with(['games' => $games, 'validFiles' => ValidFiles::all()]);
 	}
 
 	/**
