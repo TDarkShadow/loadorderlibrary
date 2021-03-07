@@ -127,11 +127,11 @@
 				</div>
 				<div class="row justify-content-center text-white">
 					<p>
-						<a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
-						<a href="https://github.com/phinocio/loadorderlibrary">Github</a> |
-						<a href="https://discord.gg/K3KnEgrQE4">Discord</a> |
-						<a href="https://www.reddit.com/r/LoadOrderLibrary/">Reddit</a> |
-						<a href="https://www.patreon.com/phinocio">Patreon</a>
+						<a href="https://github.com/phinocio/loadorderlibrary/issues/new" target="_blank" rel="noopener noreferrer">Create Github Issue</a> |
+						<a href="https://github.com/phinocio/loadorderlibrary" target="_blank" rel="noopener noreferrer">Github</a> |
+						<a href="https://discord.gg/K3KnEgrQE4" target="_blank" rel="noopener noreferrer">Discord</a> |
+						<a href="https://www.reddit.com/r/LoadOrderLibrary/" target="_blank" rel="noopener noreferrer">Reddit</a> |
+						<a href="https://www.patreon.com/phinocio" target="_blank" rel="noopener noreferrer">Patreon</a>
 					</p>
 				</div>
 			</div>
