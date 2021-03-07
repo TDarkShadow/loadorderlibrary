@@ -46,6 +46,12 @@
 
 <!-- /TOC -->
 
+# v1.9.2
+> 2021-03-06
+
+## Changed
+- Changed up layout of footer and added reddit and patreon links
+
 # v1.9.1
 > 2021-03-06
 
