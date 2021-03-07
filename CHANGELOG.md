@@ -46,6 +46,12 @@
 
 <!-- /TOC -->
 
+# v1.9.1
+> 2021-03-06
+
+## Fixed
+- Fixed typo on `use` of `ValidFiles` helper in `ValidFilename.php` rule
+
 # v1.9.0
 > 2021-03-06
 
