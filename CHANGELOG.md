@@ -50,8 +50,15 @@
 > 2021-03-06
 
 ## Added
-- Added `ValidFilenames` rule to check that the files being uploaded are valid names
-- Created a `validFilenames` array to list valid names
+- Added `ValidFilenames` rule to check that the files being uploaded are valid names. This prevents the issue of files being uploaded as `modlist(1).txt` for example
+- Created a `ValidFiles` helper to give a list of all valid files, or by game
+- Added list of valid files to the upload page
+- Added `ValidFiles::all()` to data sent to the upload page in `LoadOrderController.php`
+
+## Internals
+- NPM
+	- Updated `jquery` from `v3.5.1` -> `v3.6.0`
+	- Updated `browser-sync-webpack-plugin` from `v2.2.2` -> `v2.3.0`
 
 # v1.8.1
 > 2021-03-05
