@@ -4,8 +4,8 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v1.9.2](#v192)
+- [v1.9.1](#v191)
 - [v1.9.0](#v190)
 - [v1.8.1](#v181)
 - [v1.8.0](#v180)
@@ -51,6 +51,7 @@
 
 ## Changed
 - Changed up layout of footer and added reddit and patreon links
+- Changed links to open in a new tab
 
 # v1.9.1
 > 2021-03-06
