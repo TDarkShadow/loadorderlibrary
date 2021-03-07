@@ -13,9 +13,9 @@
 	"devDependencies": {
 		"bootstrap": "^4.6.0",
 		"browser-sync": "^2.26.14",
-		"browser-sync-webpack-plugin": "^2.2.2",
+		"browser-sync-webpack-plugin": "^2.3.0",
 		"cross-env": "^7.0.3",
-		"jquery": "^3.5.1",
+		"jquery": "^3.6.0",
 		"laravel-mix": "^6.0.13",
 		"laravel-mix-purgecss": "^6.0.0",
 		"resolve-url-loader": "^3.1.2",
