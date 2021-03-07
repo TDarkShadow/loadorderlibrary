@@ -122,9 +122,16 @@
 				<div class="row justify-content-center text-white">
 					<p>
 						Load Order Library &copy; 2021 Phinocio.
+					</p>
+
+				</div>
+				<div class="row justify-content-center text-white">
+					<p>
 						<a href="https://github.com/phinocio/loadorderlibrary/issues/new">Create Github Issue</a> |
 						<a href="https://github.com/phinocio/loadorderlibrary">Github</a> |
-						<a href="https://discord.gg/K3KnEgrQE4">Discord</a>
+						<a href="https://discord.gg/K3KnEgrQE4">Discord</a> |
+						<a href="https://www.reddit.com/r/LoadOrderLibrary/">Reddit</a> |
+						<a href="https://www.patreon.com/phinocio">Patreon</a>
 					</p>
 				</div>
 			</div>
