@@ -53,6 +53,9 @@
 - Changed up layout of footer and added reddit and patreon links
 - Changed links to open in a new tab
 
+## Closed
+- https://github.com/phinocio/loadorderlibrary/issues/38
+
 # v1.9.1
 > 2021-03-06
 
