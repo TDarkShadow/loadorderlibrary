@@ -4,8 +4,6 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
 - [v1.10.0](#v1100)
 - [v1.9.2](#v192)
 - [v1.9.1](#v191)
@@ -56,12 +54,12 @@
 - Added in `FakerPHP/faker` composer packages
 - Added `HasFactory` trait to `LoadOrder.php`
 - Added `LoadOrderFactory`
+- Added `HasFactory` trait to `User.php`
 
 ## Changed
 - Updated `phpunit.xml` to use testing mysql DB
 - Updated `.gitignore` with `.env.testing` file
 - Updated `UserFactory` to be how it should be
-
 
 ## Removed
 - Deleted example tests
