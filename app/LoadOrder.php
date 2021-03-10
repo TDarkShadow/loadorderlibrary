@@ -2,10 +2,15 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class LoadOrder extends Model
 {
+	use HasFactory;
+
+	protected $factory = 'ListFactory';
+
 	public function game()
 	{
 		return $this->belongsTo('\App\Game');
