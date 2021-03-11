@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v1.10.1](#v1101)
 - [v1.10.0](#v1100)
 - [v1.9.2](#v192)
 - [v1.9.1](#v191)
@@ -46,6 +47,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v1.10.1
+> 2021-03-11
+
+## Added
+- Added `skyrimvr.ini` to acceptable files
 
 # v1.10.0
 > 2021-03-09
