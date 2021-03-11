@@ -31,7 +31,8 @@ class ValidFiles
 			'settings.txt',
 			'skyrim.ini',
 			'skyrimcustom.ini',
-			'skyrimprefs.ini'
+			'skyrimprefs.ini',
+			'skyrimvr.ini'
 		];
 	}
 }
