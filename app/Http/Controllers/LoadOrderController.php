@@ -53,14 +53,24 @@ class LoadOrderController extends Controller
 		$validated = $request->validated();
 
 		$loadOrder = new \App\LoadOrder();
+
+		// Create all file entries in Files table.
+		$files = $this->getFileNames($validated['files']);
+
+		$fileIds = [];
+		foreach ($files as $file) {
+			$fileIds[] = \App\File::firstOrCreate($file)->id;
+		}
+
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
 		$loadOrder->game_id     = (int) $validated['game'];
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($validated['name']);
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
-		$loadOrder->files       = $this->getFileNames($validated['files']);
+		$loadOrder->files       = 'dummystring';
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
+		$loadOrder->files()->attach($fileIds);
 
 		// TODO: Change redirect to go to the list page itself.
 		flash($loadOrder->name . ' successfully uploaded!')->success()->important();
@@ -180,9 +190,9 @@ class LoadOrderController extends Controller
 	 * Get a list of filenames with MD5 Hashes prepended, and store to disk if not already.
 	 *
 	 * @param array $files
-	 * @return string
+	 * @return array
 	 */
-	private function getFileNames(array $files): string
+	private function getFileNames(array $files): array
 	{
 		$fileNames = [];
 
@@ -191,7 +201,7 @@ class LoadOrderController extends Controller
 			$contents = preg_replace('/[\r\n]+/', "\n", $contents);
 			file_put_contents($file, $contents);
 			$fileName = md5($file->getClientOriginalName() . $contents) . '-' . $file->getClientOriginalName();
-			array_push($fileNames, $fileName);
+			array_push($fileNames, ['name' => $fileName]);
 
 			// Check if file exists, if not, save it to disk.
 			if (!$this->checkFileExists($fileName)) {
@@ -199,7 +209,7 @@ class LoadOrderController extends Controller
 			}
 		}
 
-		return implode(',', $fileNames);
+		return $fileNames;
 	}
 
 	/**
