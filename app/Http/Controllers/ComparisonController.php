@@ -44,19 +44,21 @@ class ComparisonController extends Controller
 			'contents' => []
 		];
 
-		$list1Files = explode(',', $list1->files);
-		$list2Files = explode(',', $list2->files);
+		$list1Files = $list1->files;
+		$list2Files = $list2->files;
 
 		$list1FilesCleanName = [];
 		$list2FilesCleanName = [];
 
+
+
 		foreach ($list1Files as $list1File) {
-			$file1 = explode('-', $list1File);
+			$file1 = explode('-', $list1File->name);
 			array_push($list1FilesCleanName, $file1[1]);
 		}
 
 		foreach ($list2Files as $list2File) {
-			$file2 = explode('-', $list2File);
+			$file2 = explode('-', $list2File->name);
 			array_push($list2FilesCleanName, $file2[1]);
 		}
 
@@ -66,16 +68,16 @@ class ComparisonController extends Controller
 		array_push($results['files'], ['missing' => $missingFiles, 'added' => $addedFiles]);
 
 		foreach ($list1Files as $list1File) {
-			$file1 = explode('-', $list1File);
+			$file1 = explode('-', $list1File->name);
 
 			foreach ($list2Files as $list2File) {
-				$file2 = explode('-', $list2File);
+				$file2 = explode('-', $list2File->name);
 				// We're working with the same file name
 				if ($file1[1] == $file2[1]) {
 
 					// Check that the hashes aren't the same, else the file is the same
 					if ($file1[0] != $file2[0]) {
-						$diff = $this->compareFiles($list1File, $list2File);
+						$diff = $this->compareFiles($list1File->name, $list2File->name);
 
 						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added'], 'class' => 'badge-danger']);
 					} else {
