@@ -9,6 +9,8 @@ class LoadOrder extends Model
 {
 	use HasFactory;
 
+	protected $with = ['files'];
+
 	public function game()
 	{
 		return $this->belongsTo('\App\Game');
