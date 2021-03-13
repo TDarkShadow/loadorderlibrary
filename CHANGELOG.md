@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.2.0](#v220)
 - [v2.1.2](#v212)
 - [v2.1.1](#v211)
 - [v2.1.0](#v210)
@@ -53,6 +54,18 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.2.0
+> 2021-03-13
+
+## Added
+- Added `lists/{slug}/edit` route to `web.php` for showing the list edit view
+- Added `edit-load-order.blade.php` view and `edit-load-order-form.blade.php` component to show the form for editing a list
+- Added code in `update()` method of `LoadOrderController` to handle updating a list
+- Added helper info for unchecking a file to remove it
+
+## Fixed
+- Fixed where `old('description')` is placed in the upload form for if it errors
 
 # v2.1.2
 > 2021-03-12
