@@ -18,6 +18,7 @@ class ValidFiles
 			'fallout4.ini',
 			'fallout4custom.ini',
 			'fallout4prefs.ini',
+			'falloutcustom.ini',
 			'geckcustom.ini',
 			'geckprefs.ini',
 			'loadorder.txt',
@@ -32,7 +33,8 @@ class ValidFiles
 			'skyrim.ini',
 			'skyrimcustom.ini',
 			'skyrimprefs.ini',
-			'skyrimvr.ini'
+			'skyrimvr.ini',
+			'modorganizer.ini'
 		];
 	}
 }
