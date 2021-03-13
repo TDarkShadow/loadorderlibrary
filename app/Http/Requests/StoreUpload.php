@@ -43,9 +43,14 @@ class StoreUpload extends FormRequest
      */
     public function messages()
     {
-        return [
-            'files.*.max' => 'Files may not be more than 128KB.',
-            'files.*.mimes' => 'Files must be of type txt or ini'
-        ];
+		$messages = [
+			'files.*.max' => 'Files may not be more than 128KB.',
+			'files.*.mimes' => 'Files must be of type txt or ini'
+		];
+
+		foreach ($this->get('files') as $key => $val) {
+			$messages["files.$key.mimes"] = "$val is not a valid mimetype";
+		}
+        return $messages;
     }
 }
