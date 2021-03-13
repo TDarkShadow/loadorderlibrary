@@ -4,7 +4,7 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class EditLoadOrder extends Component
+class EditLoadOrderForm extends Component
 {
 
 	/**
@@ -14,14 +14,17 @@ class EditLoadOrder extends Component
 	 */
 	public $loadOrder;
 
+	public $games;
+
 	/**
 	 * Create a new component instance.
 	 * @var Collection $loadOrder
 	 * @return void
 	 */
-	public function __construct($loadOrder)
+	public function __construct($loadOrder, $games)
 	{
 		$this->loadOrder = $loadOrder;
+		$this->games = $games;
 	}
 
     /**
@@ -31,6 +34,6 @@ class EditLoadOrder extends Component
      */
     public function render()
     {
-        return view('components.edit-load-order');
+        return view('components.edit-load-order-form');
     }
 }
