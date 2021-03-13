@@ -71,6 +71,7 @@
 ## Internals
 - Composer
 	- Added `laracasts/generators` to help with generating migrations
+	- Added `barryvdh/laravel-debugbar`
 
 # v1.10.1
 > 2021-03-11
