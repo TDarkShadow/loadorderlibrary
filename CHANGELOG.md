@@ -50,6 +50,12 @@
 
 <!-- /TOC -->
 
+# v2.0.2
+> 2021-03-12
+
+## Fixed
+- Added `falloutcustom.ini` to acceptable files to upload as it should have been to start
+
 # v2.0.1
 > 2021-03-12
 
