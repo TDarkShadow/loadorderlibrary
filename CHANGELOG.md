@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.0.1](#v201)
 - [v2.0.0](#v200)
 - [v1.10.1](#v1101)
 - [v1.10.0](#v1100)
@@ -48,6 +49,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.0.1
+> 2021-03-12
+
+## Fixed
+- Fixed `ComparisonController` to use the new database structure
 
 # v2.0.0
 > 2021-03-12
