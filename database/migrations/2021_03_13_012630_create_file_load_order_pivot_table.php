@@ -21,7 +21,21 @@ class CreateFileLoadOrderPivotTable extends Migration
         });
 
 		// Also create the entries for each existing list.
-		
+		$lists = \App\LoadOrder::all();
+		$files = \App\File::all();
+
+		foreach ($lists as $list) {
+			$listFiles = explode(',', $list->files);
+
+			foreach ($listFiles as $listFile) {
+				foreach ($files as $file) {
+					if ($listFile == $file->name) {
+						echo $list->id, $file->id;
+						$list->files()->attach($file->id);
+					}
+				}
+			}
+		}
     }
 
     /**
