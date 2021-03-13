@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.1.1](#v211)
+- [v2.1.0](#v210)
+- [v2.0.2](#v202)
 - [v2.0.1](#v201)
 - [v2.0.0](#v200)
 - [v1.10.1](#v1101)
@@ -52,6 +55,9 @@
 
 # v2.1.1
 > 2021-03-12
+
+## Added
+- Added a total count of orphaned files.
 
 ## Fixed
 - Fixed upload to also calculate `clean_name` and `size_in_bytes`
