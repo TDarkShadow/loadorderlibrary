@@ -14,16 +14,16 @@ class AdminController extends Controller
 
     public function stats()
 	{
-		$orphanedFiles = \App\File::doesntHave('lists')->get();
 		$userStats = [];
 		$listStats = [];
 		$fileStats = [];
-
+		
 		$users = \App\User::orderBy('created_at', 'desc')->get();
 		$lists = \App\LoadOrder::all();
-		$files = \App\File::all();
+		$files = \App\File::with('lists')->get();
+		$filesInLists = \App\File::has('lists')->get();
+		$orphanedFiles = \App\File::doesntHave('lists')->get();
 		$tmpFiles = \Storage::disk('tmp')->allFiles();
-
 		
 		$fileSize = 0;
 
@@ -101,6 +101,6 @@ class AdminController extends Controller
 			"value" => number_format($tmpSize / 1000000, 2, '.', '') // Divide by 1 million to get it into MB.
 		];
 
-		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats, 'orphanedFiles' => $orphanedFiles]);
+		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats, 'orphanedFiles' => $orphanedFiles, 'filesInLists' => $filesInLists]);
 	}
 }
