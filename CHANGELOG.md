@@ -55,6 +55,15 @@
 
 <!-- /TOC -->
 
+# v2.2.1
+> 2021-03-13
+
+## Added
+- Added edit button to lists that are yours, beside delete button
+
+## Fixed
+- Fixed being able to view edit page of lists that aren't yours
+
 # v2.2.0
 > 2021-03-13
 
