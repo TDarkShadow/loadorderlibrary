@@ -26,17 +26,20 @@
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
 				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
-				@if(auth()->check())
-				@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
-				<span>
-					<form method="POST" action="/lists/{{$loadOrder->slug}}">
+				<div class="d-flex">
+					@if(auth()->check())
+					@if($loadOrder->author == auth()->user())
+					<a class="ml-2 btn btn-outline-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					@endif
+					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
+					<form class="form-inline" method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
-						<button class="btn btn-outline-danger" href="#" role="button">Delete List</button>
+						<button class="ml-2 btn btn-outline-danger btn-sm" href="#" role="button">Delete List</button>
 					</form>
-				</span>
-				@endif
-				@endif
+					@endif
+					@endif
+				</div>
 			</div>
 		</div>
 	</div>

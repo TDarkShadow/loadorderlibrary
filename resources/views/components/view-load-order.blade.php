@@ -20,11 +20,14 @@
 				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
 				<div class="d-flex">
 					@if(auth()->check())
+					@if($loadOrder->author == auth()->user())
+					<a class="ml-2 btn btn-outline-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					@endif
 					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
 					<form class="form-inline" method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
-						<button class="btn btn-outline-danger btn-sm" href="#" role="button">Delete List</button>
+						<button class="ml-2 btn btn-outline-danger btn-sm" href="#" role="button">Delete List</button>
 					</form>
 					@endif
 					@endif
