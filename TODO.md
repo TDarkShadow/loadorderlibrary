@@ -5,7 +5,6 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
-	- [**Editing Lists**](#editing-lists)
 	- [**QOL Improvements For List Comparison Results](#qol-improvements-for-list-comparison-results)
 - [**Future**](#future)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
@@ -24,6 +23,7 @@ A list of things to do, ordered by priority.
 	- [**More Robust Solution To Line Endings**](#more-robust-solution-to-line-endings)
 	- [**Downloading Of List Files**](#downloading-of-list-files)
 	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
+	- [**Editing Lists**](#editing-lists)
 
 <!-- /TOC -->
 
