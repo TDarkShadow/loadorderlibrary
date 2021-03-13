@@ -64,15 +64,23 @@
 
 	<div class="form-group">
 		<label>Files In List</label>
-		<span class="text-muted">Uncheck a file to remove it from the list</span>
+		<br />
+		<span class="text-muted">Uncheck a file to remove it from the list. A list must have at least one file. If you are replacing a file and its the only one, leave it checked.</span>
 		@foreach($loadOrder->files as $file)
 		<div class="form-check">
-			<input name="existing-files[]" class="form-check-input" type="checkbox" value="{{ $file->clean_name . '-' . $file->id }}" id="check-{{ $file->clean_name }}" checked>
+			<input name="existing[]" class="form-check-input @error('existing') is-invalid @enderror" type="checkbox" value="{{ $file->clean_name . '-' . $file->id }}" id="check-{{ $file->clean_name }}" checked>
 			<label class="form-check-label" for="check-{{ $file->clean_name }}">
 				{{ $file->clean_name }}
 			</label>
 		</div>
 		@endforeach
+		@error('existing')
+
+			<span class="invalid-feedback" role="alert">
+				<strong>{{ $message }}</strong>
+			</span>
+		@enderror
 	</div>
+
 	<button class="btn btn-primary" type="submit">Update List</button>
 </form>
