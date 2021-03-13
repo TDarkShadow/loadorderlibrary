@@ -50,6 +50,12 @@
 
 <!-- /TOC -->
 
+# v2.1.1
+> 2021-03-12
+
+## Fixed
+- Fixed upload to also calculate `clean_name` and `size_in_bytes`
+
 # v2.1.0
 > 2021-03-12
 
