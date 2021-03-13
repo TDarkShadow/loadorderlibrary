@@ -21,6 +21,7 @@ Route::get('/lists', 'LoadOrderController@index')->name('lists');
 Route::get('/upload', 'LoadOrderController@create')->name('upload');
 Route::post('/upload', 'LoadOrderController@store')->name('upload.store');
 Route::get('/lists/{load_order:slug}/edit', 'LoadOrderController@edit')->name('lists.edit');
+Route::put('/lists/{load_order:slug}', 'LoadOrderController@update')->name('lists.update');
 Route::get('/lists/{load_order:slug}', 'LoadOrderController@show');
 Route::get('/lists/{load_order:slug}/download/{file}', 'DownloadController@index');
 Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
