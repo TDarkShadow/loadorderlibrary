@@ -19,6 +19,9 @@ class CreateFileLoadOrderPivotTable extends Migration
             $table->foreign('load_order_id')->references('id')->on('load_orders')->onDelete('cascade');
             $table->primary(['file_id', 'load_order_id']);
         });
+
+		// Also create the entries for each existing list.
+		
     }
 
     /**
