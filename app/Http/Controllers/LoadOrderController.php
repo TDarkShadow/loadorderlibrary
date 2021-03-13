@@ -179,17 +179,17 @@ class LoadOrderController extends Controller
 			// Check if an uploaded file is overwritting an existing file
 			foreach ($files as $file) {
 				$cleanName = explode('-', $file['name'])[1];
-				$overwrite = preg_grep("/$cleanName/", $validated['existing-files']);
+				$overwrite = preg_grep("/$cleanName/", $validated['existing']);
 				if ($overwrite) {
 					$keyToRemove = array_keys($overwrite);
-					unset($validated['existing-files'][$keyToRemove[0]]);			
+					unset($validated['existing'][$keyToRemove[0]]);			
 				}
 			}
 		}
 
 
 		// Generate fileIds for ->sync()
-		foreach ($validated['existing-files'] as $file) {
+		foreach ($validated['existing'] as $file) {
 			$fileIds[] = (int) explode('-', $file)[1];
 		}
 
