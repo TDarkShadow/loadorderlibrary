@@ -9,8 +9,6 @@ class LoadOrder extends Model
 {
 	use HasFactory;
 
-	protected $factory = 'ListFactory';
-
 	public function game()
 	{
 		return $this->belongsTo('\App\Game');
