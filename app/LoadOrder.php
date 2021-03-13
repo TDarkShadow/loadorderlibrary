@@ -20,4 +20,9 @@ class LoadOrder extends Model
 	{
 		return $this->belongsTo('\App\User', 'user_id');
 	}
+
+	public function files()
+	{
+		return $this->belongsToMany('\App\File');
+	}
 }
