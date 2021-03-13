@@ -29,10 +29,6 @@ A list of things to do, ordered by priority.
 
 # **In Progress**
 
-## **Editing Lists**
-
-Allow editing the name, description, and game of lists. This will require and account and obviously one can only edit their own lists.
-
 ## **QOL Improvements For List Comparison Results
 
 Things like
@@ -123,3 +119,13 @@ Files now have download buttons for each file, or all in a list. .zip file is st
 > Completed 2021-03-06
 
 Files now are checked against a masterlist of valid filenames on upload. If one is not exact, upload fails. All files are stored as lowercase as, afaik, no games or tools are case sensitive for the files.
+
+## **Editing Lists**
+> Completed 2021-03-13
+
+Lists are now editable. You can
+
+- Edit the name of a list (doesn't change the slug)
+- Edit the description
+- Edit the game a list is for (in case it was wrong on upload or something)
+- Add/Edit/Remove files. Editing a file is simply uploading a file with the same name of one already in the list, the one in the list will be removed.
