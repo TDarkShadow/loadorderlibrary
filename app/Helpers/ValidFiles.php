@@ -33,8 +33,7 @@ class ValidFiles
 			'skyrim.ini',
 			'skyrimcustom.ini',
 			'skyrimprefs.ini',
-			'skyrimvr.ini',
-			'modorganizer.ini'
+			'skyrimvr.ini'
 		];
 	}
 }
