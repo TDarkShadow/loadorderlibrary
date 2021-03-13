@@ -52,16 +52,18 @@ class LoadOrderController extends Controller
 	{
 		$validated = $request->validated();
 
-		$loadOrder = new \App\LoadOrder();
-
-		// Create all file entries in Files table.
+		
 		$files = $this->getFileNames($validated['files']);
-
+		
 		$fileIds = [];
 		foreach ($files as $file) {
+			$file['clean_name'] = explode('-', $file['name'])[1];
+			$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
+			
 			$fileIds[] = \App\File::firstOrCreate($file)->id;
 		}
-
+		
+		$loadOrder = new \App\LoadOrder();
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
 		$loadOrder->game_id     = (int) $validated['game'];
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($validated['name']);
