@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.1.2](#v212)
 - [v2.1.1](#v211)
 - [v2.1.0](#v210)
 - [v2.0.2](#v202)
@@ -52,6 +53,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.1.2
+> 2021-03-12
+
+## Fixed
+- Fixed file upload. I had to add `clean_name` and `size_in_bytes` to the fillable array in the `File.php` model
 
 # v2.1.1
 > 2021-03-12
