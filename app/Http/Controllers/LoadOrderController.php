@@ -151,6 +151,11 @@ class LoadOrderController extends Controller
 	 */
 	public function edit(\App\LoadOrder $loadOrder)
 	{
+		if (auth()->user()->id !== $loadOrder->user_id)
+		{
+			abort(403);
+		}
+		
 		$games = \App\Game::orderBy('name', 'asc')->get();
 		return view('edit-load-order')->with(['games' => $games, 'loadOrder' => $loadOrder, 'validFiles' => ValidFiles::all()]);
 	}
@@ -164,6 +169,10 @@ class LoadOrderController extends Controller
 	 */
 	public function update(UpdateLoadOrder $request, \App\LoadOrder $loadOrder)
 	{
+		if (auth()->user()->id !== $loadOrder->user_id) {
+			abort(403);
+		}
+
 		$validated = $request->validated();
 
 		$fileIds = [];
