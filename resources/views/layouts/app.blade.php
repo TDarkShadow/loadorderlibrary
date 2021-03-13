@@ -121,7 +121,7 @@
 			<div class="container">
 				<div class="row justify-content-center text-white">
 					<p>
-						Load Order Library &copy; 2021 Phinocio.
+						Load Order Library &copy; 2021 Phinocio
 					</p>
 
 				</div>
