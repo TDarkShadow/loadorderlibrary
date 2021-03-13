@@ -9,7 +9,7 @@ class File extends Model
 {
     use HasFactory;
 
-	protected $fillable = ['name'];
+	protected $fillable = ['name', 'clean_name', 'size_in_bytes'];
 
 	public function lists()
 	{
