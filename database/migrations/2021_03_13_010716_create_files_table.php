@@ -18,6 +18,12 @@ class CreateFilesTable extends Migration
 			$table->string('name');
             $table->timestamps();
         });
+
+		// Also add all existing files on disk to the table
+		$files = \Storage::disk('uploads')->allFiles();
+		foreach ($files as $file) {
+			\App\File::create(['name' => $file]);
+		}
     }
 
     /**
