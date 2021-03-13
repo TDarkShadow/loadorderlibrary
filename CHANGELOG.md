@@ -56,6 +56,9 @@
 ## Fixed
 - Added `falloutcustom.ini` to acceptable files to upload as it should have been to start
 
+## Removed
+- Removed a period after my name in the footer
+
 # v2.0.1
 > 2021-03-12
 
