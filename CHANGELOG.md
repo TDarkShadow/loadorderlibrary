@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.0.0](#v200)
 - [v1.10.1](#v1101)
 - [v1.10.0](#v1100)
 - [v1.9.2](#v192)
@@ -47,6 +48,29 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.0.0
+> 2021-03-12
+
+## Added
+- Added `File.php` model for files
+- Added `create_files_table` migration, also adding all existing files on disk to the table
+- Added `create_file_load_order` migration for the pivot table between `files` and `load_orders`, also creating all relations
+- Added `drop_files_column_from_load_orders_table` migration to remove the now uneeded files column
+
+## Changed
+- Decided to bump to v2.0.0 as I feel a major change to the DB structure, effectively breaking backwards compatibility if this was a proper application/api release, warrants it
+- Changed `getFileNames()` method in `LoadOrderController` to return an array of filenames instead of a string
+- `store()` method in `LoadOrderController` now adds filenames to the `Files` table if they don't exist, and returns IDs, which are then used to connect to a list in the pivot table
+- Changed `show()` methodi n `LoadOrderController` to work with the new database structure
+- Changed file downloading to make use of new database structure
+
+## Removed
+- Removed `protected $factory = 'ListFactory';` from `LoadOrder.php` is it's the wrong name
+
+## Internals
+- Composer
+	- Added `laracasts/generators` to help with generating migrations
 
 # v1.10.1
 > 2021-03-11
