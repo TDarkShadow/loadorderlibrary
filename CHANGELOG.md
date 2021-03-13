@@ -50,6 +50,22 @@
 
 <!-- /TOC -->
 
+# v2.1.0
+> 2021-03-12
+
+## Added
+- Added an "Orphaned Files" section to admin stats to show me files that are no longer in a list. The idea is it *should* be empty
+- Added a "Files In Lists" section to show how many lists a given file is in
+- Added a `clean_name` column to the `files` table and populated it (migration: `add_clean_name_column_to_files_table`). Currently unused in the rest of code, but will be implemented for v2.2.0
+- Added a `size_in_bytes` column to the files table and populated it (migration: `add_size_in_bytes_column_to_files_table`)
+
+## Fixed
+- Fixed title of Admin Stats page
+
+## Changed
+- Changed admin filesize stat to add from DB instead of reading files directly
+
+
 # v2.0.2
 > 2021-03-12
 
