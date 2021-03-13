@@ -59,7 +59,6 @@ class LoadOrderController extends Controller
 		foreach ($files as $file) {
 			$file['clean_name'] = explode('-', $file['name'])[1];
 			$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
-			dd($file, $file['name']);
 			$fileIds[] = \App\File::firstOrCreate($file)->id;
 		}
 		
