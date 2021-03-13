@@ -9,7 +9,11 @@ class DownloadController extends Controller
 {
     public function index(\App\LoadOrder $loadOrder, $fileName)
 	{
-		$listFiles = explode(',', $loadOrder->files);
+		$listFiles = [];
+
+		foreach ($loadOrder->files as $file) {
+			array_push($listFiles, $file->name);
+		}
 
 		// DL all files.
 		if($fileName == 'all') {
@@ -26,7 +30,7 @@ class DownloadController extends Controller
 		}
 
 		$file = implode(preg_grep("/$fileName/", $listFiles));
-
+		
 		return \Storage::download('uploads/' . $file, $fileName);
 
 	}
