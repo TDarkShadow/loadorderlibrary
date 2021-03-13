@@ -5,15 +5,14 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
+	- [**Editing Lists**](#editing-lists)
 	- [**QOL Improvements For List Comparison Results](#qol-improvements-for-list-comparison-results)
-	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
 - [**Future**](#future)
 	- [**Delete Files From Disk**](#delete-files-from-disk)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
 	- [**List Search By Game/Author**](#list-search-by-gameauthor)
 	- [**Password Recovery Forgot Password**](#password-recovery-forgot-password)
-	- [**Editing Lists**](#editing-lists)
 	- [**Implement 2FA**](#implement-2fa)
 	- [**Verified Users/Lists**](#verified-userslists)
 	- [**Add More Supported Games**](#add-more-supported-games)
@@ -24,10 +23,15 @@ A list of things to do, ordered by priority.
 	- [**Pagination For Browse Lists Page**](#pagination-for-browse-lists-page)
 	- [**More Robust Solution To Line Endings**](#more-robust-solution-to-line-endings)
 	- [**Downloading Of List Files**](#downloading-of-list-files)
+	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
 
 <!-- /TOC -->
 
 # **In Progress**
+
+## **Editing Lists**
+
+Allow editing the name, description, and game of lists. This will require and account and obviously one can only edit their own lists.
 
 ## **QOL Improvements For List Comparison Results
 
@@ -36,17 +40,6 @@ Things like
 - Being able to download a file from the compared to list
 - Better layout of files, mirroring that of the individual list view page
 - Filter the results like you can on individual list view page
-
-## **Parse File Names On Upload**
-
-Currently, files uploaded as `modlist(1).txt` and the like, don't get changed into `modlist.txt` which is breaking some things as I rely on the filename. To fix that I'll probablby validate names on upload compared to a masterlist of relevant files for lists. Including but not limited to
-
--   modlist.txt
--   plugins.txt
--   skyrim.ini
--   skyrimprefs.ini
--   mwse-version.txt
--   mge.ini
 
 ---
 
@@ -71,10 +64,6 @@ Add /games/$game and /$author/ routes to then view lists by game or author. Like
 ## **Password Recovery (Forgot Password)**
 
 Find a cheap enough mail provider to be able to then make use of Laravel's built-in password reset flow.
-
-## **Editing Lists**
-
-Allow editing the name, description, and game of lists. This will require and account and obviously one can only edit their own lists.
 
 ## **Implement 2FA**
 
@@ -129,3 +118,8 @@ This was a lot easier than I expected. Fixed regex I was already using, then ran
 > Completed 2021-03-05
 
 Files now have download buttons for each file, or all in a list. .zip file is stored in a `tmp` directory that is cleared daily. Also added a stat to Admin Stats showing total size of tmp files.
+
+## **Parse File Names On Upload**
+> Completed 2021-03-06
+
+Files now are checked against a masterlist of valid filenames on upload. If one is not exact, upload fails. All files are stored as lowercase as, afaik, no games or tools are case sensitive for the files.
