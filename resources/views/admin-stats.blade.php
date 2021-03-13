@@ -121,6 +121,8 @@
 								<span class="text-white"><b>&plus;</b></span> <b>Orphaned Files</b>
 							</button>
 						</h5>
+
+						<span class="badge badge-pill badge-danger">{{ count($orphanedFiles) }}</span>
 					</div>
 
 					<div id="collapse-orphaned" class="collapse" aria-labelledby="heading-orphaned" data-parent="#accordion">
