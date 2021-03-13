@@ -6,6 +6,8 @@ use Illuminate\Contracts\Validation\Rule;
 
 class ValidNumLines implements Rule
 {
+
+	protected $file = '';
     /**
      * Create a new rule instance.
      *
@@ -25,6 +27,7 @@ class ValidNumLines implements Rule
      */
     public function passes($attribute, $value)
     {
+		$this->file = $value->getClientOriginalName();
         return count(explode("\n", file_get_contents($value))) >= 5;
     }
 
@@ -35,6 +38,6 @@ class ValidNumLines implements Rule
      */
     public function message()
     {
-        return 'A file is not valid. If you believe this is wrong, contact Phin.';
+        return $this->file . ' is not valid. If you believe this is wrong, contact Phin.';
     }
 }
