@@ -30,8 +30,8 @@ class UpdateLoadOrder extends FormRequest
 			'description' => 'string|nullable',
 			'game' => 'required',
 			'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:128', new ValidNumLines, new ValidFilename],
-			'existing-files' => 'required',
-			'existing-files.*' => 'string'
+			'existing' => 'required',
+			'existing.*' => 'string'
 		];
     }
 
@@ -45,7 +45,7 @@ class UpdateLoadOrder extends FormRequest
 		return [
 			'files.*.max' => 'Files may not be more than 128KB.',
 			'files.*.mimes' => 'Files must be of type txt or ini',
-			'existing-files' => 'At least one file is required for a list'
+			'existing' => 'At least one file is required for a list'
 		];
 	}
 }
