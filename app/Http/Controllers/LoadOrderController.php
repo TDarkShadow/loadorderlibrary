@@ -6,6 +6,7 @@ use App\Helpers\ValidFiles;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpload;
+use App\Http\Requests\UpdateLoadOrder;
 use Illuminate\Http\RedirectResponse;
 
 class LoadOrderController extends Controller
@@ -52,7 +53,6 @@ class LoadOrderController extends Controller
 	{
 		$validated = $request->validated();
 
-		
 		$files = $this->getFileNames($validated['files']);
 		
 		$fileIds = [];
@@ -151,7 +151,8 @@ class LoadOrderController extends Controller
 	 */
 	public function edit(\App\LoadOrder $loadOrder)
 	{
-		//
+		$games = \App\Game::orderBy('name', 'asc')->get();
+		return view('edit-load-order')->with(['games' => $games, 'loadOrder' => $loadOrder, 'validFiles' => ValidFiles::all()]);
 	}
 
 	/**
@@ -161,9 +162,47 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(Request $request, \App\LoadOrder $loadOrder)
+	public function update(UpdateLoadOrder $request, \App\LoadOrder $loadOrder)
 	{
-		//
+		$validated = $request->validated();
+
+		$fileIds = [];
+
+		if (isset($validated['files'])) {
+			$files = $this->getFileNames($validated['files']);
+	
+			foreach ($files as $file) {
+				$file['clean_name'] = explode('-', $file['name'])[1];
+				$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
+				$fileIds[] = \App\File::firstOrCreate($file)->id;
+			}
+			// Check if an uploaded file is overwritting an existing file
+			foreach ($files as $file) {
+				$cleanName = explode('-', $file['name'])[1];
+				$overwrite = preg_grep("/$cleanName/", $validated['existing-files']);
+				if ($overwrite) {
+					$keyToRemove = array_keys($overwrite);
+					unset($validated['existing-files'][$keyToRemove[0]]);			
+				}
+			}
+		}
+
+
+		// Generate fileIds for ->sync()
+		foreach ($validated['existing-files'] as $file) {
+			$fileIds[] = (int) explode('-', $file)[1];
+		}
+
+		$loadOrder->game_id     = (int) $validated['game'];
+		$loadOrder->name        = $validated['name'];
+		$loadOrder->description = $validated['description'];
+		$loadOrder->is_private  = $request->input('private') != null;
+		$loadOrder->save();
+		$loadOrder->files()->sync($fileIds);
+
+		// TODO: Change redirect to go to the list page itself.
+		flash($loadOrder->name . ' successfully updated!')->success()->important();
+		return redirect('lists/' . $loadOrder->slug);
 	}
 
 	/**
