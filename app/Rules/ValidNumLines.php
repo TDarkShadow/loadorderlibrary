@@ -28,7 +28,7 @@ class ValidNumLines implements Rule
     public function passes($attribute, $value)
     {
 		$this->file = $value->getClientOriginalName();
-        return count(explode("\n", file_get_contents($value))) >= 5;
+        return count(explode("\n", file_get_contents($value))) >= 1;
     }
 
     /**
