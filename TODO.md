@@ -29,6 +29,10 @@ A list of things to do, ordered by priority.
 
 # **In Progress**
 
+## **Delete Files From Disk**
+
+Implement a method were if a list is deleted and it's the only one associated with any files in it, also delete those files from disk.
+
 ## **QOL Improvements For List Comparison Results
 
 Things like
@@ -37,13 +41,13 @@ Things like
 - Better layout of files, mirroring that of the individual list view page
 - Filter the results like you can on individual list view page
 
+## **List Search By Game/Author**
+
+Add /games/$game and /$author/ routes to then view lists by game or author. Likely won't include anonymous uploads as there'd be a lot.
+
 ---
 
 # **Future**
-
-## **Delete Files From Disk**
-
-Implement a method were if a list is deleted and it's the only one associated with any files in it, also delete those files from disk.
 
 ## **Compare List From Its Page**
 
@@ -53,9 +57,6 @@ Implement a method of starting a list compare from a specific list's page, witho
 
 Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-start). This task will be going on in parallel to others in this document.
 
-## **List Search By Game/Author**
-
-Add /games/$game and /$author/ routes to then view lists by game or author. Likely won't include anonymous uploads as there'd be a lot.
 
 ## **Password Recovery (Forgot Password)**
 
