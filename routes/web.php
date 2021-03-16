@@ -26,9 +26,6 @@ Route::get('/lists/{load_order:slug}', 'LoadOrderController@show');
 Route::get('/lists/{load_order:slug}/download/{file}', 'DownloadController@index');
 Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
 
-// List View By Game/Author Routes.
-Route::get('/game/{game:name}', 'LoadOrderController@showByGame')->name('lists.show-by-game');
-Route::get('/author/{user:name}', 'LoadOrderController@showByAuthor')->name('lists.show-by-author');
 
 // Comparison Routes.
 Route::get('/compare', 'ComparisonController@index')->name('compare');
