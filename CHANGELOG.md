@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v2.4.1](#v241)
 - [v2.4.0](#v240)
 - [v2.3.0](#v230)
 - [v2.2.1](#v221)
@@ -57,6 +60,18 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.4.1
+> 2021-03-16
+
+## Changed
+- Went through upgrading laravel 7 to 8 instructions for anything I missed
+- Make user seeder also run on local
+- Moved models to a Models folder
+
+## Internals
+- Composer
+	- Updated `composer.lock` packages with `composer update`
 
 # v2.4.0
 > 2021-03-15
