@@ -69,6 +69,7 @@
 ## Changed
 - Changed user facing `Load Order[s]` test to `List[s]`
 - Changed pagination to be 14 lists from 15
+- Changed the `name` column on the `users` table to be unique
 
 ## Removed
 - Removed unused imports in `ValidFiles`
