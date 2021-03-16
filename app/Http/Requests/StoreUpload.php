@@ -45,8 +45,7 @@ class StoreUpload extends FormRequest
     public function messages()
     {
 		$messages = [
-			'files.*.max' => 'Files may not be more than 128KB.',
-			'files.*.mimes' => 'Files must be of type txt or ini'
+			'files.*.max' => 'Files may not be more than 128KB.'
 		];
 
         return $messages;
