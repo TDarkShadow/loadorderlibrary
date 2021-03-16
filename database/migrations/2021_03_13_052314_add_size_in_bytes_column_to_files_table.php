@@ -19,7 +19,7 @@ class AddSizeInBytesColumnToFilesTable extends Migration
 			});
         });
 
-		$files = \App\File::all();
+		$files = \App\Models\File::all();
 
 		foreach ($files as $file) {
 			$file->size_in_bytes = \Storage::disk('uploads')->size($file->name);

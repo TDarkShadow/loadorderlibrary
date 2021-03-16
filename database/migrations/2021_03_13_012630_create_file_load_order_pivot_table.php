@@ -21,8 +21,8 @@ class CreateFileLoadOrderPivotTable extends Migration
         });
 
 		// Also create the entries for each existing list.
-		$lists = \App\LoadOrder::all();
-		$files = \App\File::all();
+		$lists = \App\Models\LoadOrder::all();
+		$files = \App\Models\File::all();
 
 		foreach ($lists as $list) {
 			$listFiles = explode(',', $list->files);
