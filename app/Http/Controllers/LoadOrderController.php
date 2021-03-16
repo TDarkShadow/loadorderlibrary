@@ -37,7 +37,7 @@ class LoadOrderController extends Controller
 			$query->whereUserId($author->id);
 		}
 
-		$loadOrders = $query->orderBy('created_at', 'desc')->paginate(15);
+		$loadOrders = $query->orderBy('created_at', 'desc')->paginate(14);
 
 		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}
@@ -51,7 +51,7 @@ class LoadOrderController extends Controller
 	 */
 	public function showByGame(\App\Game $game): View
 	{
-		$loadOrders = \App\LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(15);
+		$loadOrders = \App\LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(14);
 
 		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}
