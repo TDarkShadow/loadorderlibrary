@@ -63,6 +63,7 @@
 ## Added
 - Added a command to delete orphaned files from disk and database
 - Added a task to run the `delete:orhpaned` command once every week
+- Added a new custom rule for mimetypes so I can give better error messages
 
 ## Fixed
 - Fixed issue where slug ocassionally tries to use one that already exists using method from https://laracasts.com/lessons/unique-slugs-in-laravel
@@ -71,6 +72,9 @@
 - Changed the required amount of lines in a file to 1 from 5
 - Changed ordering of title for page/list names to be first
 - Changed `tmp:clear` command into `delete:temp`
+
+## Removed
+- Removed now uneeded message for invalid mimes from `StoreUpload.php`
 
 ## Closed
 - https://github.com/phinocio/loadorderlibrary/issues/40
