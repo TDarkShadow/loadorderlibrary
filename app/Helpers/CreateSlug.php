@@ -12,18 +12,16 @@ class CreateSlug
 	{
 		$slug = Str::slug($name, '-');
 
-		$exists = Self::exists($slug);
+		$latestSlug = LoadOrder::whereRaw("slug RLIKE '^{$slug}(-[0-9]*)?$'")->latest('id')->value('slug');
+		
+		if($latestSlug) {
+			$pieces = explode('-', $latestSlug);
 
-		if (count($exists) > 0) {
-			$slug = $slug . '-' . count($exists);
+			$number = intval(end($pieces));
+
+			$slug .= '-' . ($number + 1);
 		}
 
 		return $slug;
-	}
-
-	protected static function exists($slug)
-	{
-		$slugs = LoadOrder::where('slug', 'like', $slug . "%")->get();
-		return $slugs;
 	}
 }
