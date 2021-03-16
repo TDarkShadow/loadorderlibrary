@@ -13,16 +13,16 @@ class LoadOrder extends Model
 
 	public function game()
 	{
-		return $this->belongsTo('\App\Game');
+		return $this->belongsTo('\App\Models\Game');
 	}
 
 	public function author()
 	{
-		return $this->belongsTo('\App\User', 'user_id');
+		return $this->belongsTo('\App\Models\User', 'user_id');
 	}
 
 	public function files()
 	{
-		return $this->belongsToMany('\App\File');
+		return $this->belongsToMany('\App\Models\File');
 	}
 }

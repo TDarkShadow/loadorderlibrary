@@ -13,6 +13,6 @@ class File extends Model
 
 	public function lists()
 	{
-		return $this->belongsToMany('\App\LoadOrder');
+		return $this->belongsToMany('\App\Models\LoadOrder');
 	}
 }

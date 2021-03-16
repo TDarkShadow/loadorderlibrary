@@ -41,7 +41,7 @@ class User extends Authenticatable
 
 	public function lists()
 	{
-		return $this->hasMany('\App\LoadOrder');
+		return $this->hasMany('\App\Models\LoadOrder');
 	}
 
 	public function isAdmin()
