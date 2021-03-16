@@ -145,3 +145,10 @@ p {
 		display: none;
 	}
 }
+
+.game-link{
+  color: $secondary !important;
+}
+.game-link:hover, .game-link:active {
+  color: darken($secondary, 10) !important;
+}
