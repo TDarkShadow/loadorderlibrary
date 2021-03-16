@@ -15,7 +15,7 @@
 				</div>
 
 				<small>
-					<em><a href="/game/{{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
+					<em><a href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
 				</small>
 			</div>
 
@@ -24,7 +24,7 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
+				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
