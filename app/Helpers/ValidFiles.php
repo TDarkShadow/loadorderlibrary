@@ -2,9 +2,6 @@
 
 namespace App\Helpers;
 
-use App\LoadOrder;
-use Illuminate\Support\Str;
-
 class ValidFiles
 {
 
