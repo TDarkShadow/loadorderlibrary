@@ -74,6 +74,10 @@
 ## Removed
 - Removed unused imports in `ValidFiles`
 
+## Interals
+- Composer
+	- Added `doctrine/dbal` package requried for changing tables
+
 # v2.3.0
 > 2021-03-15
 
