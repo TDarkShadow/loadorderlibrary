@@ -57,6 +57,20 @@
 
 <!-- /TOC -->
 
+# v2.4.0
+> 2021-03-15
+
+## Added
+- Added a `LinkParser` helper to assist with parsing descriptions for links
+- Added list filtering via query strings. EX: `/lists?game=TESIII Morrowind` will show all Morrowind lists. The links shown on lists now work to filter by this
+
+## Changed
+- Changed user facing `Load Order[s]` test to `List[s]`
+- Changed pagination to be 14 lists from 15
+
+## Removed
+- Removed unused imports in `ValidFiles`
+
 # v2.3.0
 > 2021-03-15
 
