@@ -64,6 +64,7 @@
 ## Added
 - Added a `LinkParser` helper to assist with parsing descriptions for links
 - Added list filtering via query strings. EX: `/lists?game=TESIII Morrowind` will show all Morrowind lists. The links shown on lists now work to filter by this
+- Added `game-link` class to change the color of the link for a game
 
 ## Changed
 - Changed user facing `Load Order[s]` test to `List[s]`
