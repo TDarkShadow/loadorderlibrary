@@ -13,7 +13,7 @@
 				<small><em><a href="#">{{ $loadOrder->game->name }}</a></em></small>
 			</div>
 			<div class="card-body">
-				{!! \App\Helpers\LinkParser::parse($loadOrder->description) ?? 'No description provided.' !!}
+				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
