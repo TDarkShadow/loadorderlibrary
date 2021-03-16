@@ -15,8 +15,7 @@
 				</div>
 
 				<small>
-
-					<em>{{ $loadOrder->game->name }}</em>
+					<em><a href="/game/{{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
 				</small>
 			</div>
 

@@ -10,7 +10,7 @@
 					</span>
 					@endif
 				</div>
-				<small><em><a href="#">{{ $loadOrder->game->name }}</a></em></small>
+				<small><em><a href="/game/{{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em></small>
 			</div>
 			<div class="card-body">
 				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
