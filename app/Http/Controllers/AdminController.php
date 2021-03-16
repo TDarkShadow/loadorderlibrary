@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Middleware\IsAdmin;
+use App\Models\File;
+use App\Models\LoadOrder;
+use App\Models\User;
 
 class AdminController extends Controller
 {
@@ -18,11 +21,11 @@ class AdminController extends Controller
 		$listStats = [];
 		$fileStats = [];
 		
-		$users = \App\User::orderBy('created_at', 'desc')->get();
-		$lists = \App\LoadOrder::all();
-		$files = \App\File::with('lists')->get();
-		$filesInLists = \App\File::has('lists')->get();
-		$orphanedFiles = \App\File::doesntHave('lists')->get();
+		$users = User::orderBy('created_at', 'desc')->get();
+		$lists = LoadOrder::all();
+		$files = File::with('lists')->get();
+		$filesInLists = File::has('lists')->get();
+		$orphanedFiles = File::doesntHave('lists')->get();
 		$tmpFiles = \Storage::disk('tmp')->allFiles();
 		
 		$fileSize = 0;
