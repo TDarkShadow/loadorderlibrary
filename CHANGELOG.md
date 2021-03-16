@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v2.3.0](#v230)
 - [v2.2.1](#v221)
 - [v2.2.0](#v220)
 - [v2.1.2](#v212)
@@ -55,6 +56,25 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v2.3.0
+> 2021-03-15
+
+## Added
+- Added a command to delete orphaned files from disk and database
+- Added a task to run the `delete:orhpaned` command once every week
+
+## Fixed
+- Fixed issue where slug ocassionally tries to use one that already exists using method from https://laracasts.com/lessons/unique-slugs-in-laravel
+
+## Changed
+- Changed the required amount of lines in a file to 1 from 5
+- Changed ordering of title for page/list names to be first
+- Changed `tmp:clear` command into `delete:temp`
+
+## Closed
+- https://github.com/phinocio/loadorderlibrary/issues/40
+- https://github.com/phinocio/loadorderlibrary/issues/41
 
 # v2.2.1
 > 2021-03-13
