@@ -22,11 +22,38 @@ class LoadOrderController extends Controller
 	 *
 	 * @return \Illuminate\View\View
 	 */
-	public function index(): View
+	public function index(Request $request): View
 	{
-		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->paginate(15);
+		$game = \App\Game::whereName($request->query('game'))->first();
+		$author = \App\User::whereName($request->query('author'))->first();
+		$query = \App\LoadOrder::whereIsPrivate(false);
 
-		return view('load-orders')->with('loadOrders', $loadOrders);
+
+		if ($game) {
+			$query->whereGameId($game->id);
+		}
+
+		if ($author) {
+			$query->whereUserId($author->id);
+		}
+
+		$loadOrders = $query->orderBy('created_at', 'desc')->paginate(15);
+
+		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
+	}
+
+	/**
+	 * Show all lists that are not private for a specific game
+	 * Route GET /game/{id}
+	 *
+	 * @param \App\Game $game
+	 * @return \Illuminate\View\View
+	 */
+	public function showByGame(\App\Game $game): View
+	{
+		$loadOrders = \App\LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(15);
+
+		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}
 
 	/**
@@ -142,6 +169,7 @@ class LoadOrderController extends Controller
 
 		return view('load-order')->with(['loadOrder' => $loadOrder, 'files' => $files, 'author' => $author]);
 	}
+	
 
 	/**
 	 * Show the form for editing the specified resource.
