@@ -5,12 +5,10 @@ A list of things to do, ordered by priority.
 <!-- TOC depthfrom:1 depthto:2 -->
 
 - [**In Progress**](#in-progress)
-	- [**QOL Improvements For List Comparison Results](#qol-improvements-for-list-comparison-results)
+	- [**QOL Improvements For List Comparison Results**](#qol-improvements-for-list-comparison-results)
 - [**Future**](#future)
-	- [**Delete Files From Disk**](#delete-files-from-disk)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
-	- [**List Search By Game/Author**](#list-search-by-gameauthor)
 	- [**Password Recovery Forgot Password**](#password-recovery-forgot-password)
 	- [**Implement 2FA**](#implement-2fa)
 	- [**Verified Users/Lists**](#verified-userslists)
@@ -24,26 +22,21 @@ A list of things to do, ordered by priority.
 	- [**Downloading Of List Files**](#downloading-of-list-files)
 	- [**Parse File Names On Upload**](#parse-file-names-on-upload)
 	- [**Editing Lists**](#editing-lists)
+	- [**Delete Files From Disk**](#delete-files-from-disk)
+	- [**List Search By Game/Author**](#list-search-by-gameauthor)
 
 <!-- /TOC -->
 
 # **In Progress**
 
-## **Delete Files From Disk**
 
-Implement a method were if a list is deleted and it's the only one associated with any files in it, also delete those files from disk.
-
-## **QOL Improvements For List Comparison Results
+## **QOL Improvements For List Comparison Results**
 
 Things like
 
 - Being able to download a file from the compared to list
 - Better layout of files, mirroring that of the individual list view page
 - Filter the results like you can on individual list view page
-
-## **List Search By Game/Author**
-
-Add /games/$game and /$author/ routes to then view lists by game or author. Likely won't include anonymous uploads as there'd be a lot.
 
 ---
 
@@ -130,3 +123,13 @@ Lists are now editable. You can
 - Edit the description
 - Edit the game a list is for (in case it was wrong on upload or something)
 - Add/Edit/Remove files. Editing a file is simply uploading a file with the same name of one already in the list, the one in the list will be removed.
+
+## **Delete Files From Disk**
+> Completed 2021-03-15
+
+Once a week a `delete:orphaned` task runs to delete files from the DB and disk that aren't associated with a list.
+
+## **List Search By Game/Author**
+> Completed 2021-03-15
+
+Implemented via url query strings. `/lists?game=TESIII Morrowind` will show all Morrowind lists. `/lists?author=Phinocio` will show all lists by Phinocio.
