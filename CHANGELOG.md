@@ -61,6 +61,12 @@
 
 <!-- /TOC -->
 
+# v2.4.2
+> 2021-03-16
+
+## Fixed
+- Fixed model referencing issues.
+
 # v2.4.1
 > 2021-03-16
 
