@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use ZipArchive;
+use App\Models\LoadOrder;
 
 class DownloadController extends Controller
 {
-    public function index(\App\Models\LoadOrder $loadOrder, $fileName)
+    public function index(LoadOrder $loadOrder, $fileName)
 	{
 		$listFiles = [];
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Rules\ValidPassword;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class ChangePasswordController extends Controller
 {
@@ -21,7 +22,7 @@ class ChangePasswordController extends Controller
 	public function store(Request $request) 
 	{
 		$this->validator($request->all())->validate();
-		$user = \App\Models\User::find(auth()->user()->id)->first();
+		$user = User::find(auth()->user()->id)->first();
 		$user->password = \Hash::make($request->input('password'));
 		$user->save();
 		flash('Password changed!')->success();
