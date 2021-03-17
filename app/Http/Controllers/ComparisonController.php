@@ -11,7 +11,7 @@ class ComparisonController extends Controller
 	public function index(): View
 	{
 
-		$loadOrders = \App\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->get();
+		$loadOrders = \App\Models\LoadOrder::where('is_private', false)->orderBy('created_at', 'desc')->get();
 
 		return view('compare')->with('loadOrders', $loadOrders);
 	}
@@ -29,8 +29,8 @@ class ComparisonController extends Controller
 
 	public function results($list1, $list2)
 	{
-		$list1 = \App\LoadOrder::where('is_private', false)->where('slug', $list1)->first();
-		$list2 = \App\LoadOrder::where('is_private', false)->where('slug', $list2)->first();
+		$list1 = \App\Models\LoadOrder::where('is_private', false)->where('slug', $list1)->first();
+		$list2 = \App\Models\LoadOrder::where('is_private', false)->where('slug', $list2)->first();
 
 		$results = $this->compareLists($list1, $list2);
 

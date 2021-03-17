@@ -21,7 +21,7 @@ class ChangePasswordController extends Controller
 	public function store(Request $request) 
 	{
 		$this->validator($request->all())->validate();
-		$user = \App\User::find(auth()->user()->id)->first();
+		$user = \App\Models\User::find(auth()->user()->id)->first();
 		$user->password = \Hash::make($request->input('password'));
 		$user->save();
 		flash('Password changed!')->success();

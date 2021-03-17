@@ -18,11 +18,11 @@ class AdminController extends Controller
 		$listStats = [];
 		$fileStats = [];
 		
-		$users = \App\User::orderBy('created_at', 'desc')->get();
-		$lists = \App\LoadOrder::all();
-		$files = \App\File::with('lists')->get();
-		$filesInLists = \App\File::has('lists')->get();
-		$orphanedFiles = \App\File::doesntHave('lists')->get();
+		$users = \App\Models\User::orderBy('created_at', 'desc')->get();
+		$lists = \App\Models\LoadOrder::all();
+		$files = \App\Models\File::with('lists')->get();
+		$filesInLists = \App\Models\File::has('lists')->get();
+		$orphanedFiles = \App\Models\File::doesntHave('lists')->get();
 		$tmpFiles = \Storage::disk('tmp')->allFiles();
 		
 		$fileSize = 0;

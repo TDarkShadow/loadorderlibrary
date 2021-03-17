@@ -7,7 +7,7 @@ use ZipArchive;
 
 class DownloadController extends Controller
 {
-    public function index(\App\LoadOrder $loadOrder, $fileName)
+    public function index(\App\Models\LoadOrder $loadOrder, $fileName)
 	{
 		$listFiles = [];
 
