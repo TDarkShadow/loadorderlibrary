@@ -4,8 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v3.0.0](#v300)
 - [v2.4.1](#v241)
 - [v2.4.0](#v240)
 - [v2.3.0](#v230)
@@ -60,6 +59,29 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.0.0
+> 2021-03-16
+
+## Added
+- Added emailing, password resets, 2fa, etc using the Laravel Fortify package
+- Added a `guest.blade.php` layout
+- Added `GuestLayout` and `AppLayout` components
+
+## Fixed
+- Fixed migration and seed files referencing old location for models
+- Fixed login and register pages not having proper titles
+- Fixed all wrong model references
+
+## Changed
+- Changed `register.blade.php` to use the new `guest.blade.php` layout
+
+## Removed
+- Removed unused `GameController`
+
+## Internals
+- Composer
+	- Added `laravel/fortify`
 
 # v2.4.1
 > 2021-03-16
