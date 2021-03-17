@@ -79,6 +79,7 @@
 
 ## Removed
 - Removed unused `GameController`
+- Removed route in `api.php`
 
 ## Internals
 - Composer
