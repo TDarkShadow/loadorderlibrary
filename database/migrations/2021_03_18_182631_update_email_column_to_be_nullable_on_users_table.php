@@ -26,7 +26,8 @@ class UpdateEmailColumnToBeNullableOnUsersTable extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-			$table->string('email')->change();
+			// This will error the second someone makes an acc with no email
+			$table->string('email')->nullable(false)->change();
         });
     }
 }
