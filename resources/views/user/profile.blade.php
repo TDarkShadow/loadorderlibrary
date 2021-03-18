@@ -151,7 +151,7 @@
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<form method="POST" enctype="multipart/form-data">
+				<form method="POST" action="{{ route('user.delete-account') }}">
 					@csrf
 					<button class="btn btn-danger justify-self-center" type="submit">Delete Account</button>
 				</form>
