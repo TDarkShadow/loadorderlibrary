@@ -32,7 +32,7 @@ Route::post('/compare', 'ComparisonController@post')->name('compare-post');
 Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
 
 // User account management routes
-Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
+Route::get('/account', 'UserController@index')->name('user.dashboard');
 Route::get('/account/change-password', 'ChangePasswordController@index')->name('change-password');
 Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
 Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-account');
