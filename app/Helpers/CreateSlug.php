@@ -2,7 +2,7 @@
 
 namespace App\Helpers;
 
-use App\LoadOrder;
+use App\Models\LoadOrder;
 use Illuminate\Support\Str;
 
 class CreateSlug
