@@ -33,8 +33,7 @@ Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results'
 
 // User account management routes
 Route::get('/profile', 'UserController@index')->middleware(['auth', 'password.confirm'])->name('user.profile');
-Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-account');
-Route::post('/account/delete', 'DeleteAccountController@destroy')->name('delete-account-post');
+Route::post('/user/delete', 'UserController@destroy')->name('user.delete-account');
 
 // Admin routes
 Route::get('admin/stats', 'AdminController@stats')->name('admin-stats');
