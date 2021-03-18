@@ -31,7 +31,8 @@ Route::get('/compare', 'ComparisonController@index')->name('compare');
 Route::post('/compare', 'ComparisonController@post')->name('compare-post');
 Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
 
-// Account Management Routes.
+// User account management routes
+Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
 Route::get('/account/change-password', 'ChangePasswordController@index')->name('change-password');
 Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
 Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-account');
@@ -40,8 +41,10 @@ Route::post('/account/delete', 'DeleteAccountController@destroy')->name('delete-
 // Admin routes
 Route::get('admin/stats', 'AdminController@stats')->name('admin-stats');
 
+
 // Intentional error routes for testing purposes.
 Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('500-error');
+
 
 
 
