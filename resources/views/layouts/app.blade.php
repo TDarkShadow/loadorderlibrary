@@ -83,11 +83,8 @@
 									{{ __('Stats') }}
 								</a>
 								@endif
-								<a class="dropdown-item bg-dark text-white" href="{{ route('change-password') }}">
-									{{ __('Change Password') }}
-								</a>
-								<a class="dropdown-item bg-dark text-danger" href="{{ route('delete-account') }}">
-									{{ __('Delete Account') }}
+								<a class="dropdown-item bg-dark text-white" href="{{ route('user.profile') }}">
+									{{ __('Account Management') }}
 								</a>
 								<div class="dropdown-divider bg-dark"></div>
 								<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();
