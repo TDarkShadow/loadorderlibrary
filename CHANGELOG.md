@@ -68,6 +68,10 @@
 - Added emailing, password resets, 2fa, etc using the Laravel Fortify package
 - Added a `guest.blade.php` layout
 - Added `GuestLayout` and `AppLayout` components
+- Added a proper user dashboard page with simple options to manage the account
+- Added `password.confirm` middleware to dashboard page to require password confirmation to access it and make changes
+- Added 2FA option
+- Added `two-factor-challenge` view for logging in via 2FA
 
 ## Fixed
 - Fixed migration and seed files referencing old location for models
@@ -76,10 +80,16 @@
 
 ## Changed
 - Changed `register.blade.php` to use the new `guest.blade.php` layout
+- Changed login to use name instead of email
+- Made email completely optional by changing Fortify config and `CreateNewUser` action
+- Changed `password.confirm` view to be dark card
+- Changed account deletion to use `UserController@destroy()`
 
 ## Removed
 - Removed unused `GameController`
 - Removed route in `api.php`
+- Removed `DeleteUserController` and `ChangePasswordController` as they are now handled in `UserController`
+- Removed `ValidPassword` rule as fortify handles that
 
 ## Internals
 - Composer
