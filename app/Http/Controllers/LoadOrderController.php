@@ -31,6 +31,7 @@ class LoadOrderController extends Controller
 		$game = Game::whereName($request->query('game'))->first();
 		$author = User::whereName($request->query('author'))->first();
 		$query = LoadOrder::whereIsPrivate(false);
+		$sort = $request->query('sort') ?? null;
 
 
 		if ($game) {
@@ -39,9 +40,15 @@ class LoadOrderController extends Controller
 
 		if ($author) {
 			$query->whereUserId($author->id);
+		}	
+
+		if ($sort == 'updated') {
+			$query->orderBy('updated_at', 'desc');
+		} else {
+			$query->orderBy('created_at', 'desc');
 		}
 
-		$loadOrders = $query->orderBy('created_at', 'desc')->paginate(14);
+		$loadOrders = $query->paginate(14);
 
 		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}
