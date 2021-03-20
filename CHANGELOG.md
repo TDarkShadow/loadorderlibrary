@@ -62,6 +62,16 @@
 
 <!-- /TOC -->
 
+# v3.1.0
+> 2021-03-20
+
+## Added
+- Added a line showing when a list was last updated
+- Added a sort button to sort by newest/updated. Will have more robust sorting in the future
+
+## Fixed
+- Fixed pagination on "your lists" page to be 14
+
 # v3.0.1
 > 2021-03-20
 
