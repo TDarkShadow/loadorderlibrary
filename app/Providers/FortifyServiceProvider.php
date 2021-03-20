@@ -34,7 +34,7 @@ class FortifyServiceProvider extends ServiceProvider
 		Fortify::loginView(fn () => view('auth.login'));
 		Fortify::registerView(fn () => view('auth.register'));
 		Fortify::confirmPasswordView(fn () => view('auth.passwords.confirm'));
-		Fortify::twoFactorChallengeView(fn () => view('auth.two-factor-challenge'));
+		// Fortify::twoFactorChallengeView(fn () => view('auth.two-factor-challenge'));
 		
         Fortify::createUsersUsing(CreateNewUser::class);
         Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);

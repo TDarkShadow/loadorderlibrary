@@ -10,7 +10,7 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasFactory, TwoFactorAuthenticatable;
+    use Notifiable, HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -50,8 +50,8 @@ class User extends Authenticatable
 		return $this->is_admin === 1;
 	}
 
-	public function enabledTwoFactor()
-	{
-		return $this->two_factor_secret !== null;
-	}
+	// public function enabledTwoFactor()
+	// {
+	// 	return $this->two_factor_secret !== null;
+	// }
 }
