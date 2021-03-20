@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.0.1](#v301)
 - [v3.0.0](#v300)
 - [v2.4.2](#v242)
 - [v2.4.1](#v241)
@@ -60,6 +61,15 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.0.1
+> 2021-03-20
+
+## Added
+- Added some clarification text that emails are optional now
+
+## Changed
+- Disabled 2FA for now as there's a few things I want to fix myself for it but don't feel like doing right now
 
 # v3.0.0
 > 2021-03-16
