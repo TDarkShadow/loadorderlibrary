@@ -56,7 +56,7 @@
 							<a class="btn btn-secondary" href="/upload" role="button">Upload List</a>
 						</li>
 						<li>
-							<a class="nav-link" href="/lists">Browse Lists</a>
+							<a class="nav-link" href="/lists?game=all">Browse Lists</a>
 						</li>
 						<li>
 							<a class="nav-link" href="/compare">Compare Lists</a>
