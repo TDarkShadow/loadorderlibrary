@@ -8,13 +8,9 @@
 		<div class="col-md-8">
 			<div class="card text-white bg-dark">
 				<div class="card-header">{{ __('Login') }}</div>
-				@if($errors->has)
-				@foreach ($errors->all() as $error)
-				<div>{{ $error }}</div>
-				@endforeach
-				@endif
 
 				<div class="card-body">
+					Note: Email is now optional. Use your name to login.
 					<form method="POST" action="{{ route('login') }}">
 						@csrf
 
