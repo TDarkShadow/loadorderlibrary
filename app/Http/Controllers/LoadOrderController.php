@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpload;
 use App\Http\Requests\UpdateLoadOrder;
 use Illuminate\Http\RedirectResponse;
+use App\Models\LoadOrder;
+use App\Models\Game;
+use App\Models\User;
+use App\Models\File;
 
 class LoadOrderController extends Controller
 {
@@ -24,9 +28,9 @@ class LoadOrderController extends Controller
 	 */
 	public function index(Request $request): View
 	{
-		$game = \App\Models\Game::whereName($request->query('game'))->first();
-		$author = \App\Models\User::whereName($request->query('author'))->first();
-		$query = \App\Models\LoadOrder::whereIsPrivate(false);
+		$game = Game::whereName($request->query('game'))->first();
+		$author = User::whereName($request->query('author'))->first();
+		$query = LoadOrder::whereIsPrivate(false);
 
 
 		if ($game) {
@@ -46,12 +50,12 @@ class LoadOrderController extends Controller
 	 * Show all lists that are not private for a specific game
 	 * Route GET /game/{id}
 	 *
-	 * @param \App\Game $game
+	 * @param Game $game
 	 * @return \Illuminate\View\View
 	 */
-	public function showByGame(\App\Models\Game $game): View
+	public function showByGame(Game $game): View
 	{
-		$loadOrders = \App\Models\LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(14);
+		$loadOrders = LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(14);
 
 		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}
@@ -64,7 +68,7 @@ class LoadOrderController extends Controller
 	 */
 	public function create(): View
 	{
-		$games = \App\Models\Game::orderBy('name', 'asc')->get();
+		$games = Game::orderBy('name', 'asc')->get();
 
 		return view('upload')->with(['games' => $games, 'validFiles' => ValidFiles::all()]);
 	}
@@ -86,10 +90,10 @@ class LoadOrderController extends Controller
 		foreach ($files as $file) {
 			$file['clean_name'] = explode('-', $file['name'])[1];
 			$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
-			$fileIds[] = \App\Models\File::firstOrCreate($file)->id;
+			$fileIds[] = File::firstOrCreate($file)->id;
 		}
 		
-		$loadOrder = new \App\Models\LoadOrder();
+		$loadOrder = new LoadOrder();
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
 		$loadOrder->game_id     = (int) $validated['game'];
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($validated['name']);
@@ -110,7 +114,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\View\View
 	 */
-	public function show(\App\Models\LoadOrder $loadOrder)
+	public function show(LoadOrder $loadOrder)
 	{
 		$files = [];
 
@@ -177,14 +181,14 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\Response
 	 */
-	public function edit(\App\Models\LoadOrder $loadOrder)
+	public function edit(LoadOrder $loadOrder)
 	{
 		if (auth()->user()->id !== $loadOrder->user_id)
 		{
 			abort(403);
 		}
 		
-		$games = \App\Models\Game::orderBy('name', 'asc')->get();
+		$games = Game::orderBy('name', 'asc')->get();
 		return view('edit-load-order')->with(['games' => $games, 'loadOrder' => $loadOrder, 'validFiles' => ValidFiles::all()]);
 	}
 
@@ -195,7 +199,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\Response
 	 */
-	public function update(UpdateLoadOrder $request, \App\Models\LoadOrder $loadOrder)
+	public function update(UpdateLoadOrder $request, LoadOrder $loadOrder)
 	{
 		if (auth()->user()->id !== $loadOrder->user_id) {
 			abort(403);
@@ -211,7 +215,7 @@ class LoadOrderController extends Controller
 			foreach ($files as $file) {
 				$file['clean_name'] = explode('-', $file['name'])[1];
 				$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
-				$fileIds[] = \App\Models\File::firstOrCreate($file)->id;
+				$fileIds[] = File::firstOrCreate($file)->id;
 			}
 			// Check if an uploaded file is overwritting an existing file
 			foreach ($files as $file) {
@@ -248,7 +252,7 @@ class LoadOrderController extends Controller
 	 * @param  \App\LoadOrder  $loadOrder
 	 * @return \Illuminate\Http\RedirectResponse
 	 */
-	public function destroy(\App\Models\LoadOrder $loadOrder): RedirectResponse
+	public function destroy(LoadOrder $loadOrder): RedirectResponse
 	{
 		$this->authorize('delete', $loadOrder);
 

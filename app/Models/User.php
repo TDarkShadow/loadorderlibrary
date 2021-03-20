@@ -6,10 +6,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Fortify\TwoFactorAuthenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, HasFactory;
+    use Notifiable, HasFactory, TwoFactorAuthenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,5 +48,10 @@ class User extends Authenticatable
 	public function isAdmin()
 	{
 		return $this->is_admin === 1;
+	}
+
+	public function enabledTwoFactor()
+	{
+		return $this->two_factor_secret !== null;
 	}
 }

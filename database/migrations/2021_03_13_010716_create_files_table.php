@@ -22,7 +22,7 @@ class CreateFilesTable extends Migration
 		// Also add all existing files on disk to the table
 		$files = \Storage::disk('uploads')->allFiles();
 		foreach ($files as $file) {
-			\App\File::create(['name' => $file]);
+			\App\Models\File::create(['name' => $file]);
 		}
     }
 

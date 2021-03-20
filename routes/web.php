@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -32,17 +31,17 @@ Route::get('/compare', 'ComparisonController@index')->name('compare');
 Route::post('/compare', 'ComparisonController@post')->name('compare-post');
 Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
 
-// Account Management Routes.
-Route::get('/account/change-password', 'ChangePasswordController@index')->name('change-password');
-Route::post('/account/change-password', 'ChangePasswordController@store')->name('change-password-post');
-Route::get('/account/delete', 'DeleteAccountController@index')->name('delete-account');
-Route::post('/account/delete', 'DeleteAccountController@destroy')->name('delete-account-post');
+// User account management routes
+Route::get('/profile', 'UserController@index')->middleware(['auth', 'password.confirm'])->name('user.profile');
+Route::post('/user/delete', 'UserController@destroy')->name('user.delete-account');
 
 // Admin routes
 Route::get('admin/stats', 'AdminController@stats')->name('admin-stats');
 
+
 // Intentional error routes for testing purposes.
 Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('500-error');
+
 
 
 
