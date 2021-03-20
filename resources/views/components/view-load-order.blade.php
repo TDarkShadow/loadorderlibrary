@@ -1,23 +1,36 @@
 <div class="row d-flex align-items-stretch">
 	<div class="col-md-12">
 		<div class="card text-white bg-dark mb-3">
-			<div class="card-header d-flex justify-content-between align-items-center">
-				<div>
-					<h3><strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong></h3>
+			<div class="card-header d-flex justify-content-between align-items-start">
+				<div class="d-flex flex-column">
+					<h3><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></h3>
+					<small>
+						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
+					</small>
+				</div>
+
+				<div class="d-flex flex-column">
+					<small>
+						<em><a class="game-link" href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
+					</small>
 					@if($loadOrder->is_private)
-					<span class="display-block text-muted">
-						Private List
-					</span>
+					<small class="display-block text-muted">
+						<em>
+							Private List
+						</em>
+					</small>
 					@endif
 				</div>
-				<small><em><a href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em></small>
 			</div>
 			<div class="card-body">
 				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="#">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
+				<div class="d-flex flex-column">
+					<small>Updated {{ $loadOrder->updated_at->diffForHumans() }}</small>
+					<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
+				</div>
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())

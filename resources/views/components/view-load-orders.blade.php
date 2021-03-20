@@ -2,9 +2,18 @@
 	@forelse($loadOrders as $loadOrder)
 	<div class="col-md-6 card-group">
 		<div class="mb-3 card text-white bg-dark">
-			<div class="card-header d-flex justify-content-between align-items-center">
-				<div>
+			<div class="card-header d-flex justify-content-between align-items-start">
+				<div class="d-flex flex-column">
 					<strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong>
+					<small>
+						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
+					</small>
+				</div>
+
+				<div class="d-flex flex-column">
+					<small>
+						<em><a class="game-link" href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
+					</small>
 					@if($loadOrder->is_private)
 					<small class="display-block text-muted">
 						<em>
@@ -13,10 +22,6 @@
 					</small>
 					@endif
 				</div>
-
-				<small>
-					<em><a class="game-link" href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
-				</small>
 			</div>
 
 			<div class="card-body">
@@ -24,7 +29,10 @@
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
-				<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }} by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a></small>
+				<div class="d-flex flex-column">
+					<small>Updated {{ $loadOrder->updated_at->diffForHumans() }}</small>
+					<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
+				</div>
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
