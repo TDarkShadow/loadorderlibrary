@@ -25,7 +25,7 @@ class HomeController extends Controller
         $loadOrders = '';
 
         if (\Auth::check()) {
-            $loadOrders = \App\Models\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(15);
+            $loadOrders = \App\Models\LoadOrder::where('user_id', \Auth::user()->id)->orderBy('updated_at', 'desc')->paginate(14);
 		}
 		
         return view('home')
