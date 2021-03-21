@@ -37,7 +37,7 @@ class DeleteOrphaned extends Command
      */
     public function handle()
     {
-		$orphaned = \App\File::doesntHave('lists')->get();
+		$orphaned = \App\Models\File::doesntHave('lists')->get();
 
 
 		// Delete from disk and database
