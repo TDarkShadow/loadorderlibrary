@@ -24,8 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-		$schedule->command('delete:tmp')->daily();
-		$schedule->command('delete:orphaned')->weekly();
+		$schedule->command('delete:temp')->daily();
+		$schedule->command('delete:orphaned')->everyMinute();
     }
 
     /**
