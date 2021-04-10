@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v3.2.0](#v320)
 - [v3.1.1](#v311)
 - [v3.1.0](#v310)
 - [v3.0.1](#v301)
@@ -63,6 +66,15 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.2.0
+> 2021-04-10
+
+## Internals
+- NPM
+	- Updated `laravel-mix` from `6.0.13` -> `6.0.16`
+- Composer
+	- Updated `composer.lock` packages with `composer update`
 
 # v3.1.1
 > 2021-03-20
