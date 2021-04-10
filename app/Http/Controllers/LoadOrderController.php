@@ -54,20 +54,6 @@ class LoadOrderController extends Controller
 	}
 
 	/**
-	 * Show all lists that are not private for a specific game
-	 * Route GET /game/{id}
-	 *
-	 * @param Game $game
-	 * @return \Illuminate\View\View
-	 */
-	public function showByGame(Game $game): View
-	{
-		$loadOrders = LoadOrder::where('is_private', false)->where('game_id', $game->id)->orderBy('created_at', 'desc')->paginate(14);
-
-		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
-	}
-
-	/**
 	 * Show form to create a list.
 	 * Route GET /upload
 	 *
