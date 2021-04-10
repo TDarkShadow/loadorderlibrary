@@ -32,6 +32,7 @@ class StoreUpload extends FormRequest
             'name' => 'required',
             'description' => 'string|nullable',
             'game' => 'required',
+			'version' => 'string|nullable',
             'files' => 'required',
             'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename]
         ];
