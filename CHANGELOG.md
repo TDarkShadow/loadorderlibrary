@@ -76,6 +76,7 @@
 - Added validation rules for version field to `StoreUpload` and `UpdateLoadOrder` form request validators
 - Added a rule to validate Semver format
 - Added `Cache-Control` headers to images/js/css files via `.htaccess`
+- Edited nginx config on server to also add cache headers
 
 ## Fixed
 - Fixed updating a list not using the `ValidMimeType` rule
