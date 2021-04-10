@@ -29,6 +29,7 @@ class UpdateLoadOrder extends FormRequest
 			'name' => 'required',
 			'description' => 'string|nullable',
 			'game' => 'required',
+			'version' => 'string|nullable',
 			'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:128', new ValidNumLines, new ValidFilename],
 			'existing' => 'required',
 			'existing.*' => 'string'
