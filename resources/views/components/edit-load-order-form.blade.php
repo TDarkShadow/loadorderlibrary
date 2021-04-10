@@ -20,6 +20,16 @@
 		</span>
 		@enderror
 	</div>
+	
+	<div class="form-group">
+		<label for="version">Version</label>
+		<input name="version" type="text" class="form-control @error('version') is-invalid @enderror" id="version" value="{{ old('version') }}" placeholder="ex: v1.0.0">
+		@error('version')
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $message }}</strong>
+		</span>
+		@enderror
+	</div>
 
 	<div class="form-group">
 		<label for="game">Game</label>
@@ -76,9 +86,9 @@
 		@endforeach
 		@error('existing')
 
-			<span class="invalid-feedback" role="alert">
-				<strong>{{ $message }}</strong>
-			</span>
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $message }}</strong>
+		</span>
 		@enderror
 	</div>
 
