@@ -3,13 +3,17 @@
 		<div class="card text-white bg-dark mb-3">
 			<div class="card-header d-flex justify-content-between align-items-start">
 				<div class="d-flex flex-column">
-					<h3><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></h3>
+					<h3><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a>
+						<small>
+							{{ $loadOrder->version ? 'v' . $loadOrder->version : '' }}
+						</small>
+					</h3>
 					<small>
 						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
 					</small>
 				</div>
 
-				<div class="d-flex flex-column">
+				<div class="d-flex flex-column align-items-end">
 					<small>
 						<em><a class="game-link" href="/lists?game={{ $loadOrder->game->name }}">{{ $loadOrder->game->name }}</a></em>
 					</small>

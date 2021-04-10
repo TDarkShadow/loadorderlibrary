@@ -4,7 +4,12 @@
 		<div class="mb-3 card text-white bg-dark">
 			<div class="card-header d-flex justify-content-between align-items-start">
 				<div class="d-flex flex-column">
-					<strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a></strong>
+					<strong><a href="/lists/{{ $loadOrder->slug }}" class="text-capitalize">{{ $loadOrder->name }}</a>
+						<small>
+							{{ $loadOrder->version ? 'v' . $loadOrder->version : '' }}
+						</small>
+					</strong>
+
 					<small>
 						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
 					</small>

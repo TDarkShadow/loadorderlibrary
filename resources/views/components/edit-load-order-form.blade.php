@@ -20,10 +20,11 @@
 		</span>
 		@enderror
 	</div>
-	
+
 	<div class="form-group">
 		<label for="version">Version</label>
-		<input name="version" type="text" class="form-control @error('version') is-invalid @enderror" id="version" value="{{ old('version') ?? $loadOrder->version }}" placeholder="ex: v1.0.0">
+		<small id="versionHelp" class="text-muted">Format is #.#.# with optional -alpha or -beta suffix, and # is any number.</small>
+		<input name="version" type="text" class="form-control @error('version') is-invalid @enderror" id="version" value="{{ old('version') ?? $loadOrder->version }}">
 		@error('version')
 		<span class="invalid-feedback" role="alert">
 			<strong>{{ $message }}</strong>
