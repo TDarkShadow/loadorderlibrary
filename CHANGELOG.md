@@ -75,9 +75,15 @@
 - Added version info when applicable to places where lists are shown
 - Added validation rules for version field to `StoreUpload` and `UpdateLoadOrder` form request validators
 - Added a rule to validate Semver format
+- Added `Cache-Control` headers to images/js/css files via `.htaccess`
 
 ## Fixed
 - Fixed updating a list not using the `ValidMimeType` rule
+
+## Changed
+
+## Removed
+- Removed unused `showByGame()` method in `LoadOrderController`
 
 # v3.2.0
 > 2021-04-10
