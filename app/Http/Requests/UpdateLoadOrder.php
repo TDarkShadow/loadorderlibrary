@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\ValidFilename;
+use App\Rules\ValidMimetype;
 use App\Rules\ValidNumLines;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -30,7 +31,7 @@ class UpdateLoadOrder extends FormRequest
 			'description' => 'string|nullable',
 			'game' => 'required',
 			'version' => 'string|nullable',
-			'files.*' => ['mimetypes:text/plain,application/x-wine-extension-ini', 'max:128', new ValidNumLines, new ValidFilename],
+			'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename],
 			'existing' => 'required',
 			'existing.*' => 'string'
 		];
