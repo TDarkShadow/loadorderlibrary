@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.3.0](#v330)
 - [v3.2.0](#v320)
 - [v3.1.1](#v311)
 - [v3.1.0](#v310)
@@ -64,6 +65,19 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.3.0
+> 2021-04-10
+
+## Added
+- Added migration to add a version column to the `load_orders` table
+- Added a version field to list upload page and list edit page
+- Added version info when applicable to places where lists are shown
+- Added validation rules for version field to `StoreUpload` and `UpdateLoadOrder` form request validators
+- Added a rule to validate Semver format
+
+## Fixed
+- Fixed updating a list not using the `ValidMimeType` rule
 
 # v3.2.0
 > 2021-04-10
