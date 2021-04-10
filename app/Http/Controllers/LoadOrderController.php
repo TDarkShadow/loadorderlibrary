@@ -106,6 +106,7 @@ class LoadOrderController extends Controller
 		$loadOrder->slug        = \App\Helpers\CreateSlug::new($validated['name']);
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
+		$loadOrder->version 	= $validated['version'];
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 		$loadOrder->files()->attach($fileIds);
@@ -244,6 +245,7 @@ class LoadOrderController extends Controller
 		$loadOrder->game_id     = (int) $validated['game'];
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
+		$loadOrder->version 	= $validated['version'];
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 		$loadOrder->files()->sync($fileIds);
