@@ -19,3 +19,16 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
+
+# BROWSER CACHING USING CACHE-CONTROL HEADERS
+<ifModule mod_headers.c> 
+    # One year for image and video files
+    <filesMatch ".(flv|gif|ico|jpg|jpeg|png|svg|webp)$">
+        Header set Cache-Control "public, max-age=31536000, etag"
+    </filesMatch>
+
+    # One year for JavaScript and CSS files
+    <filesMatch ".(js|css)$">
+        Header set Cache-Control "public, max-age=31536000, immutable, etag"
+    </filesMatch>
+</ifModule>
