@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\ValidFilename;
 use App\Rules\ValidMimetype;
 use App\Rules\ValidNumLines;
+use App\Rules\ValidSemver;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -32,7 +33,7 @@ class StoreUpload extends FormRequest
             'name' => 'required',
             'description' => 'string|nullable',
             'game' => 'required',
-			'version' => 'string|nullable',
+			'version' => ['string', 'nullable', new ValidSemver, 'max:15'],
             'files' => 'required',
             'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename]
         ];

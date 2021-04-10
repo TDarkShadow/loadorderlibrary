@@ -5,6 +5,7 @@ namespace App\Http\Requests;
 use App\Rules\ValidFilename;
 use App\Rules\ValidMimetype;
 use App\Rules\ValidNumLines;
+use App\Rules\ValidSemver;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateLoadOrder extends FormRequest
@@ -30,7 +31,7 @@ class UpdateLoadOrder extends FormRequest
 			'name' => 'required',
 			'description' => 'string|nullable',
 			'game' => 'required',
-			'version' => 'string|nullable',
+			'version' => ['string', 'nullable', new ValidSemver, 'max:15'],
 			'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename],
 			'existing' => 'required',
 			'existing.*' => 'string'
