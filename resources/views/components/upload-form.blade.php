@@ -2,7 +2,7 @@
 	@csrf
 	<div class="form-group">
 		<label for="name">List Name</label>
-		<input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id=" name" value="{{ old('name') }}">
+		<input name="name" type="text" class="form-control @error('name') is-invalid @enderror" id="name" value="{{ old('name') }}">
 		@error('name')
 		<span class="invalid-feedback" role="alert">
 			<strong>{{ $message }}</strong>
@@ -14,6 +14,16 @@
 		<label for="description">Description</label>
 		<textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" rows="3">{{ old('description') }}</textarea>
 		@error('description')
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $message }}</strong>
+		</span>
+		@enderror
+	</div>
+
+	<div class="form-group">
+		<label for="version">Version</label>
+		<input name="version" type="text" class="form-control @error('version') is-invalid @enderror" id="version" value="{{ old('version') }}" placeholder="ex: v1.0.0">
+		@error('version')
 		<span class="invalid-feedback" role="alert">
 			<strong>{{ $message }}</strong>
 		</span>
