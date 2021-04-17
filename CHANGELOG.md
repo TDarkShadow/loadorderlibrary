@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.4.0](#v340)
 - [v3.3.0](#v330)
 - [v3.2.0](#v320)
 - [v3.1.1](#v311)
@@ -65,6 +66,13 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.4.0
+> 2021-04-17
+
+## Added
+- Added `user-select: none` to counter on viewing files so users can't select the number
+	- Known issue: First line selected has a preceding space
 
 # v3.3.0
 > 2021-04-10
