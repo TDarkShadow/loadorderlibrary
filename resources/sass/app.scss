@@ -89,6 +89,7 @@ p {
 	align-self: stretch;
 	align-items: center;
 	justify-content: center;
+	user-select: none;
 }
 
 @media(min-width: 576px) {
