@@ -4,6 +4,8 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
 - [v3.4.0](#v340)
 - [v3.3.0](#v330)
 - [v3.2.0](#v320)
@@ -73,6 +75,12 @@
 ## Added
 - Added `user-select: none` to counter on viewing files so users can't select the number
 	- Known issue: First line selected has a preceding space
+- Added timestamps to `file_load_order` pivot table for showing timestamps of the file on the edit page
+- Added `withTimestamps()` to relations between file and load orders
+- Added timestamp to files on the edit page of a list
+
+## Fixed
+- Fixed some Modlist.txt not having separators applied properly
 
 # v3.3.0
 > 2021-04-10
