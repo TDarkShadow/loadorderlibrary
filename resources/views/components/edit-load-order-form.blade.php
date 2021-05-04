@@ -81,7 +81,7 @@
 		<div class="form-check">
 			<input name="existing[]" class="form-check-input @error('existing') is-invalid @enderror" type="checkbox" value="{{ $file->clean_name . '-' . $file->id }}" id="check-{{ $file->clean_name }}" checked>
 			<label class="form-check-label" for="check-{{ $file->clean_name }}">
-				<span>{{ $file->clean_name }}</span> <small class="text-muted">{{ $file->pivot->created_at ? $file->pivot->created_at->diffForHumans() : '' }}</small>
+				<span>{{ $file->clean_name }}</span> <small class="text-muted">{{ $file->pivot->updated_at ? $file->pivot->created_at->diffForHumans() : '' }}</small>
 			</label>
 		</div>
 		@endforeach
