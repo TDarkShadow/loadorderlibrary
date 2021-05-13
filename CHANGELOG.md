@@ -4,8 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v3.4.1](#v341)
 - [v3.4.0](#v340)
 - [v3.3.0](#v330)
 - [v3.2.0](#v320)
@@ -68,6 +67,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.4.1
+> 2021-05-13
+
+## Added
+- Added a "support me" page indicating some ways to help support me/the site
 
 # v3.4.0
 > 2021-04-17
