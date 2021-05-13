@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/support-me', function () {
+	return view('support-me');
+});
 
 // List View/Upload Routes.
 Route::get('/lists', 'LoadOrderController@index')->name('lists');
