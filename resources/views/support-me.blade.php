@@ -38,32 +38,39 @@
 						<table class="table table-dark">
 							<tbody>
 								<tr>
+									<td></td>
 									<th scope="row">Patreon</th>
-									<td><a href="https://patreon.com/phinocio">https://patreon.com/phinocio</a></td>
+									<td><a href="https://patreon.com/phinocio" target="_blank" rel="noopener noreferrer">https://patreon.com/phinocio</a></td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('btc-address')">Copy</button></td>
 									<th scope="row">Bitcoin (BTC)</th>
-									<td style="text-overflow:wrap">3JtbHZS4d69SMKsETWZQJf9VpryQNcdDCh</td>
+									<td id="btc-address">3JtbHZS4d69SMKsETWZQJf9VpryQNcdDCh</td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('eth-address')">Copy</button></td>
 									<th scope="row">Ethereum (ETH)</th>
-									<td>0x4753F54b6D00d859160cF4760A8d741B8b393F35</td>
+									<td id="eth-address">0x4753F54b6D00d859160cF4760A8d741B8b393F35</td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('ada-address')">Copy</button></td>
 									<th scope="row">Cardano (ADA)</th>
-									<td>addr1v8clljrnl9z0cxwehmufcy2529e663c62dk3m5qv2qyf6kc4huk0y</td>
+									<td id="ada-address">addr1v8clljrnl9z0cxwehmufcy2529e663c62dk3m5qv2qyf6kc4huk0y</td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('ban-address')">Copy</button></td>
 									<th scope="row">Banano (BAN)</th>
-									<td>ban_3x8rr9mawggjgcqw4pqafuexbzijq1bbnzxrzusqsq6s8gox7jx4zannx8zu</td>
+									<td id="ban-address">ban_3x8rr9mawggjgcqw4pqafuexbzijq1bbnzxrzusqsq6s8gox7jx4zannx8zu</td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('algo-address')">Copy</button></td>
 									<th scope="row">Algorand (ALGO)</th>
-									<td>WLAESA7TDGWTRXQLUXPAHA4LKOUHZ5JAZCDOKVSTR7ZGPGADMY2WQE4OWU</td>
+									<td id="algo-address">WLAESA7TDGWTRXQLUXPAHA4LKOUHZ5JAZCDOKVSTR7ZGPGADMY2WQE4OWU</td>
 								</tr>
 								<tr>
+									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('xlm-address')">Copy</button></td>
 									<th scope="row">Stellar Lumens (XLM)</th>
-									<td>GDQP2KPQGKIHYJGXNUIYOMHARUARCA7DJT5FO2FFOOKY3B2WSQHG4W37:::ucl:::2291154021</td>
+									<td id="xlm-address">GDQP2KPQGKIHYJGXNUIYOMHARUARCA7DJT5FO2FFOOKY3B2WSQHG4W37:::ucl:::2291154021</td>
 								</tr>
 							</tbody>
 						</table>
@@ -75,3 +82,10 @@
 	</div>
 </div>
 @endsection
+
+<script>
+	function copyAddress(target) {
+		const address = document.getElementById(target).innerText;
+		navigator.clipboard.writeText(address);
+	}
+</script>
