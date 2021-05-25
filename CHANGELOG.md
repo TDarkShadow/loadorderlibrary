@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.4.2](#v342)
 - [v3.4.1](#v341)
 - [v3.4.0](#v340)
 - [v3.3.0](#v330)
@@ -67,6 +68,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.4.2
+> 2021-05-24
+
+## Changed
+- Changed ALGO address to a different one as a minimum balance is apparently required to receive
 
 # v3.4.1
 > 2021-05-13
