@@ -65,7 +65,7 @@
 								<tr>
 									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('algo-address')">Copy</button></td>
 									<th scope="row">Algorand (ALGO)</th>
-									<td id="algo-address">WLAESA7TDGWTRXQLUXPAHA4LKOUHZ5JAZCDOKVSTR7ZGPGADMY2WQE4OWU</td>
+									<td id="algo-address">DXQ46ABUKYG5GZD4RGOJTQPKE5BHVEZDNB46VKK7ARKEMO4GMTBKHU4NK4</td>
 								</tr>
 								<tr>
 									<td><button type="button" class="btn btn-primary btn-sm" onclick="copyAddress('xlm-address')">Copy</button></td>
