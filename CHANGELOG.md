@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.4.3](#v343)
 - [v3.4.2](#v342)
 - [v3.4.1](#v341)
 - [v3.4.0](#v340)
@@ -69,6 +70,19 @@
 
 <!-- /TOC -->
 
+# v3.4.3
+> 2021-06-16
+
+## Internals
+- NPM
+	- Updated `laravel-mix` from `6.0.16` -> `6.0.20`
+	- Updated `resolve-url-loader` from `3.1.2` -> `4.0.0`
+	- Updated `sass` from `1.32.8` -> `1.35.1`
+	- Updated `sass-loader` from `11.0.1` -> `12.1.0`
+	- Ran `npm audit fix` to fix vulns
+- Composer
+	- Updated `composer.lock` packages with `composer update`
+
 # v3.4.2
 > 2021-05-24
 
@@ -108,8 +122,6 @@
 
 ## Fixed
 - Fixed updating a list not using the `ValidMimeType` rule
-
-## Changed
 
 ## Removed
 - Removed unused `showByGame()` method in `LoadOrderController`
