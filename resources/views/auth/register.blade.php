@@ -3,7 +3,7 @@
 <x-guest-layout>
 	<div class="container">
 		<div id="password-pwned" class="alert alert-danger d-none" role="alert">
-			The password you are trying to use has been seen in a data breach. While <b>you can still register with it</b>, it is highly recommended not to, as it severely decreases the security of your account. Please consider using another password.
+			The password you are trying to use has been seen in a data breach. While <b>you can still register with it</b>, it is highly recommended not to, as it severely decreases the security of your account. Please consider using another password. This message will go away when a safe password is detected.
 		</div>
 		<div class="row justify-content-center">
 			<div class="col-md-8">
