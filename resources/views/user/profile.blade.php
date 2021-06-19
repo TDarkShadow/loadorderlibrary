@@ -58,7 +58,9 @@
 	<div class="col-md-12">
 		<div class="card text-white bg-dark">
 			<div class="card-header">{{ __('Change Password') }}</div>
-
+			<div id="password-pwned" class="alert alert-danger d-none" role="alert">
+				The password you are trying to use has been seen in a data breach. While <b>you can still change to it</b>, it is highly recommended not to, as it severely decreases the security of your account. Please consider using another password. This message will go away when a safe password is detected.
+			</div>
 			<div class="card-body">
 				<form method="POST" action="/user/password">
 					@csrf
@@ -82,7 +84,7 @@
 						<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('New Password') }}</label>
 
 						<div class="col-md-6">
-							<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+							<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" onblur="checkPwned()">
 
 							@error('password')
 							<span class="invalid-feedback" role="alert">
@@ -159,3 +161,31 @@
 		</div>
 	</div>
 </div>
+
+<script>
+	async function checkPwned() {
+		// Get the SHA-1 hash of the password
+		const password = document.getElementById('password').value;
+		const msgUint8 = new TextEncoder().encode(password); // encode as (utf-8) Uint8Array
+		const hashBuffer = await crypto.subtle.digest('SHA-1', msgUint8); // hash the message
+		const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
+		const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase(); // convert bytes to hex string
+
+		// Get both parts needed for the K-Anonimity checking
+		const kAnon = hashHex.substr(0, 5);
+		const checkString = hashHex.substr(5);
+
+		// Check if the password is pwned.
+		const response = await fetch(`https://api.pwnedpasswords.com/range/${kAnon}`);
+		const range = await response.text();
+		const pwned = range.includes(checkString);
+
+		if (pwned) {
+			const alert = document.getElementById('password-pwned');
+			alert.classList.remove('d-none');
+		} else {
+			const alert = document.getElementById('password-pwned');
+			alert.classList.add('d-none');
+		}
+	}
+</script>
