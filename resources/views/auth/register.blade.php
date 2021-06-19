@@ -93,7 +93,6 @@
 
 <script>
 	async function checkPwned() {
-
 		// Get the SHA-1 hash of the password
 		const password = document.getElementById('password').value;
 		const msgUint8 = new TextEncoder().encode(password); // encode as (utf-8) Uint8Array
@@ -101,13 +100,13 @@
 		const hashArray = Array.from(new Uint8Array(hashBuffer)); // convert buffer to byte array
 		const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('').toUpperCase(); // convert bytes to hex string
 
+		// Get both parts needed for the K-Anonimity checking
 		const kAnon = hashHex.substr(0, 5);
 		const checkString = hashHex.substr(5);
 
 		// Check if the password is pwned.
 		const response = await fetch(`https://api.pwnedpasswords.com/range/${kAnon}`);
 		const range = await response.text();
-
 		const pwned = range.includes(checkString);
 
 		if (pwned) {
