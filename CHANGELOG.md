@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.5.0](#v350)
 - [v3.4.3](#v343)
 - [v3.4.2](#v342)
 - [v3.4.1](#v341)
@@ -69,6 +70,17 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.5.0
+> 2021-06-18
+
+## Added
+- Added a feature on account creation checking if a password has been seen in a breach, using the Have I Been Pwned? API
+- Added the feature to the password change flow as well
+
+## Removed
+- Removed unused `change-password.blad.php` view
+
 
 # v3.4.3
 > 2021-06-16
