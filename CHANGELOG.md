@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.6.1](#v361)
 - [v3.6.0](#v360)
 - [v3.5.1](#v351)
 - [v3.5.0](#v350)
@@ -72,6 +73,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.6.1
+> 2021-06-26
+
+## Added
+- Added a simple stat to show me how many users do not have an email. To be explicit, it's literally just an integer count, emails aren't displayed anywhere except a user's own account page
 
 # v3.6.0
 > 2021-06-26
