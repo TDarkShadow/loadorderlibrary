@@ -72,6 +72,12 @@
 
 <!-- /TOC -->
 
+# v3.6.0
+> 2021-06-26
+
+## Fixed
+- Fixed the filter on comparison page breaking the layout when actually using it. Oop
+
 # v3.5.1
 > 2021-06-26
 
