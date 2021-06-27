@@ -72,7 +72,7 @@
 		input = document.getElementById(search);
 		filter = input.value.toLowerCase();
 		ul = document.getElementById(list);
-		li = ul.getElementsByTagName('li');
+		li = ul.getElementsByTagName('label'); // We actually want to hid the label to prevent weird spacing on filter.
 
 		// Loop through all list items, and hide those who don't match the search query
 
@@ -80,11 +80,11 @@
 			a = li[i].getElementsByTagName("div")[0];
 			txtValue = a.textContent.trim() || a.innerText.trim();
 			if (txtValue.toLowerCase().indexOf(filter) >= 0) {
-				li[i].style.display = "";
-				li[i].classList = 'bg-dark text-white list-group-item lo-list-item d-flex align-items-center';
+				li[i].classList.remove('d-none');
+				//li[i].classList.add('d-flex');
 			} else {
-				li[i].style.display = 'none';
-				li[i].classList -= 'd-flex';
+				//li[i].classList.remove('d-flex');
+				li[i].classList.add('d-none');
 			}
 		}
 	}

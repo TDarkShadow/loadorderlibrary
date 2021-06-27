@@ -153,3 +153,7 @@ p {
 .game-link:hover, .game-link:active {
   color: darken($secondary, 10) !important;
 }
+
+.d-not-at-all {
+	display: none !important;
+}
