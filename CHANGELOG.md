@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v3.5.1](#v351)
 - [v3.5.0](#v350)
 - [v3.4.3](#v343)
 - [v3.4.2](#v342)
@@ -70,6 +71,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v3.5.1
+> 2021-06-26
+
+## Added
+- Provided one knows the slug of a private list, they are able to compare it to another list (by manually pasting it in the URL). This is a stop-gap method of comparing until I implement being able to compare against another list directly from a list's page. Private lists still do not show up in the existing comparison selection page
 
 # v3.5.0
 > 2021-06-18
