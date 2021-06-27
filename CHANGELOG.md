@@ -74,6 +74,16 @@
 
 <!-- /TOC -->
 
+# v4.0.0
+> 2021-06-26
+
+## Changed
+- Updated to Bootstrap v5 and fixed breaking changes. Amount of changes are a bit too much to document everything in changelog. See diffs :)
+- Changed the text of `Upload List`, `Browse Lists`, and `Compare Lists` to not have `List[s]` as I feel it's self-evident
+
+## Removed
+- Removed `guest.blade.php` as it was redundant
+
 # v3.6.1
 > 2021-06-26
 
