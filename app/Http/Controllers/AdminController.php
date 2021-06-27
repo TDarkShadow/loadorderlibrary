@@ -56,6 +56,13 @@ class AdminController extends Controller
 			"value" => \Carbon\Carbon::createFromTimestamp($users[0]->created_at)->diffForHumans()
 		];
 
+		$userStats[] = [
+			"name" => "Without Email",
+			"value" => count($users->filter(function ($value, $key) {
+				return $value->email === null;
+			}))
+		];
+
 		$listStats[] = [
 			"name" => "Lists",
 			"value" => count($lists)
