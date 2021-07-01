@@ -13,11 +13,14 @@
 							<strong>{{ $message }}</strong>
 						</span>
 						@enderror
-						<input class="form-control mr-sm-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter1', 'list1')" id="filter1">
+						<div class="input-group">
+							<span class="input-group-text" id="filter1label">Filter</span>
+							<input class="form-control" type="search" placeholder="Filter..." aria-labelledby="filter1label" onkeyup="filter('filter1', 'list1')" id="filter1">
+						</div>
 						<ul class="list-group bg-dark mt-2" id="list1">
 							@foreach($loadOrders as $list)
 							<label for="list1-{{ $list->id }}">
-								<li class="bg-dark text-white list-group-item list-group-item-dark p-2 d-flex align-items-center">
+								<li class="bg-dark text-white list-group-item list-group-item-dark my-1 d-flex align-items-center">
 									<input class="compare-radio" type="radio" name="list1" id="list1-{{ $list->id }}" value="{{ $list->slug }}">
 									<span class="compare-checkbox"></span>
 									<div class="list-info">
@@ -30,7 +33,7 @@
 						</ul>
 					</div>
 					<div class="d-flex justify-content-around align-self-start compare">
-						<button type="submit" class="btn btn-primary">Compare!</button>
+						<button type="submit" class="btn btn-primary text-white">Compare!</button>
 					</div>
 
 					<div class="list2">
@@ -39,13 +42,14 @@
 							<strong>{{ $message }}</strong>
 						</span>
 						@enderror
-						<form class="filter-form form-inline my-2 my-lg-0">
-							<input class="form-control mr-sm-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter2', 'list2')" id="filter2">
-						</form>
+						<div class="input-group">
+							<span class="input-group-text" id="filter2label">Filter</span>
+							<input class="form-control" type="search" placeholder="Filter..." aria-labelledby="filter2label" onkeyup="filter('filter2', 'list2')" id="filter2">
+						</div>
 						<ul class="list-group bg-dark mt-2" id="list2">
 							@foreach($loadOrders as $list)
 							<label for="list2-{{ $list->id }}">
-								<li class="bg-dark text-white list-group-item list-group-item-dark p-2 d-flex align-items-center">
+								<li class="bg-dark text-white list-group-item list-group-item-dark my-1 d-flex align-items-center">
 									<input class="compare-radio" type="radio" name="list2" id="list2-{{ $list->id }}" value="{{ $list->slug }}">
 									<span class=" compare-checkbox"></span>
 									<div class="list-info">

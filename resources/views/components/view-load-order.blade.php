@@ -38,19 +38,19 @@
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
-					<a class="ml-2 btn btn-outline-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					<a class="ml-2 btn btn-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
 					@endif
 					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
-					<form class="form-inline" method="POST" action="/lists/{{$loadOrder->slug}}">
+					<form class="form-inline mx-2" method="POST" action="/lists/{{$loadOrder->slug}}">
 						@method('delete')
 						@csrf
-						<button class="ml-2 btn btn-outline-danger btn-sm" href="#" role="button">Delete List</button>
+						<button class="ml-2 btn btn-danger btn-sm" href="#" role="button">Delete List</button>
 					</form>
 					@endif
 					@endif
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/all">
 						@csrf
-						<button class="ml-2 btn btn-outline-info btn-sm" href="#" aria-label="download-all" role="button">Download All Files</button>
+						<button class="ml-2 btn btn-info btn-sm" href="#" aria-label="download-all" role="button">Download All Files</button>
 					</form>
 				</div>
 			</div>
@@ -61,33 +61,37 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
+
+
 		<div class="accordion" id="accordion">
 			@foreach($files as $file)
-			<div class="card bg-dark col-md-12 mb-1 p-0">
-				<div class="card-header d-flex justify-content-between align-items-center m-0 pl-0" id="heading{{$loop->index}}">
-					<h5 class="mb-0">
-						<button class="ml-1 btn btn-link collapsed inline" type="button" data-toggle="collapse" data-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
+			<div class="accordion-item bg-dark mb-1">
+				<div class="accordion-header d-flex justify-content-between align-items-center pe-3">
+					<h2 class="m-0 p-0" id="heading{{$loop->index}}">
+						<button class="accordion-button collapsed bg-dark text-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->index}}" aria-expanded="false" aria-controls="collapse{{$loop->index}}">
 							<span class="text-white"><b>&plus;</b></span> <b>{{ $file['name'] }}</b>
 						</button>
-					</h5>
 
+					</h2>
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/{{ $file['name'] }}">
 						@csrf
-						<button class="btn btn-outline-info btn-sm" href="#" aria-label="download" role="button">Download File</button>
+						<button class="btn btn-info btn-sm" href="#" aria-label="download" role="button">Download File</button>
 					</form>
-
-
 				</div>
-
-				<div id="collapse{{$loop->index}}" class="collapse" aria-labelledby="heading{{$loop->index}}" data-parent="#accordion">
-					<div class="card-body bg-dark m-0 p-0">
-						<form class="form-inline d-flex justify-content-between">
-							<input class="form-control mx-2 mb-2" type="search" placeholder="Filter..." aria-label="Filter" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
+				<div id="collapse{{$loop->index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$loop->index}}" data-bs-parent="#accordion">
+					<div class="accordion-body text-white p-0">
+						<form class="form">
+							<div class="input-group">
+								<span class="input-group-text" id="filter{{$loop->index}}label">Filter</span>
+								<input class="form-control" type="search" placeholder="Filter..." aria-labelledby="filter{{$loop->index}}label" onkeyup="filter('filter{{$loop->index}}', 'list{{$loop->index}}')" id="filter{{$loop->index}}">
+							</div>
 
 							@if($file['name'] == 'modlist.txt')
-							<div class="custom-control custom-switch mx-2 mb-2">
-								<input type="checkbox" class="custom-control-input" id="customSwitch1" onclick="toggleHidden()">
-								<label class="custom-control-label text-white" for="customSwitch1">Show Disabled</label>
+							<div class="form-check form-switch ms-10">
+								<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="toggleHidden()">
+								<label class="form-check-label" for="flexCheckDefault">
+									Show Disabled
+								</label>
 							</div>
 							@endif
 						</form>
@@ -119,7 +123,6 @@
 	const disabled = document.querySelectorAll('.list-disabled');
 
 	function toggleHidden() {
-		console.log(disabled);
 		for (const item of disabled) {
 			item.classList.toggle('list-disabled-hidden');
 		}

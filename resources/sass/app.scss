@@ -12,6 +12,18 @@ p {
 	text-indent: 20px;
 }
 
+a {
+	text-decoration: none;
+}
+
+.accordion-button::after {
+	background-image: none !important;
+}
+
+.bg-tertiary {
+	background: $tertiary;
+}
+
 .compare-choose {
 	.list1,
 	.compare,

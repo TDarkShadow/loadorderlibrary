@@ -16,9 +16,9 @@
 
 		<div>
 			@if(preg_match('/sort=updated/', url()->full()))
-			<a class="btn btn-primary" href="{{ str_replace('&sort=updated', '', url()->full()) }}&sort=newest" role="button">Sort By Newest</a>
+			<a class="btn btn-primary text-white" href="{{ str_replace('&sort=updated', '', url()->full()) }}&sort=newest" role="button">Sort By Newest</a>
 			@else
-			<a class="btn btn-primary" href="{{ str_replace('&sort=newest', '', url()->full()) }}&sort=updated" role="button">Sort By Updated</a>
+			<a class="btn btn-primary text-white" href="{{ str_replace('&sort=newest', '', url()->full()) }}&sort=updated" role="button">Sort By Updated</a>
 			@endif
 		</div>
 	</div>
