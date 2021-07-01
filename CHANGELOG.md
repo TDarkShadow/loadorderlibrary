@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v4.0.0](#v400)
 - [v3.6.1](#v361)
 - [v3.6.0](#v360)
 - [v3.5.1](#v351)
@@ -75,7 +76,7 @@
 <!-- /TOC -->
 
 # v4.0.0
-> 2021-06-26
+> 2021-06-26 - 2021-07-
 
 ## Changed
 - Updated to Bootstrap v5 and fixed breaking changes. Amount of changes are a bit too much to document everything in changelog. See diffs :)
