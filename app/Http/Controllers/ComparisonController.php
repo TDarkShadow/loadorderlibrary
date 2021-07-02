@@ -80,9 +80,9 @@ class ComparisonController extends Controller
 					if ($file1[0] != $file2[0]) {
 						$diff = $this->compareFiles($list1File->name, $list2File->name);
 
-						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added'], 'class' => 'badge-danger']);
+						array_push($results['contents'], ['filename' => $file1[1], 'missing' => $diff['missing'], 'added' => $diff['added'], 'class' => 'bg-danger']);
 					} else {
-						array_push($results['contents'], ['filename' => $file1[1], 'missing' => [], 'added' => [], 'class' => 'badge-success']);
+						array_push($results['contents'], ['filename' => $file1[1], 'missing' => [], 'added' => [], 'class' => 'bg-success']);
 					}
 				}
 			}

@@ -61,8 +61,6 @@
 </div>
 <div class="row">
 	<div class="col-md-12">
-
-
 		<div class="accordion" id="accordion">
 			@foreach($files as $file)
 			<div class="accordion-item bg-dark mb-1">
