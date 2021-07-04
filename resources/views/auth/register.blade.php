@@ -1,95 +1,99 @@
+@extends('layouts.app')
+
 @section('title', 'Register')
 
-<x-guest-layout>
-	<div class="container">
-		<div id="password-pwned" class="alert alert-danger d-none" role="alert">
-			The password you are trying to use has been seen in a data breach. While <b>you can still register with it</b>, it is highly recommended not to, as it severely decreases the security of your account. Please consider using another password. This message will go away when a safe password is detected.
-		</div>
-		<div class="row justify-content-center">
-			<div class="col-md-8">
-				<div class="card text-white bg-dark">
-					<div class="card-header">{{ __('Register') }}</div>
+@section('content')
+<div class="container">
 
-					<div class="card-body">
-						<form method="POST" action="{{ route('register') }}">
-							@csrf
 
-							<div class="form-group row">
-								<label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-								<div class="col-md-6">
-									<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-									@error('name')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-									@enderror
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address (optional)') }}</label>
-
-								<div class="col-md-6">
-									<input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" autocomplete="email">
-
-									@error('email')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-									@enderror
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-								<div class="col-md-6">
-									<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" onblur="checkPwned()">
-
-									@error('password')
-									<span class="invalid-feedback" role="alert">
-										<strong>{{ $message }}</strong>
-									</span>
-									@enderror
-								</div>
-							</div>
-
-							<div class="form-group row">
-								<label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-								<div class="col-md-6">
-									<input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-								</div>
-							</div>
-
-							<div class="form-group row mb-0">
-								<div class="col-md-6 offset-md-4">
-									<button type="submit" class="btn btn-primary">
-										{{ __('Register') }}
-									</button>
-								</div>
-							</div>
-						</form>
-					</div>
+	<div class="row justify-content-center">
+		<div class="col-md-10">
+			<div id="password-pwned" class="alert alert-danger d-flex align-items-center d-none" role="alert">
+				<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:">
+					<use xlink:href="#exclamation-triangle-fill" />
+				</svg>
+				<div>
+					The password you are trying to use has been seen in a data breach. While <b>you can still register with it</b>, it is highly recommended not to, as it severely decreases the security of your account. Please consider using another password. This message will go away when a safe password is detected.
 				</div>
 			</div>
+		</div>
 
-			<div class="col-md-4">
-				<div class="card text-white bg-dark">
-					<div class="card-header">{{ __('On Passwords') }}</div>
+		<div class="col-md-6">
+			<div class="card text-white bg-dark">
+				<div class="card-header">{{ __('Register') }}</div>
 
-					<div class="card-body">
-						<p>This site used the <a href="https://haveibeenpwned.com/API/v3" target="_blank" rel="noopener noreferrer">Have I Been Pwned? API</a> to check if passwords have been seen in a data breach. Your password itself is never sent to a third party during this check. <a href=" https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/" target="_blank" rel="noopener noreferrer">Read about validating leaked passwords with K-Anonimity here.</a></p>
+				<div class="card-body">
+					<form method="POST" action="{{ route('register') }}">
+						@csrf
 
-						<p>I very much prefer giving users a choice when possible, so while I do check if a password is breached, I only notify you of it. You can still register with a breached password, though I strongly recommend against it, and recommend using a Password Manager.</p>
-					</div>
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="name-label">Name</span>
+							<input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" aria-label="Name" aria-describedby="name-label" required autocomplete="name" autofocus>
+
+							@error('name')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+							@enderror
+						</div>
+
+
+
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="email-label">E-Mail (optional)</span>
+							<input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" aria-label="email" aria-describedby="email-label" required autocomplete="email">
+
+							@error('email')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+							@enderror
+						</div>
+
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="password-label">Password</span>
+							<input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" value="{{ old('password') }}" aria-label="password" aria-describedby="password-label" required autocomplete="new-password" onblur="checkPwned()">
+
+							@error('password')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+							@enderror
+						</div>
+
+						<div class="input-group mb-3">
+							<span class="input-group-text" id="password-confirm-label">Confirm Password</span>
+							<input id="password-confirm" type="password" class="form-control" name="password_confirmation" aria-label="password-confirm" aria-describedby="password-confirm-label" required autocomplete="new-password">
+
+							@error('password')
+							<span class="invalid-feedback" role="alert">
+								<strong>{{ $message }}</strong>
+							</span>
+							@enderror
+						</div>
+
+						<button type="submit" class="btn btn-primary text-white">
+							Register
+						</button>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-md-4">
+			<div class="card text-white bg-dark">
+				<div class="card-header">{{ __('On Passwords') }}</div>
+
+				<div class="card-body">
+					<p>This site used the <a href="https://haveibeenpwned.com/API/v3" target="_blank" rel="noopener noreferrer">Have I Been Pwned? API</a> to check if passwords have been seen in a data breach. Your password itself is never sent to a third party during this check. <a href=" https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/" target="_blank" rel="noopener noreferrer">Read about validating leaked passwords with K-Anonimity here.</a></p>
+
+					<p>I very much prefer giving users a choice when possible, so while I do check if a password is breached, I only notify you of it. You can still register with a breached password, though I strongly recommend against it, and recommend using a Password Manager.</p>
 				</div>
 			</div>
 		</div>
 	</div>
-</x-guest-layout>
+</div>
+@endsection
 
 <script>
 	async function checkPwned() {
