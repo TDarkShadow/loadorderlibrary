@@ -11,7 +11,7 @@ class LinkParser {
     }
 
     public static function replace($text) {
-        $reg_exUrl = "/(http|https)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
+        $reg_exUrl = "/(http|https)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,10}(\/\S*)?/";
         preg_match_all($reg_exUrl, $text, $matches);
         $usedPatterns = [];
         foreach ($matches[0] as $pattern) {
