@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v4.0.1](#v401)
 - [v4.0.0](#v400)
 - [v3.6.1](#v361)
 - [v3.6.0](#v360)
@@ -75,8 +76,14 @@
 
 <!-- /TOC -->
 
+# v4.0.1
+> 2021-07-03
+
+## Fixed
+- Fixed the register page and updated the style to bootstrap 5. Oops
+
 # v4.0.0
-> 2021-06-26 - 2021-07-
+> 2021-06-26 - 2021-07-01
 
 ## Changed
 - Updated to Bootstrap v5 and fixed breaking changes. Amount of changes are a bit too much to document everything in changelog. See diffs :)
