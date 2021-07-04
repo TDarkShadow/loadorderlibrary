@@ -80,6 +80,9 @@
 # v4.0.2
 > 2021-07-03
 
+## Fixed
+- Fixed link parsing not linking gTLDs longer than 3 characters
+
 ## Internals
 - NPM
 	- Updated `browser-sync` from `2.26.14` -> `2.27.4`
