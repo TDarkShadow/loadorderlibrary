@@ -82,6 +82,7 @@
 
 ## Fixed
 - Fixed link parsing not linking gTLDs longer than 3 characters
+- Fixed a few buttons I forgot to update the style on
 
 ## Internals
 - NPM
