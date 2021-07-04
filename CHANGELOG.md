@@ -76,6 +76,16 @@
 
 <!-- /TOC -->
 
+# v4.0.2
+> 2021-07-03
+
+## Internals
+- NPM
+	- Updated `browser-sync` from `2.26.14` -> `2.27.4`
+	- Updated `laravel-mix` from `6.0.23` -> `6.0.25`
+- Composer
+	- Updated compose packages by running `composer update`
+
 # v4.0.1
 > 2021-07-03
 
