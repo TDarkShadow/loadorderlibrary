@@ -85,6 +85,7 @@
 
 ## Added
 - Added a hover text to show the exact date/time that a list was updated/created at in UTC
+- Added a number showing how many lists there are on the My Lists and Browse pages
 
 # v4.1.0
 > 2021-07-11
