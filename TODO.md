@@ -4,11 +4,12 @@ A list of things to do, ordered by priority.
 
 <!-- TOC depthfrom:1 depthto:2 -->
 
-- [Load Order Library TODO](#load-order-library-todo)
 - [**In Progress**](#in-progress)
 	- [**QOL Improvements For List Comparison Results**](#qol-improvements-for-list-comparison-results)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
 - [**Future**](#future)
+	- [**Better Filtering of Lists v2**](#better-filtering-of-lists-v2)
+	- [**Feature Parity for Anonymous Lists ish**](#feature-parity-for-anonymous-lists-ish)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
 	- [**Password Recovery Forgot Password**](#password-recovery-forgot-password)
 	- [**Implement 2FA**](#implement-2fa)
