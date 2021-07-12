@@ -80,6 +80,15 @@
 
 <!-- /TOC -->
 
+# v4.1.0
+> 2021-07-11
+
+## Added
+- Added a temporary filter to the browse lists (and my lists) page while I work on a better one. The next iteration of search will probably be a while and come with the switch to the in-progress React front-end
+
+## Changed
+- Changed both the My Lists page and the Browse page to no longer use pagination to make the filter easier. Hopefully this doesn't kill load times
+
 # v4.0.3
 > 2021-07-11
 
