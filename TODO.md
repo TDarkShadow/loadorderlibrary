@@ -4,11 +4,12 @@ A list of things to do, ordered by priority.
 
 <!-- TOC depthfrom:1 depthto:2 -->
 
+- [Load Order Library TODO](#load-order-library-todo)
 - [**In Progress**](#in-progress)
 	- [**QOL Improvements For List Comparison Results**](#qol-improvements-for-list-comparison-results)
+	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
 - [**Future**](#future)
 	- [**Compare List From Its Page**](#compare-list-from-its-page)
-	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
 	- [**Password Recovery Forgot Password**](#password-recovery-forgot-password)
 	- [**Implement 2FA**](#implement-2fa)
 	- [**Verified Users/Lists**](#verified-userslists)
@@ -29,27 +30,43 @@ A list of things to do, ordered by priority.
 
 # **In Progress**
 
-
 ## **QOL Improvements For List Comparison Results**
 
 Things like
 
 - Being able to download a file from the compared to list
-- Better layout of files, mirroring that of the individual list view page
-- Filter the results like you can on individual list view page
-
----
-
-# **Future**
-
-## **Compare List From Its Page**
-
-Implement a method of starting a list compare from a specific list's page, without having to first go to the list compare page explicitly. Likely by pre-populating a `/compare/list1` route with a page then asking to select a second list to compare against.
+- Better layout of results, similar to that of actual diff programs
 
 ## **Re-Write To Be More API Driven**
 
 Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-start). This task will be going on in parallel to others in this document.
 
+---
+
+# **Future**
+
+## **Better Filtering of Lists v2**
+
+The previous better filter was mostly for files in a list. This task is for what is basically a search function, which the site is sorely lacking<sup>1</sup>. A search list page will be made that will allow for a variety of search filters such as
+
+- Author
+- Date Range
+- Game
+- Files in the list
+
+A simpler search may be implemented in the mean-time while I work on this.
+
+<sup>1</sup> A work around atm would be to go to the compare lists page and use the filter there to search for a list.
+
+## **Feature Parity for Anonymous Lists (ish)**
+
+The intention of this TODO is to implement a method by which "owners" of Anonymous lists can update/delete/claim a list. The implementation will use a unique ID that only Anonymous lists are associated with and which is only presented once to the user (on list creation). Said UUID will be stored in LocalStorage and enable buttons like "edit", "delete", and "claim". 
+
+The "claim" button will allow a logged in user to claim a list by sending a POST request with the UUID in the body. This will then update the list to be associated with the logged in account. 
+
+## **Compare List From Its Page**
+
+Implement a method of starting a list compare from a specific list's page, without having to first go to the list compare page explicitly. Likely by pre-populating a `/compare/list1` route with a page then asking to select a second list to compare against.
 
 ## **Password Recovery (Forgot Password)**
 
