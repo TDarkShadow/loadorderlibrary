@@ -12,6 +12,7 @@
 			All
 			@endif
 			Lists
+			<span class="text-secondary fw-bold font-monospace p-2 fs-4">{{count($loadOrders)}}</span>
 		</h1>
 
 		<div>
