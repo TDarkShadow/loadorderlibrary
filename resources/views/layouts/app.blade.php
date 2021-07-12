@@ -4,7 +4,7 @@
 <head>
 	<!-- FB Meta -->
 	<meta property="og:url" content="{{ Request::url() }}" />
-	<meta property="og:title" content="Load Order Library - @yield('title')" />
+	<meta property="og:title" content="@yield('title') - Load Order Library" />
 	<meta property="og:description" content="@yield('description', 'A modlist files site to help with support.')" />
 	<meta property="og:image" content="@yield('image', url('/images/logo.png'))" />
 	<meta property="og:type" content="website" />
@@ -12,7 +12,7 @@
 	<!-- Twitter Meta -->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:url" content="{{ Request::url() }}">
-	<meta name="twitter:title" content="Load Order Library - @yield('title')">
+	<meta name="twitter:title" content="@yield('title') - Load Order Library">
 	<meta name="twitter:description" content="@yield('description', 'A modlist files site to help with support.')">
 	<meta name="twitter:image" content="@yield('image', url('/images/logo.png'))">
 
