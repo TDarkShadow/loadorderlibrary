@@ -41,7 +41,7 @@
 
 						<div class="input-group mb-3">
 							<span class="input-group-text" id="email-label">E-Mail (optional)</span>
-							<input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" aria-label="email" aria-describedby="email-label" required autocomplete="email">
+							<input id="email" type="text" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" aria-label="email" aria-describedby="email-label" autocomplete="email">
 
 							@error('email')
 							<span class="invalid-feedback" role="alert">
