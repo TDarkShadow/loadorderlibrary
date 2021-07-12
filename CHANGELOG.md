@@ -4,8 +4,8 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v4.1.1](#v411)
+- [v4.1.0](#v410)
 - [v4.0.3](#v403)
 - [v4.0.2](#v402)
 - [v4.0.1](#v401)
@@ -79,6 +79,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.1.1
+> 2021-07-11
+
+## Added
+- Added a hover text to show the exact date/time that a list was updated/created at in UTC
 
 # v4.1.0
 > 2021-07-11
