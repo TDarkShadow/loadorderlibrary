@@ -48,7 +48,7 @@ class LoadOrderController extends Controller
 			$query->orderBy('created_at', 'desc');
 		}
 
-		$loadOrders = $query->paginate(14);
+		$loadOrders = $query->get();
 
 		return view('load-orders')->with(['loadOrders' => $loadOrders, 'game' => $game]);
 	}

@@ -21,7 +21,7 @@ class ViewLoadOrders extends Component
      * @var Collection $loadOrders
      * @return void
      */
-    public function __construct(LengthAwarePaginator $loadOrders)
+    public function __construct(Collection $loadOrders)
     {
         $this->loadOrders = $loadOrders;
     }
