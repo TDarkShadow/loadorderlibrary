@@ -1,4 +1,10 @@
 <div class="row d-flex align-items-stretch">
+	<div class="row m-0 p-0">
+		<div class="input-group">
+			<span class="input-group-text" id="filter1label">Filter</span>
+			<input class="form-control" type="search" placeholder="Filter..." aria-labelledby="filter1label" onkeyup="filter('filter1')" id="filter1">
+		</div>
+	</div>
 	@forelse($loadOrders as $loadOrder)
 	<div class="col-md-6 card-group">
 		<div class="mb-3 card text-white bg-dark">
@@ -67,7 +73,36 @@
 		</div>
 	</div>
 	@endforelse
-	<div class="col-md-12 mt-3">
-		{{ $loadOrders->links() }}
-	</div>
 </div>
+
+<script>
+	function filter(search, list) {
+
+		// Declare variables
+		var input, filter, ul, li, a, i, headerText, bodyText;
+		input = document.getElementById(search);
+		filter = input.value.toLowerCase();
+		lists = document.getElementsByClassName('card-group');
+
+		console.log(lists);
+
+		// Loop through all list items, and hide those who don't match the search query
+
+		for (i = 0; i < lists.length; i++) {
+			a = lists[i].getElementsByTagName("div")[1];
+
+			console.log();
+
+			headerText = a.innerText.trim();
+			bodyText = a.nextElementSibling.innerText.trim();
+
+			if (headerText.toLowerCase().indexOf(filter) >= 0 || bodyText.toLowerCase().indexOf(filter) >= 0) {
+				lists[i].classList.remove('d-none');
+				lists[i].classList.add('d-flex');
+			} else {
+				lists[i].classList.remove('d-flex');
+				lists[i].classList.add('d-none');
+			}
+		}
+	}
+</script>
