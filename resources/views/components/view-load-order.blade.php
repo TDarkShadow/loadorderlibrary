@@ -32,8 +32,8 @@
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
 				<div class="d-flex flex-column">
-					<small>Updated {{ $loadOrder->updated_at->diffForHumans() }}</small>
-					<small>Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
+					<small title="{{$loadOrder->updated_at->format('Y-m-d H:i:s T')}}">Updated {{ $loadOrder->updated_at->diffForHumans() }}</small>
+					<small title="{{$loadOrder->created_at->format('Y-m-d H:i:s T')}}">Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
 				</div>
 				<div class="d-flex">
 					@if(auth()->check())
