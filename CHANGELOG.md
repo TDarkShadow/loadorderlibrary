@@ -85,6 +85,7 @@
 
 ## Fixed
 - Email field on registration page was accidentally marked as required, forcing the browser to do verification on it. Oops. Removed the required field
+- Fixed the ordering of the title for embeds
 
 # v4.0.2
 > 2021-07-03
