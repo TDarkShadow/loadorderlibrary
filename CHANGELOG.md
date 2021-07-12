@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v4.0.3](#v403)
 - [v4.0.2](#v402)
 - [v4.0.1](#v401)
 - [v4.0.0](#v400)
@@ -76,6 +79,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.0.3
+> 2021-07-11
+
+## Fixed
+- Email field on registration page was accidentally marked as required, forcing the browser to do verification on it. Oops. Removed the required field
 
 # v4.0.2
 > 2021-07-03
