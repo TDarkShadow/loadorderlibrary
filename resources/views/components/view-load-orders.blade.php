@@ -1,8 +1,7 @@
 <div class="row d-flex align-items-stretch">
-	<div class="row m-0 p-0">
+	<div class="row m-0 p-0 pb-3">
 		<div class="input-group">
-			<span class="input-group-text" id="filter1label">Filter</span>
-			<input class="form-control" type="search" placeholder="Filter..." aria-labelledby="filter1label" onkeyup="filter('filter1')" id="filter1">
+			<input class="form-control" type="search" placeholder="Filter Lists..." aria-labelledby="filter1label" onkeyup="filter('filter1')" id="filter1">
 		</div>
 	</div>
 	@forelse($loadOrders as $loadOrder)
