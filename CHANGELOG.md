@@ -80,6 +80,13 @@
 
 <!-- /TOC -->
 
+# v4.1.2
+> 2021-07-21
+
+## Changed
+- Added some bottom padding to the list filter on the My Lists and Browse pages
+- Removed the redundant "Filter" label
+
 # v4.1.1
 > 2021-07-11
 
