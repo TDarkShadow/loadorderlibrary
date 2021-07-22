@@ -9,7 +9,13 @@
 						</small>
 					</h3>
 					<small>
-						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
+						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }} 
+							@if($loadOrder->author?->is_verified)
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#3490dc" class="bi bi-patch-check-fill" viewBox="0 0 16 16">
+									<title>Verified Author</title>
+									<path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01-.622-.636zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+								</svg>
+							@endif</a>
 					</small>
 				</div>
 
@@ -38,7 +44,7 @@
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
-					<a class="ml-2 btn btn-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					<a class="ml-2 btn btn-secondary btn-sm text-white" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
 					@endif
 					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
 					<form class="form-inline mx-2" method="POST" action="/lists/{{$loadOrder->slug}}">
@@ -50,7 +56,7 @@
 					@endif
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/all">
 						@csrf
-						<button class="ml-2 btn btn-info btn-sm" href="#" aria-label="download-all" role="button">Download All Files</button>
+						<button class="ml-2 btn btn-secondary btn-sm text-white" href="#" aria-label="download-all" role="button">Download All Files</button>
 					</form>
 				</div>
 			</div>
@@ -73,7 +79,7 @@
 					</h2>
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/{{ $file['name'] }}">
 						@csrf
-						<button class="btn btn-info btn-sm" href="#" aria-label="download" role="button">Download File</button>
+						<button class="btn btn-secondary btn-sm text-white" href="#" aria-label="download" role="button">Download File</button>
 					</form>
 				</div>
 				<div id="collapse{{$loop->index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$loop->index}}" data-bs-parent="#accordion">
