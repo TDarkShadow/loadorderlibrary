@@ -94,10 +94,12 @@
 
 	- Still on the fence of if letting verified users tag specific lists of theirs as "official" is useful or not. Please let me know if it is
 - Added a migration to add an `is_verified` column to the `users` table
-
+- Added a specific field for lists that have a website (suchs as TPF or Narsil)
+- Added a few blade components for icons, to not clutter my main views with SVG while working on them
 
 ## Changed
 - Changed color of the edit and download buttons to be secondary blue with white text
+- Made it more clear what fields are optional on the upload and edit forms
 
 # v4.1.2
 > 2021-07-21
