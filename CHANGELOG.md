@@ -4,6 +4,10 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v4.2.0](#v420)
+- [v4.1.2](#v412)
 - [v4.1.1](#v411)
 - [v4.1.0](#v410)
 - [v4.0.3](#v403)
@@ -79,6 +83,21 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.2.0
+> 2021-07-21
+
+## Added
+- Added a badge beside the name of verified accounts. Accounts can be verified by...asking me to do so. Though at the moment I only really plan to verify the accounts of
+	- People I know/have interacted with (so I know their real accounts/can verify that their Load Order Library account is theirs)
+	- Wabbajack list makers that meet the above (basically all of em lol) and want to be verified
+
+	- Still on the fence of if letting verified users tag specific lists of theirs as "official" is useful or not. Please let me know if it is
+- Added a migration to add an `is_verified` column to the `users` table
+
+
+## Changed
+- Changed color of the edit and download buttons to be secondary blue with white text
 
 # v4.1.2
 > 2021-07-21
