@@ -1,10 +1,11 @@
+# TODO file no longer maintained. Check projects tab on Github.
+
 # Load Order Library TODO
 
 A list of things to do, ordered by priority.
 
 <!-- TOC depthfrom:1 depthto:2 -->
 
-- [Load Order Library TODO](#load-order-library-todo)
 - [**In Progress**](#in-progress)
 	- [**QOL Improvements For List Comparison Results**](#qol-improvements-for-list-comparison-results)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
