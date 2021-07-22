@@ -4,6 +4,7 @@ A list of things to do, ordered by priority.
 
 <!-- TOC depthfrom:1 depthto:2 -->
 
+- [Load Order Library TODO](#load-order-library-todo)
 - [**In Progress**](#in-progress)
 	- [**QOL Improvements For List Comparison Results**](#qol-improvements-for-list-comparison-results)
 	- [**Re-Write To Be More API Driven**](#re-write-to-be-more-api-driven)
@@ -40,7 +41,7 @@ Things like
 
 ## **Re-Write To Be More API Driven**
 
-Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-start). This task will be going on in parallel to others in this document.
+Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-star). This task will be going on in parallel to others in this document.
 
 ---
 
