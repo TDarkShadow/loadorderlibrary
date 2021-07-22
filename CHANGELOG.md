@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v4.3.0](#v430)
 - [v4.2.0](#v420)
 - [v4.1.2](#v412)
 - [v4.1.1](#v411)
@@ -94,6 +95,19 @@
 		- True/false for if they're verified
 		- Created date (when they registered)
 	- The above will give me some minor "anayltics" that don't require me using a 3rd party tool like Google Analytics or something
+
+## Fixed
+- Fixed bad import in `UserFactory.php`
+
+## Changed
+- Changed the name of a few routes to be more consistent and updated links to them
+- Updated the stats page to indicate how many verified authors there is
+
+## Internals
+- NPM
+	- Updated `sass` from `1.35.1` -> `1.35.2`
+- Composer
+	- Updated composer packages with `composer update`
 
 # v4.2.0
 > 2021-07-21
