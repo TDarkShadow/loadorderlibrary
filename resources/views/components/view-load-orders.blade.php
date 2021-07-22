@@ -39,14 +39,13 @@
 			</div>
 
 			<div class="card-body">
-				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
+				{!! mb_strimwidth(\App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.'), 0, 150, '...') !!}
 
 				@if($loadOrder->website)
-				<br />
-				<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
-					<x-icons.external-site />
-				</a>
-
+					<br />
+					<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+						<x-icons.external-site />
+					</a>
 				@endif
 			</div>
 

@@ -8,13 +8,20 @@
 							{{ $loadOrder->version ? 'v' . $loadOrder->version : '' }}
 						</small>
 					</h3>
+
 					<small>
 						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}
 							@if($loadOrder->author?->is_verified)
-								<x-icons.verified />
+							<x-icons.verified />
 							@endif
 						</a>
 					</small>
+					@if($loadOrder->website)
+					<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+						<x-icons.external-site />
+					</a>
+					<br />
+					@endif
 				</div>
 
 				<div class="d-flex flex-column align-items-end">
