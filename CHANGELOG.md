@@ -96,6 +96,7 @@
 - Added a migration to add an `is_verified` column to the `users` table
 - Added a specific field for lists that have a website (suchs as TPF or Narsil)
 - Added a few blade components for icons, to not clutter my main views with SVG while working on them
+- Made the test user verified in the seeder
 
 ## Changed
 - Changed color of the edit and download buttons to be secondary blue with white text
