@@ -31,19 +31,21 @@ Route::delete('/lists/{load_order:slug}', 'LoadOrderController@destroy');
 
 // Comparison Routes.
 Route::get('/compare', 'ComparisonController@index')->name('compare');
-Route::post('/compare', 'ComparisonController@post')->name('compare-post');
-Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare-results');
+Route::post('/compare', 'ComparisonController@post')->name('compare.post');
+Route::get('/compare/{load_order}/{load_order2}', 'ComparisonController@results')->name('compare.results');
 
 // User account management routes
 Route::get('/profile', 'UserController@index')->middleware(['auth', 'password.confirm'])->name('user.profile');
 Route::post('/user/delete', 'UserController@destroy')->name('user.delete-account');
 
 // Admin routes
-Route::get('admin/stats', 'AdminController@stats')->name('admin-stats');
+Route::get('admin/stats', 'AdminController@stats')->name('admin.stats');
+Route::get('admin/users', 'AdminController@users')->name('admin.users');
+Route::post('admin/users/verify/{user:id}', 'AdminController@verify')->name('admin.users.verify');
 
 
 // Intentional error routes for testing purposes.
-Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('500-error');
+Route::get('/errors/500', 'IntentionalErrorsController@http500')->name('error.500');
 
 
 
