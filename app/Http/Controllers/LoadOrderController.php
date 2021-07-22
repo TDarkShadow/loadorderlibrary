@@ -93,6 +93,7 @@ class LoadOrderController extends Controller
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
 		$loadOrder->version 	= $validated['version'];
+		$loadOrder->website     = str_replace(['https://', 'http://'], '', $validated['website']);
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 		$loadOrder->files()->attach($fileIds);
@@ -233,6 +234,7 @@ class LoadOrderController extends Controller
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
 		$loadOrder->version 	= $validated['version'];
+		$loadOrder->website     = str_replace(['https://', 'http://'], '', $validated['website']);
 		$loadOrder->is_private  = $request->input('private') != null;
 		$loadOrder->save();
 		$loadOrder->files()->sync($fileIds);

@@ -68,12 +68,15 @@
 							</a>
 							<ul class="dropdown-menu bg-dark text-white" aria-labelledby="navbarDropdown">
 								@if(Auth::user()->isAdmin())
-								<a class="dropdown-item bg-dark text-white" href="{{ route('admin-stats') }}">
-									{{ __('Stats') }}
+								<a class="dropdown-item bg-dark text-white" href="{{ route('admin.stats') }}">
+									Stats
+								</a>
+								<a class="dropdown-item bg-dark text-white" href="{{ route('admin.users') }}">
+									User Management
 								</a>
 								@endif
 								<a class="dropdown-item bg-dark text-white" href="{{ route('user.profile') }}">
-									{{ __('Account Management') }}
+									Account Management
 								</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item bg-dark text-white" href="{{ route('logout') }}" onclick="event.preventDefault();

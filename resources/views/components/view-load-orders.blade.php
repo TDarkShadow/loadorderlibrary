@@ -16,7 +16,11 @@
 					</strong>
 
 					<small>
-						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
+						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}
+							@if($loadOrder->author?->is_verified)
+							<x-icons.verified />
+							@endif
+						</a>
 					</small>
 				</div>
 
@@ -35,7 +39,14 @@
 			</div>
 
 			<div class="card-body">
-				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
+				{!! mb_strimwidth(\App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.'), 0, 150, '...') !!}
+
+				@if($loadOrder->website)
+					<br />
+					<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+						<x-icons.external-site />
+					</a>
+				@endif
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
@@ -46,7 +57,7 @@
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
-					<a class="ml-2 btn btn-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					<a class="ml-2 btn btn-secondary btn-sm text-white" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
 					@endif
 					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
 					<form class="form-inline ms-2" method="POST" action="/lists/{{$loadOrder->slug}}">

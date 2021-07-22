@@ -1,3 +1,5 @@
+# TODO file no longer maintained. Check projects tab on Github.
+
 # Load Order Library TODO
 
 A list of things to do, ordered by priority.
@@ -40,7 +42,7 @@ Things like
 
 ## **Re-Write To Be More API Driven**
 
-Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-start). This task will be going on in parallel to others in this document.
+Re-write the entire back-end to be an API separate from the front-end. Making it much easier to interface with other tools such as [Azura's Star](https://github.com/RingComics/azuras-star). This task will be going on in parallel to others in this document.
 
 ---
 

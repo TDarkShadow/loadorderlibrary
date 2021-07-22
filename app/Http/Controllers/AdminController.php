@@ -51,6 +51,14 @@ class AdminController extends Controller
 				return $value->is_admin === 1;
 			}))
 		];
+
+		$userStats[] = [
+			"name" => "Verified Authors",
+			"value" => count($users->filter(function ($value, $key) {
+				return $value->is_verified === 1;
+			}))
+		];
+
 		$userStats[] = [
 			"name" => "Last Registered",
 			"value" => \Carbon\Carbon::createFromTimestamp($users[0]->created_at)->diffForHumans()
@@ -112,5 +120,20 @@ class AdminController extends Controller
 		];
 
 		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats, 'orphanedFiles' => $orphanedFiles, 'filesInLists' => $filesInLists]);
+	}
+
+	public function users()
+	{
+
+		$users = User::select('id', 'name', 'email', 'is_verified', 'created_at')->withCount('lists')->get();
+		return view('admin-users')->with(['users' => $users]);
+	}
+
+	public function verify(User $user) {
+
+		$user->is_verified = !$user->is_verified;
+		$user->save();
+
+		return redirect()->back();
 	}
 }

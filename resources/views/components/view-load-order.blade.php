@@ -8,9 +8,20 @@
 							{{ $loadOrder->version ? 'v' . $loadOrder->version : '' }}
 						</small>
 					</h3>
+
 					<small>
-						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}</a>
+						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}
+							@if($loadOrder->author?->is_verified)
+							<x-icons.verified />
+							@endif
+						</a>
 					</small>
+					@if($loadOrder->website)
+					<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+						<x-icons.external-site />
+					</a>
+					<br />
+					@endif
 				</div>
 
 				<div class="d-flex flex-column align-items-end">
@@ -38,7 +49,7 @@
 				<div class="d-flex">
 					@if(auth()->check())
 					@if($loadOrder->author == auth()->user())
-					<a class="ml-2 btn btn-info btn-sm" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
+					<a class="ml-2 btn btn-secondary btn-sm text-white" href="/lists/{{$loadOrder->slug}}/edit" role="button">Edit List</a>
 					@endif
 					@if($loadOrder->author == auth()->user() || auth()->user()->is_admin)
 					<form class="form-inline mx-2" method="POST" action="/lists/{{$loadOrder->slug}}">
@@ -50,7 +61,7 @@
 					@endif
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/all">
 						@csrf
-						<button class="ml-2 btn btn-info btn-sm" href="#" aria-label="download-all" role="button">Download All Files</button>
+						<button class="ml-2 btn btn-secondary btn-sm text-white" href="#" aria-label="download-all" role="button">Download All Files</button>
 					</form>
 				</div>
 			</div>
@@ -73,7 +84,7 @@
 					</h2>
 					<form class="form-inline" action="/lists/{{$loadOrder->slug}}/download/{{ $file['name'] }}">
 						@csrf
-						<button class="btn btn-info btn-sm" href="#" aria-label="download" role="button">Download File</button>
+						<button class="btn btn-secondary btn-sm text-white" href="#" aria-label="download" role="button">Download File</button>
 					</form>
 				</div>
 				<div id="collapse{{$loop->index}}" class="accordion-collapse collapse" aria-labelledby="heading{{$loop->index}}" data-bs-parent="#accordion">

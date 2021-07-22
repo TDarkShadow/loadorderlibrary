@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [v4.3.0](#v430)
+- [v4.2.0](#v420)
+- [v4.1.2](#v412)
 - [v4.1.1](#v411)
 - [v4.1.0](#v410)
 - [v4.0.3](#v403)
@@ -79,6 +82,50 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.3.0
+> 2021-07-22
+
+## Added
+- Added a user management area at `/admin/users` for the so I can verify accounts without having to manually edit the database
+	- Said area will show me
+		- User's names (it's public anyway)
+		- True/false for if they have an email (there's literally 0 reason for me to actually see people's emails)
+		- Total number of lists they have (including private, this will not provide me a link to any lists, just a number)
+		- True/false for if they're verified
+		- Created date (when they registered)
+	- The above will give me some minor "anayltics" that don't require me using a 3rd party tool like Google Analytics or something
+
+## Fixed
+- Fixed bad import in `UserFactory.php`
+
+## Changed
+- Changed the name of a few routes to be more consistent and updated links to them
+- Updated the stats page to indicate how many verified authors there is
+
+## Internals
+- NPM
+	- Updated `sass` from `1.35.1` -> `1.35.2`
+- Composer
+	- Updated composer packages with `composer update`
+
+# v4.2.0
+> 2021-07-21
+
+## Added
+- Added a badge beside the name of verified accounts. Accounts can be verified by...asking me to do so. Though at the moment I only really plan to verify the accounts of
+	- People I know/have interacted with (so I know their real accounts/can verify that their Load Order Library account is theirs)
+	- Wabbajack list makers that meet the above (basically all of em lol) and want to be verified
+
+	- Still on the fence of if letting verified users tag specific lists of theirs as "official" is useful or not. Please let me know if it is
+- Added a migration to add an `is_verified` column to the `users` table
+- Added a specific field for lists that have a website (suchs as TPF or Narsil)
+- Added a few blade components for icons, to not clutter my main views with SVG while working on them
+- Made the test user verified in the seeder
+
+## Changed
+- Changed color of the edit and download buttons to be secondary blue with white text
+- Made it more clear what fields are optional on the upload and edit forms
 
 # v4.1.2
 > 2021-07-21
