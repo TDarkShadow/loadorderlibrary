@@ -30,7 +30,7 @@ class StoreUpload extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
+            'name' => 'required|string|max:100',
             'description' => 'string|nullable',
             'game' => 'required',
 			'version' => ['string', 'nullable', new ValidSemver, 'max:15'],

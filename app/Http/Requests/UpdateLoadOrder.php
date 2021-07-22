@@ -28,10 +28,11 @@ class UpdateLoadOrder extends FormRequest
     public function rules()
     {
         return [
-			'name' => 'required',
+			'name' => 'required|string|max:100',
 			'description' => 'string|nullable',
 			'game' => 'required',
 			'version' => ['string', 'nullable', new ValidSemver, 'max:15'],
+			'website' => 'string',
 			'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename],
 			'existing' => 'required',
 			'existing.*' => 'string'
