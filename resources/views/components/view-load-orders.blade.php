@@ -18,7 +18,7 @@
 					<small>
 						by <a href="{{ $loadOrder->author ? '/lists?author=' . $loadOrder->author->name : '#' }}">{{ $loadOrder->author ? $loadOrder->author->name : 'Anonymous' }}
 							@if($loadOrder->author?->is_verified)
-								<x-icons.verified/>
+							<x-icons.verified />
 							@endif
 						</a>
 					</small>
@@ -40,6 +40,14 @@
 
 			<div class="card-body">
 				{!! \App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.') !!}
+
+				@if($loadOrder->website)
+				<br />
+				<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+					<x-icons.external-site />
+				</a>
+
+				@endif
 			</div>
 
 			<div class="card-footer text-muted d-flex justify-content-between align-items-center">
