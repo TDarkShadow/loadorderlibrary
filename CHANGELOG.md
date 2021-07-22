@@ -4,8 +4,6 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
 - [v4.2.0](#v420)
 - [v4.1.2](#v412)
 - [v4.1.1](#v411)
@@ -83,6 +81,19 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.3.0
+> 2021-07-22
+
+## Added
+- Added a user management area at `/admin/users` for the so I can verify accounts without having to manually edit the database
+	- Said area will show me
+		- User's names (it's public anyway)
+		- True/false for if they have an email (there's literally 0 reason for me to actually see people's emails)
+		- Total number of lists they have (including private, this will not provide me a link to any lists, just a number)
+		- True/false for if they're verified
+		- Created date (when they registered)
+	- The above will give me some minor "anayltics" that don't require me using a 3rd party tool like Google Analytics or something
 
 # v4.2.0
 > 2021-07-21
