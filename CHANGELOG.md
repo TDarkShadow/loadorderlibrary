@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v4.3.1](#v431)
 - [v4.3.0](#v430)
 - [v4.2.0](#v420)
 - [v4.1.2](#v412)
@@ -82,6 +83,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v4.3.1
+> 2021-08-08
+
+## Fixed
+- Fixed long links breaking the site by being trimmed at 150 characters. Increased to 300 to hopefully prevent that
 
 # v4.3.0
 > 2021-07-22
