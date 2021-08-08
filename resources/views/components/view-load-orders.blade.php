@@ -39,7 +39,7 @@
 			</div>
 
 			<div class="card-body">
-				{!! mb_strimwidth(\App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.'), 0, 150, '...') !!}
+				{!! mb_strimwidth(\App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.'), 0, 300, '...') !!}
 
 				@if($loadOrder->website)
 					<br />
@@ -93,8 +93,6 @@
 		input = document.getElementById(search);
 		filter = input.value.toLowerCase();
 		lists = document.getElementsByClassName('card-group');
-
-		console.log(lists);
 
 		// Loop through all list items, and hide those who don't match the search query
 
