@@ -59,7 +59,7 @@
 
 	<div class="form-group mb-3">
 		<label for="expires">Expires</label>
-		<small id="expiresHelp" class="text-muted">Defaults to 3 days for Anonymous, Permanent for logged in accounts.</small>
+		<small id="expiresHelp" class="text-muted">Defaults to 24 hours for Anonymous, Permanent for logged in accounts.</small>
 		<select name="expires" class="form-control @error('expires') is-invalid @enderror" id="expires">
 			<option value="3h" @if(old('expires')=='3h' ) selected @endif>3 Hours</option>
 			<option value="24h" @if(old('expires')=='24h' ) selected @endif @if(auth()->guest()) selected @endif >24 Hours</option>
