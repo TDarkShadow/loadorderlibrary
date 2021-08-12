@@ -85,7 +85,7 @@
 				<div class="card-header">{{ __('On Passwords') }}</div>
 
 				<div class="card-body">
-					<p>This site used the <a href="https://haveibeenpwned.com/API/v3" target="_blank" rel="noopener noreferrer">Have I Been Pwned? API</a> to check if passwords have been seen in a data breach. Your password itself is never sent to a third party during this check. <a href=" https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/" target="_blank" rel="noopener noreferrer">Read about validating leaked passwords with K-Anonimity here.</a></p>
+					<p>This site uses the <a href="https://haveibeenpwned.com/API/v3" target="_blank" rel="noopener noreferrer">Have I Been Pwned? API</a> to check if passwords have been seen in a data breach. Your password itself is never sent to a third party during this check. <a href=" https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/" target="_blank" rel="noopener noreferrer">Read about validating leaked passwords with K-Anonimity here.</a></p>
 
 					<p>I very much prefer giving users a choice when possible, so while I do check if a password is breached, I only notify you of it. You can still register with a breached password, though I strongly recommend against it, and recommend using a Password Manager.</p>
 				</div>
