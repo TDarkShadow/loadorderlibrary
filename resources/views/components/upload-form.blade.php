@@ -57,17 +57,15 @@
 		@enderror
 	</div>
 
-	@guest
 	<div class="form-group mb-3">
 		<label for="expires">Expires</label>
-		<small id="expiresHelp" class="text-muted">(default 24h)</small>
+		<small id="expiresHelp" class="text-muted">Defaults to 3 days for Anonymous, Permanent for logged in accounts.</small>
 		<select name="expires" class="form-control @error('expires') is-invalid @enderror" id="expires">
-			<option value="24h" selected>24 Hours</option>
+			<option value="24h" @if(old('expires')=='24h' ) selected @endif @if(auth()->guest()) selected @endif >24 Hours</option>
 			<option value="1d" @if(old('expires')=='1d' ) selected @endif>1 Day</option>
 			<option value="3d" @if(old('expires')=='3d' ) selected @endif>3 Days</option>
 			<option value="1w" @if(old('expires')=='1w' ) selected @endif>1 Week</option>
-			<option value="perm" @if(old('expires')=='perm' ) selected @endif>Permanent</option>
-
+			<option value="perm" @if(old('expires')=='perm' ) selected @endif @if(!auth()->guest()) selected @endif >Permanent</option>
 		</select>
 		@error('expires')
 		<span class="invalid-feedback" role="alert">
@@ -75,7 +73,6 @@
 		</span>
 		@enderror
 	</div>
-	@endguest
 
 	<div class="form-group mb-3">
 		<label for="files">Choose Files</label>
