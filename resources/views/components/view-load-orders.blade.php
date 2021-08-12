@@ -42,10 +42,10 @@
 				{!! mb_strimwidth(\App\Helpers\LinkParser::parse($loadOrder->description ?? 'No description provided.'), 0, 300, '...') !!}
 
 				@if($loadOrder->website)
-					<br />
-					<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
-						<x-icons.external-site />
-					</a>
+				<br />
+				<a href="https://{{ $loadOrder->website }}" target="_blank" rel="noopener noreferrer">{{ $loadOrder->website }}
+					<x-icons.external-site />
+				</a>
 				@endif
 			</div>
 
@@ -53,6 +53,10 @@
 				<div class="d-flex flex-column">
 					<small title="{{$loadOrder->updated_at->format('Y-m-d H:i:s T')}}">Updated {{ $loadOrder->updated_at->diffForHumans() }}</small>
 					<small title="{{$loadOrder->created_at->format('Y-m-d H:i:s T')}}">Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
+
+					@if($loadOrder->expires_at)
+						<small title="{{$loadOrder->expires_at->format('Y-m-d H:i:s T')}}">Expires {{ $loadOrder->expires_at->diffForHumans() }}</small>
+					@endif
 				</div>
 				<div class="d-flex">
 					@if(auth()->check())
