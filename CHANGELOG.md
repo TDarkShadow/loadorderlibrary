@@ -98,6 +98,9 @@
 	- 1 week
 	- Permanent
 
+## Fixed
+- Finally fixed a typo on the register page
+
 ## Internals
 - NPM
 	- Updated `browser-sync` from `2.27.4` -> `2.27.5`
