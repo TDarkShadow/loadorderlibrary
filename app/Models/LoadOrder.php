@@ -11,6 +11,8 @@ class LoadOrder extends Model
 
 	protected $with = ['files'];
 
+	protected $dates = ['expires_at'];
+
 	public function game()
 	{
 		return $this->belongsTo('\App\Models\Game');
