@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v5.0.0](#v500)
 - [v4.3.1](#v431)
 - [v4.3.0](#v430)
 - [v4.2.0](#v420)
@@ -83,6 +86,25 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v5.0.0
+> 2021-08-12
+
+## Added
+- Added a drop down to select when an anonymous list should be deleted, defaulting to 1 day. The options are:
+	- 3 hours
+	- 24 hours
+	- 3 days
+	- 1 week
+	- Permanent
+
+## Internals
+- NPM
+	- Updated `browser-sync` from `2.27.4` -> `2.27.5`
+	- Updated `laravel-mix` from `6.0.25` -> `6.0.27`
+	- Updated `sass` from `1.35.2` -> `1.37.5`
+- Composer
+	- Updated with `composer update`
 
 # v4.3.1
 > 2021-08-08
