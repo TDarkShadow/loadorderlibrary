@@ -92,6 +92,9 @@ class LoadOrderController extends Controller
 
 		if(isset($validated['expires'])) {
 			switch ($validated['expires']) {
+				case '3h':
+					$expires = Carbon::now()->addHours(3);
+					break;
 				case '24h':
 					$expires = Carbon::now()->addHours(24);
 					break;
@@ -257,6 +260,9 @@ class LoadOrderController extends Controller
 
 		if (isset($validated['expires'])) {
 			switch ($validated['expires']) {
+				case '3h':
+					$expires = Carbon::now()->addHours(3);
+					break;
 				case '24h':
 					$expires = Carbon::now()->addHours(24);
 					break;
