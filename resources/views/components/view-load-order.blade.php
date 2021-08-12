@@ -47,7 +47,12 @@
 					<small title="{{$loadOrder->created_at->format('Y-m-d H:i:s T')}}">Uploaded {{ $loadOrder->created_at->diffForHumans() }}</small>
 
 					@if($loadOrder->expires_at)
-						<small title="{{$loadOrder->expires_at->format('Y-m-d H:i:s T')}}">Expires {{ $loadOrder->expires_at->diffForHumans() }}</small>
+					<small title="{{$loadOrder->expires_at->format('Y-m-d H:i:s T')}}">
+						Expires {{ $loadOrder->expires_at->diffForHumans(
+								['parts' => '1 | Carbon::ROUND | Carbon::SEQUENTIAL_PARTS_ONLY']
+								
+							)}}
+						</small>
 					@endif
 				</div>
 				<div class="d-flex">

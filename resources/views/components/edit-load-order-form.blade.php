@@ -59,6 +59,23 @@
 	</div>
 
 	<div class="form-group mb-3">
+		<label for="expires">Expires</label>
+		<small id="expiresHelp" class="text-muted">Defaults to Permanent for logged in accounts.</small>
+		<select name="expires" class="form-control @error('expires') is-invalid @enderror" id="expires">
+			<option value="24h" @if(old('expires')=='24h') selected @endif >24 Hours</option>
+			<option value="1d" @if(old('expires')=='1d') selected @endif>1 Day</option>
+			<option value="3d" @if(old('expires')=='3d') selected @endif>3 Days</option>
+			<option value="1w" @if(old('expires')=='1w') selected @endif>1 Week</option>
+			<option value="perm" @if(old('expires')=='perm') selected @endif selected>Permanent</option>
+		</select>
+		@error('expires')
+		<span class="invalid-feedback" role="alert">
+			<strong>{{ $message }}</strong>
+		</span>
+		@enderror
+	</div>
+
+	<div class="form-group mb-3">
 		<label for="files">Add/Edit Files</label>
 		<input name="files[]" type="file" class="form-control @error('files.*') is-invalid @enderror" id="files" accept=".txt,.ini" multiple>
 		<span class="text-muted">It's recommended to copy the files you want to upload to a single folder, then choose them all from that folder. Files uploaded of the same name as one that's already in the list will replace it. If you are not adding/updating files, don't select any.</span>
