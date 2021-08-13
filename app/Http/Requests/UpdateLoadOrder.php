@@ -35,7 +35,8 @@ class UpdateLoadOrder extends FormRequest
 			'website' => 'string|nullable',
 			'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename],
 			'existing' => 'required',
-			'existing.*' => 'string'
+			'existing.*' => 'string',
+			'expires' => 'string|nullable'
 		];
     }
 

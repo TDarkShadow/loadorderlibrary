@@ -36,7 +36,8 @@ class StoreUpload extends FormRequest
 			'version' => ['string', 'nullable', new ValidSemver, 'max:15'],
 			'website' => 'string|nullable',
             'files' => 'required',
-            'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename]
+            'files.*' => [new ValidMimetype, 'max:128', new ValidNumLines, new ValidFilename],
+			'expires' => 'string|nullable'
         ];
     }
 

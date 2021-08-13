@@ -12,6 +12,7 @@ use App\Models\LoadOrder;
 use App\Models\Game;
 use App\Models\User;
 use App\Models\File;
+use Carbon\Carbon;
 
 class LoadOrderController extends Controller
 {
@@ -85,6 +86,29 @@ class LoadOrderController extends Controller
 			$file['size_in_bytes'] = \Storage::disk('uploads')->size($file['name']);
 			$fileIds[] = File::firstOrCreate($file)->id;
 		}
+
+		// Temp code for auto deleting anonymous lists until I remake it better for the API.
+		$expires = null;
+
+		if(isset($validated['expires'])) {
+			switch ($validated['expires']) {
+				case '3h':
+					$expires = Carbon::now()->addHours(3);
+					break;
+				case '24h':
+					$expires = Carbon::now()->addHours(24);
+					break;
+				case '3d':
+					$expires = Carbon::now()->addDays(3);
+					break;
+				case '1w':
+					$expires = Carbon::now()->addWeek();
+					break;
+				default:
+					$expires = null;
+					break;
+			}
+		}
 		
 		$loadOrder = new LoadOrder();
 		$loadOrder->user_id     = auth()->check() ? auth()->user()->id : null;
@@ -93,8 +117,10 @@ class LoadOrderController extends Controller
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
 		$loadOrder->version 	= $validated['version'];
+		// We simply remove the http/s of an input url so we can add https:// to all on display. If a site doesn't support TSL at this point, that's on them, I'm not linking to an insecure url.
 		$loadOrder->website     = str_replace(['https://', 'http://'], '', $validated['website']);
 		$loadOrder->is_private  = $request->input('private') != null;
+		$loadOrder->expires_at  = $expires;
 		$loadOrder->save();
 		$loadOrder->files()->attach($fileIds);
 
@@ -230,12 +256,35 @@ class LoadOrderController extends Controller
 			$fileIds[] = (int) explode('-', $file)[1];
 		}
 
+		$expires = null;
+
+		if (isset($validated['expires'])) {
+			switch ($validated['expires']) {
+				case '3h':
+					$expires = Carbon::now()->addHours(3);
+					break;
+				case '24h':
+					$expires = Carbon::now()->addHours(24);
+					break;
+				case '3d':
+					$expires = Carbon::now()->addDays(3);
+					break;
+				case '1w':
+					$expires = Carbon::now()->addWeek();
+					break;
+				default:
+					$expires = null;
+					break;
+			}
+		}
+
 		$loadOrder->game_id     = (int) $validated['game'];
 		$loadOrder->name        = $validated['name'];
 		$loadOrder->description = $validated['description'];
 		$loadOrder->version 	= $validated['version'];
 		$loadOrder->website     = str_replace(['https://', 'http://'], '', $validated['website']);
 		$loadOrder->is_private  = $request->input('private') != null;
+		$loadOrder->expires_at  = $expires;
 		$loadOrder->save();
 		$loadOrder->files()->sync($fileIds);
 
