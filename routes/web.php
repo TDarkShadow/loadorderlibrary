@@ -42,6 +42,7 @@ Route::post('/user/delete', 'UserController@destroy')->name('user.delete-account
 Route::get('admin/stats', 'AdminController@stats')->name('admin.stats');
 Route::get('admin/users', 'AdminController@users')->name('admin.users');
 Route::post('admin/users/verify/{user:id}', 'AdminController@verify')->name('admin.users.verify');
+Route::get('/admin/backup', 'AdminController@backup')->name('admin.backup');
 
 
 // Intentional error routes for testing purposes.
