@@ -4,8 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v5.1.0](#v510)
 - [v5.0.0](#v500)
 - [v4.3.1](#v431)
 - [v4.3.0](#v430)
@@ -86,6 +85,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v5.1.0
+> 2021-08-19
+
+## Added
+- Added a feature to auto backup the database and uploaded files once a week. Backups are on a rolling basis and exist for 30 days, then are deleted
 
 # v5.0.0
 > 2021-08-12
