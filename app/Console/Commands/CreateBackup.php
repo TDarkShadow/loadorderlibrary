@@ -41,6 +41,7 @@ class CreateBackup extends Command
      */
     public function handle()
     {
+
 		// Create the sql dump
 		$dumpName = "backup-" . Carbon::now()->format('Y-m-d') . ".sql";
 		$command = "mysqldump --user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . " > " . storage_path('app/tmp/') . $dumpName;
@@ -58,7 +59,7 @@ class CreateBackup extends Command
 		if ($zip->open(storage_path('app/backup/' . $zipFile), ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
 			$zip->addFile(storage_path('app/tmp/' . $dumpName), $dumpName);
 			foreach ($allUploads as $file) {
-				$zip->addFile(storage_path('app/uploads/' . $file), $file);
+				$zip->addFile(storage_path('app/uploads/' . $file), 'uploads/' . $file);
 			}
 
 			$zip->close();
