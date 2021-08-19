@@ -41,6 +41,11 @@ class CreateBackup extends Command
      */
     public function handle()
     {
+		exec('php artisan down');
+		$this->info('Site going into maintenance mode...');
+		
+		// Wait 3s to ensure anything in progress was compelted
+		sleep(3);
 
 		// Create the sql dump
 		$dumpName = "backup-" . Carbon::now()->format('Y-m-d') . ".sql";
@@ -75,5 +80,7 @@ class CreateBackup extends Command
 		$backup->save();
 
 		$this->info('Backup successfully created');
+
+		exec('php artisan up');
     }
 }

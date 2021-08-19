@@ -27,8 +27,9 @@ class Kernel extends ConsoleKernel
 		$schedule->command('delete:temp')->daily();
 		$schedule->command('delete:orphaned')->weekly();
 		$schedule->command('delete:expired')->everyMinute();
-
-		$schedule->command('backup:db')->sundays()->at('03:00');
+		
+		$schedule->command('backup:db')->sundays()->at('03:00')->evenInMaintenanceMode();
+		$schedule->command('delete:backups')->sundays()->at('03:00')->evenInMaintenanceMode();
     }
 
     /**

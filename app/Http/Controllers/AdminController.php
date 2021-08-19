@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Middleware\IsAdmin;
+use App\Models\Backup;
 use App\Models\File;
 use App\Models\LoadOrder;
 use App\Models\User;
+use Storage;
 
 class AdminController extends Controller
 {
@@ -119,14 +121,40 @@ class AdminController extends Controller
 			"value" => number_format($tmpSize / 1000000, 2, '.', '') // Divide by 1 million to get it into MB.
 		];
 
-		return view('admin-stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats, 'orphanedFiles' => $orphanedFiles, 'filesInLists' => $filesInLists]);
+		return view('admin.stats')->with(['userStats' => $userStats, 'listStats' => $listStats, 'fileStats' => $fileStats, 'orphanedFiles' => $orphanedFiles, 'filesInLists' => $filesInLists]);
 	}
 
 	public function users()
 	{
 
 		$users = User::select('id', 'name', 'email', 'is_verified', 'created_at')->withCount('lists')->get();
-		return view('admin-users')->with(['users' => $users]);
+		return view('admin.users')->with(['users' => $users]);
+	}
+
+	public function backups()
+	{	
+		$backups = Backup::orderBy('created_at', 'desc')->get();
+		return view('admin.backups')->with(['backups' => $backups]);
+	}
+
+	public function downloadBackup($id) 
+	{
+		$backup = Backup::find($id);
+
+		return \Storage::download('backup/' . $backup->file);
+	}
+
+	public function deleteBackup($id)
+	{
+		$backup = Backup::find($id);
+
+		// Delete on disk
+		Storage::disk('backup')->delete($backup->file);
+
+		// Delete from DB
+		$backup->delete();
+
+		return redirect()->back();
 	}
 
 	public function verify(User $user) {

@@ -1,32 +1,34 @@
 @extends('layouts.app')
 
-@section('title', 'Admin Stats')
+@section('title', 'Admin Backups')
 
 @section('content')
 
 <table class="table table-dark table-striped table-hover">
 	<thead>
 		<tr>
-			<th scope="col">Name</th>
-			<th scope="col">Email</th>
-			<th scope="col">Lists</th>
-			<th scope="col">Verified Author</th>
+			<th scope="col">File</th>
+			<th scope="col">Size in MB</th>
 			<th scope="col">Created</th>
-			<th scope="col">Toggle Verified</th>
+			<th scope="col">Deletes In</th>
+			<th scope="col">Actions</th>
 		</tr>
 	</thead>
 	<tbody>
-		@foreach($users as $user)
+		@foreach($backups as $backup)
 		<tr>
-			<td><strong>{{ $user->name }}</strong></td>
-			<td>{{ $user->email ? 'Yes' : 'No' }}</td>
-			<td>{{ $user->lists_count }}</td>
-			<td class="{{ $user->is_verified ? 'text-primary' : 'text-danger' }}">{{ $user->is_verified ? 'Yes' : 'No' }}</td>
-			<td>{{ \Carbon\Carbon::createFromTimestamp($user->created_at)->format('Y-m-d H:i:s T') }}</td>
-			<td>
-				<form method="POST" action="/admin/users/verify/{{ $user->id }}">
+			<td><strong>{{ $backup->file }}</strong></td>
+			<td>{{ $backup->size }}</td>
+			<td>{{ $backup->created_at->diffForHumans() }}</td>
+			<td>{{ $backup->expires_at->diffForHumans(
+					['parts' => '1 | Carbon::ROUND | Carbon::SEQUENTIAL_PARTS_ONLY']		
+			 ) }}</td>
+			<td class="d-flex">
+				<a class="ml-2 btn btn-secondary btn-sm text-white" href="/admin/backups/download/{{$backup->id}}" role="button">Download</a>
+				<form class="form-inline mx-2" method="POST" action="/admin/backups/delete/{{$backup->id}}">
+					@method('delete')
 					@csrf
-					<button type="submit" class="btn btn-secondary btn-sm text-white">Toggle</button>
+					<button class="ml-2 btn btn-danger btn-sm" href="#" role="button">Delete</button>
 				</form>
 			</td>
 		</tr>
