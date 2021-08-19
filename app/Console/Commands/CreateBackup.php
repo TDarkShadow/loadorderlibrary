@@ -1,0 +1,78 @@
+<?php
+
+namespace App\Console\Commands;
+
+use App\Models\Backup;
+use Carbon\Carbon;
+use Illuminate\Console\Command;
+use Storage;
+use ZipArchive;
+
+class CreateBackup extends Command
+{
+    /**
+     * The name and signature of the console command.
+     *
+     * @var string
+     */
+    protected $signature = 'backup:db';
+
+    /**
+     * The console command description.
+     *
+     * @var string
+     */
+    protected $description = 'Creates a backup of the DB and existing uploaded files.';
+
+    /**
+     * Create a new command instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
+    /**
+     * Execute the console command.
+     *
+     * @return int
+     */
+    public function handle()
+    {
+		// Create the sql dump
+		$dumpName = "backup-" . Carbon::now()->format('Y-m-d') . ".sql";
+		$command = "mysqldump --user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . " > " . storage_path('app/tmp/') . $dumpName;
+		$returnVar = NULL;
+		$output  = NULL;
+		exec($command, $output, $returnVar);
+
+		// Get all existing file uploads
+		$allUploads = Storage::disk('uploads')->files();
+
+		// dd($allUploads);
+		// Create the zip
+		$zip = new ZipArchive;
+		$zipFile ="backup-" . Carbon::now()->format('Y-m-d') . ".zip";
+		if ($zip->open(storage_path('app/backup/' . $zipFile), ZipArchive::OVERWRITE | ZipArchive::CREATE)) {
+			$zip->addFile(storage_path('app/tmp/' . $dumpName), $dumpName);
+			foreach ($allUploads as $file) {
+				$zip->addFile(storage_path('app/uploads/' . $file), $file);
+			}
+
+			$zip->close();
+		}
+
+		// Remove the temporary dump file
+		Storage::disk('tmp')->delete($dumpName);
+
+		// Create database entry
+		$backup = new Backup();
+		$backup->file = $zipFile;
+		$backup->size = number_format(Storage::disk('backup')->size($zipFile) / 1000000, 2, '.', '');
+		$backup->save();
+
+		$this->info('Backup successfully created');
+    }
+}
