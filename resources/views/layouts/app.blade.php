@@ -74,6 +74,9 @@
 								<a class="dropdown-item bg-dark text-white" href="{{ route('admin.users') }}">
 									User Management
 								</a>
+								<a class="dropdown-item bg-dark text-white" href="{{ route('admin.backup') }}">
+									Backups
+								</a>
 								@endif
 								<a class="dropdown-item bg-dark text-white" href="{{ route('user.profile') }}">
 									Account Management
