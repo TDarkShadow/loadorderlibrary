@@ -4,6 +4,9 @@
 
 <!-- TOC depthto:1 -->
 
+- [Load Order Library](#load-order-library)
+- [Table of Contents](#table-of-contents)
+- [v5.1.1](#v511)
 - [v5.1.0](#v510)
 - [v5.0.0](#v500)
 - [v4.3.1](#v431)
@@ -85,6 +88,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v5.1.1
+> 2021-08-22
+
+## Fixed
+- Fixed command not workong on server due to configs being cached. Acceses cached config variables instead of env() now
 
 # v5.1.0
 > 2021-08-19
