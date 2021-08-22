@@ -48,8 +48,12 @@ class CreateBackup extends Command
 		sleep(3);
 
 		// Create the sql dump
+		$user = config('database.connections.mysql.username');
+		$pass = config('database.connections.mysql.password');
+		$host = config('database.connections.mysql.host');
+		$db = config('database.connections.mysql.database');
 		$dumpName = "backup-" . Carbon::now()->format('Y-m-d') . ".sql";
-		$command = "mysqldump --no-tablespaces --user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD') . " --host=" . env('DB_HOST') . " " . env('DB_DATABASE') . " > " . storage_path('app/tmp/') . $dumpName;
+		$command = "mysqldump --no-tablespaces --user=" . $user . " --password=" . $pass . " --host=" . $host . " " . $db . " > " . storage_path('app/tmp/') . $dumpName;
 		dd($command);
 		$returnVar = NULL;
 		$output  = NULL;
