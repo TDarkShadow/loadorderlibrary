@@ -54,7 +54,6 @@ class CreateBackup extends Command
 		$db = config('database.connections.mysql.database');
 		$dumpName = "backup-" . Carbon::now()->format('Y-m-d') . ".sql";
 		$command = "mysqldump --no-tablespaces --user=" . $user . " --password=" . $pass . " --host=" . $host . " " . $db . " > " . storage_path('app/tmp/') . $dumpName;
-		dd($command);
 		$returnVar = NULL;
 		$output  = NULL;
 		exec($command, $output, $returnVar);
