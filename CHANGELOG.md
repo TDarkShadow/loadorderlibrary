@@ -4,8 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
-- [Load Order Library](#load-order-library)
-- [Table of Contents](#table-of-contents)
+- [v5.1.2](#v512)
 - [v5.1.1](#v511)
 - [v5.1.0](#v510)
 - [v5.0.0](#v500)
@@ -88,6 +87,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v5.1.2
+> 2021-08-31
+
+## Fixed
+- Fixed accordians on the admin stats page to actually open/collapse
 
 # v5.1.1
 > 2021-08-22
