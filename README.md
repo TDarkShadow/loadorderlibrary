@@ -38,7 +38,7 @@ More planned and coming soon!
 
 # Planned Features 
 
-See [TODO.md](https://github.com/phinocio/loadorderlibrary/blob/master/TODO.md).
+See [Github projects board TODOs](https://github.com/phinocio/loadorderlibrary/projects/1)
 
 # Privacy
 
