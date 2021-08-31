@@ -42,7 +42,7 @@ See [TODO.md](https://github.com/phinocio/loadorderlibrary/blob/master/TODO.md).
 
 # Privacy
 
-Load Order Library uses no analytic services at all. Some 3rd party tools are used, but no external requests are made, they are served with the page itself. Files uploaded currently are on the server forever, however one of the next things I'm doing is implementing a way for files to be deleted if a list that contains them is the only one that does and it is deleted (the same files are shared across lists to save on disk space).
+Load Order Library uses no analytic services at all. Some 3rd party tools are used, but no external requests are made, they are served with the page itself. Files uploaded are on the server until such time they are no longer associated with a list. At which point they are deleted once a week. Files also are in backups until the backup they are in was deleted (backups are created once a week and deleted once they are 30 days old).
 
 Data provided is entirely for the use of the site, and does not leave the server except in the case of database backups. Passwords are hashed and never stored in plain text. The server is hosted via Digital Ocean and located in Toronto, Canada.
 
@@ -58,4 +58,6 @@ See [CHANGELOG.md](https://github.com/phinocio/loadorderlibrary/blob/master/CHAN
 
 Thanks to RingComics for helping me test.
 
-Thaks to Gatonegro for the icons. 
+Thanks to Gatonegro for the icons. 
+
+Thanks to everyone for using the site. I'm astonished at how it's taken off so far :D.
