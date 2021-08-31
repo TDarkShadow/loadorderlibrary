@@ -73,6 +73,13 @@ class AdminController extends Controller
 			}))
 		];
 
+		$userStats[] = [
+			"name" => "Without List",
+			"value" => count($users->filter(function ($value, $key) {
+				return count($value->lists) === 0;
+			}))
+		];
+
 		$listStats[] = [
 			"name" => "Lists",
 			"value" => count($lists)
