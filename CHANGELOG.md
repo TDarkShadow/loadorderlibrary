@@ -4,6 +4,7 @@
 
 <!-- TOC depthto:1 -->
 
+- [v5.1.3](#v513)
 - [v5.1.2](#v512)
 - [v5.1.1](#v511)
 - [v5.1.0](#v510)
@@ -87,6 +88,12 @@
 - [Subheading definitions](#subheading-definitions)
 
 <!-- /TOC -->
+
+# v5.1.3
+> 2021-09-13
+
+## Fixed
+- Fixed `exires_at` not being set for backups in the `CreateBackup.php` file
 
 # v5.1.2
 > 2021-08-31
