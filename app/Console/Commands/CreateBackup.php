@@ -81,6 +81,7 @@ class CreateBackup extends Command
 		$backup = new Backup();
 		$backup->file = $zipFile;
 		$backup->size = number_format(Storage::disk('backup')->size($zipFile) / 1000000, 2, '.', '');
+		$backup->expires_at = Carbon::now()->addDays(30);
 		$backup->save();
 
 		$this->info('Backup successfully created');
